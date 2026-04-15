@@ -1,51 +1,93 @@
 'use client'
 
 import { ChevronDown } from 'lucide-react'
+import { useState, useCallback } from 'react'
+
+interface Ripple {
+  x: number
+  y: number
+  id: number
+}
 
 export default function Hero() {
+  const [tagRipples, setTagRipples] = useState<Ripple[]>([])
+  const [buttonRipples, setButtonRipples] = useState<Ripple[]>([])
+
+  const createRipple = useCallback((e: React.MouseEvent<HTMLElement>, setRipples: React.Dispatch<React.SetStateAction<Ripple[]>>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const id = Date.now()
+    
+    setRipples(prev => [...prev, { x, y, id }])
+    setTimeout(() => {
+      setRipples(prev => prev.filter(r => r.id !== id))
+    }, 600)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center bg-[#0B0E14] overflow-hidden">
       {/* Faint purple radial glow behind text */}
       <div 
-        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.12) 0%, transparent 60%)',
         }}
       />
 
-      {/* Left Content - 50% */}
-      <div className="relative z-10 w-full lg:w-1/2 px-6 md:px-12 lg:px-16 py-20 pt-32">
-        {/* Eyebrow Tag */}
+      {/* Main Content - Full width with padding */}
+      <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
+        {/* Eyebrow Tag with Ripple */}
         <div 
-          className="inline-flex items-center px-4 py-2 rounded-full mb-8"
-          style={{
-            background: '#1E293B',
-            border: '1px solid #6366F1',
-            boxShadow: '0 0 12px rgba(99, 102, 241, 0.4), 0 0 24px rgba(99, 102, 241, 0.2)',
+          className="inline-flex items-center px-3 py-1.5 rounded-full mb-4 relative overflow-hidden cursor-pointer"
+          style={{ 
+            backgroundColor: '#1E293B',
+            border: '1px solid #CA8A04',
+            boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
           }}
+          onClick={(e) => createRipple(e, setTagRipples)}
         >
+          {tagRipples.map(ripple => (
+            <span
+              key={ripple.id}
+              className="absolute rounded-full animate-ripple pointer-events-none"
+              style={{
+                left: ripple.x,
+                top: ripple.y,
+                width: '10px',
+                height: '10px',
+                marginLeft: '-5px',
+                marginTop: '-5px',
+                background: 'rgba(202, 138, 4, 0.4)',
+              }}
+            />
+          ))}
           <span 
-            className="text-xs md:text-sm tracking-wide"
-            style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
+            className="text-xs tracking-wide relative z-10"
+            style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
           >
-            {'// FOR FORWARD-THINKING FOUNDERS:'}
+            // FOR FORWARD-THINKING FOUNDERS:
           </span>
         </div>
 
-        {/* Headline */}
+        {/* Headline - Reduced size, max 3 lines */}
         <h1 
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6"
+          className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 max-w-4xl"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '0.95',
+            lineHeight: '0.9',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
         >
           Build Your Market Dominance Every Single Month Through Our{' '}
           <span 
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(to right, #6366F1, #A855F7)' }}
+            style={{ 
+              background: 'linear-gradient(90deg, #6366F1, #A855F7)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
           >
             AI-Driven Premium Content
           </span>{' '}
@@ -54,10 +96,10 @@ export default function Hero() {
 
         {/* Sub-headline */}
         <p 
-          className="text-base md:text-lg lg:text-xl max-w-xl mb-10"
+          className="text-base md:text-lg max-w-xl mb-8"
           style={{ 
             fontFamily: 'var(--font-sans)',
-            color: 'rgba(248, 250, 252, 0.8)',
+            color: 'rgba(248, 250, 252, 0.7)',
             lineHeight: '1.6'
           }}
         >
@@ -66,21 +108,38 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-row gap-4 items-center">
-          {/* Book A Call - Primary with gold border */}
+          {/* Book A Call - Primary with gradient, gold border and ripple */}
           <button 
-            className="px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-all transform hover:scale-105"
+            className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
             style={{
-              background: 'linear-gradient(to right, #1E1B4B, #4C1D95)',
-              border: '2px solid #CA8A04',
+              background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
               color: '#F1F5F9',
+              border: '2px solid #CA8A04',
+              boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
             }}
+            onClick={(e) => createRipple(e, setButtonRipples)}
           >
-            Book A Call
+            {buttonRipples.map(ripple => (
+              <span
+                key={ripple.id}
+                className="absolute rounded-full animate-ripple pointer-events-none"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '10px',
+                  height: '10px',
+                  marginLeft: '-5px',
+                  marginTop: '-5px',
+                  background: 'rgba(202, 138, 4, 0.5)',
+                }}
+              />
+            ))}
+            <span className="relative z-10">Book A Call</span>
           </button>
 
           {/* Learn More - Ghost button */}
           <button 
-            className="flex items-center gap-2 px-8 py-4 rounded-lg bg-transparent font-semibold text-base md:text-lg transition-all hover:bg-[#1E293B]/30"
+            className="flex items-center gap-2 px-6 py-3.5 rounded-lg bg-transparent font-semibold text-base transition-all hover:bg-[#1E293B]/30"
             style={{ 
               border: '1px solid #1E293B',
               color: '#F1F5F9',
@@ -90,11 +149,7 @@ export default function Hero() {
             <ChevronDown className="w-4 h-4" />
           </button>
         </div>
-      </div>
 
-      {/* Right Side - Reserved for background video (50%) */}
-      <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-        {/* Video will be added here */}
       </div>
 
       {/* Trust Bar - Bottom */}
