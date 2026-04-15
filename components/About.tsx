@@ -142,9 +142,9 @@ export default function About() {
                 }}
               />
 
-              {/* Photo Placeholder - Replace with actual image */}
+              {/* Co-Founders Photo */}
               <img
-                src="/placeholder-user.jpg"
+                src="https://ik.imagekit.io/rqhbqqo2qx/Furqan%20and%20me.jpeg"
                 alt="Co-founders Ayyan Khattak and Furqan Shahid"
                 className="w-full h-full object-cover"
                 style={{
