@@ -134,7 +134,7 @@ export default function About() {
               }}
             >
               {/* Ayyan Label - Inside Left Near Face */}
-              <div className="absolute top-1/3 left-6 z-20 flex items-center gap-2">
+              <div className="absolute top-1/4 left-6 z-20 flex items-center gap-2">
                 <span
                   className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-md"
                   style={{
@@ -145,21 +145,21 @@ export default function About() {
                 >
                   AYYAN KHATTAK
                 </span>
-                <svg width="50" height="30" className="overflow-visible" style={{ marginTop: '-4px' }}>
+                <svg width="60" height="40" className="overflow-visible" style={{ marginTop: '-8px' }}>
                   <path
-                    d="M 0 15 Q 15 5 35 0"
+                    d="M 0 20 Q 20 10 50 5"
                     fill="none"
                     stroke="#6366F1"
                     strokeWidth="1"
                     strokeDasharray="3,3"
                     strokeLinecap="round"
                   />
-                  <polygon points="35,0 33,4 31,2" fill="#6366F1" />
+                  <polygon points="60,0 55,8 53,6" fill="#6366F1" />
                 </svg>
               </div>
 
               {/* Furqan Label - Inside Bottom Right */}
-              <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 flex-row-reverse">
+              <div className="absolute bottom-12 right-6 z-20 flex items-center gap-2 flex-row-reverse">
                 <span
                   className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-md"
                   style={{
@@ -170,16 +170,16 @@ export default function About() {
                 >
                   FURQAN SHAHID
                 </span>
-                <svg width="50" height="30" className="overflow-visible" style={{ marginBottom: '-4px' }}>
+                <svg width="60" height="40" className="overflow-visible" style={{ marginBottom: '-8px' }}>
                   <path
-                    d="M 50 15 Q 35 5 15 0"
+                    d="M 60 20 Q 40 10 10 5"
                     fill="none"
                     stroke="#A855F7"
                     strokeWidth="1"
                     strokeDasharray="3,3"
                     strokeLinecap="round"
                   />
-                  <polygon points="15,0 17,4 19,2" fill="#A855F7" />
+                  <polygon points="0,0 5,8 7,6" fill="#A855F7" />
                 </svg>
               </div>
               {/* Top-Left Glow */}
