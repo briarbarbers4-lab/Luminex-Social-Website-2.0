@@ -9,25 +9,36 @@ const categoryColors: Record<string, { bg: string; text: string; badge: string }
 }
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('short-form')
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   const portfolioItems = [
-    { id: 1, title: 'Brand Launch Campaign', category: 'short-form' },
-    { id: 2, title: 'Product Demo Reel', category: 'short-form' },
-    { id: 3, title: 'Viral Growth Strategy', category: 'short-form' },
-    { id: 4, title: 'TikTok Series', category: 'short-form' },
-    { id: 5, title: 'Reels Compilation', category: 'short-form' },
-    { id: 6, title: 'Instagram Story Ads', category: 'short-form' },
-    { id: 7, title: 'YouTube Tutorial Series', category: 'long-form' },
-    { id: 8, title: 'Podcast Episode 1', category: 'long-form' },
-    { id: 9, title: 'Documentary Style Content', category: 'long-form' },
-    { id: 10, title: 'Educational Webinar', category: 'long-form' },
+    { 
+      id: 1, 
+      title: 'Strategic Content Series', 
+      category: 'long-form',
+      videoUrl: 'https://www.youtube.com/watch?v=L1Eo7fMj-vE&t=1s'
+    },
+    { 
+      id: 2, 
+      title: 'Growth Optimization Deep Dive', 
+      category: 'long-form',
+      videoUrl: 'https://www.youtube.com/watch?v=IeM04ObtEbA&embeds_referring_euri=https%3A%2F%2Fluminexsocial.com%2F'
+    },
+    { 
+      id: 3, 
+      title: 'Brand Authority Development', 
+      category: 'long-form',
+      videoUrl: 'https://www.youtube.com/watch?v=hxWDYQMgNn0&embeds_referring_euri=https%3A%2F%2Fluminexsocial.com%2F'
+    },
+    { 
+      id: 4, 
+      title: 'Content Strategy Masterclass', 
+      category: 'long-form',
+      videoUrl: 'https://www.youtube.com/watch?v=hg98fzJTKh4&embeds_referring_euri=https%3A%2F%2Fluminexsocial.com%2F'
+    },
   ]
 
-  const filters = ['short-form', 'long-form']
-
-  const filteredItems = portfolioItems.filter(item => item.category === activeFilter)
+  const filteredItems = portfolioItems
 
   return (
     <section id="work" className="py-20 px-4 bg-[#0B0E14]">
@@ -58,28 +69,13 @@ export default function Portfolio() {
             letterSpacing: '0.05em',
           }}
         >
-          Explore our collection of short and long-form content
+          Long-form content that drives impact
         </p>
 
-        {/* Filter Tabs */}
-        <div className="flex flex-wrap gap-3 justify-center mb-12">
-          {filters.map((filter) => (
-            <button
-              key={filter}
-              onClick={() => setActiveFilter(filter)}
-              className={`px-4 py-2 rounded-lg font-mono text-sm uppercase transition-all ${
-                activeFilter === filter
-                  ? 'bg-[#6366F1] text-[#F8FAFC]'
-                  : 'bg-[#1E293B] text-[#CBD5E1] hover:border-[#6366F1] border border-[#334155]'
-              }`}
-            >
-              {filter === 'short-form' ? 'Short Form (6)' : 'Long Form (4)'}
-            </button>
-          ))}
-        </div>
+
 
         {/* Portfolio Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {filteredItems.map((item) => {
             const colors = categoryColors[item.category]
             const isHovered = hoveredId === item.id
