@@ -37,37 +37,42 @@ export default function Hero() {
 
       {/* Main Content - Full width with padding */}
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
-        {/* Eyebrow Tag with Ripple */}
-        <div 
-          className="inline-flex items-center px-3 py-1.5 rounded-full mb-6 relative overflow-hidden cursor-pointer"
-          style={{ 
-            backgroundColor: '#1E293B',
-            border: '1px solid #CA8A04',
-            boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
-          }}
-          onClick={(e) => createRipple(e, setTagRipples)}
-        >
-          {tagRipples.map(ripple => (
-            <span
-              key={ripple.id}
-              className="absolute rounded-full animate-ripple pointer-events-none"
-              style={{
-                left: ripple.x,
-                top: ripple.y,
-                width: '10px',
-                height: '10px',
-                marginLeft: '-5px',
-                marginTop: '-5px',
-                background: 'rgba(202, 138, 4, 0.4)',
-              }}
-            />
-          ))}
-          <span 
-            className="text-xs tracking-wide relative z-10"
-            style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
+        {/* Eyebrow Tag with Ripple and Pulse */}
+        <div className="relative inline-block mb-6">
+          {/* Pulse rings */}
+          <span className="absolute inset-0 rounded-full animate-pulse-ring" style={{ border: '1px solid rgba(202, 138, 4, 0.4)' }} />
+          <span className="absolute inset-0 rounded-full animate-pulse-ring-delayed" style={{ border: '1px solid rgba(202, 138, 4, 0.3)' }} />
+          <div 
+            className="inline-flex items-center px-3 py-1.5 rounded-full relative overflow-hidden cursor-pointer"
+            style={{ 
+              backgroundColor: '#1E293B',
+              border: '1px solid #CA8A04',
+              boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
+            }}
+            onClick={(e) => createRipple(e, setTagRipples)}
           >
-            // FOR FORWARD-THINKING FOUNDERS:
-          </span>
+            {tagRipples.map(ripple => (
+              <span
+                key={ripple.id}
+                className="absolute rounded-full animate-ripple pointer-events-none"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '10px',
+                  height: '10px',
+                  marginLeft: '-5px',
+                  marginTop: '-5px',
+                  background: 'rgba(202, 138, 4, 0.4)',
+                }}
+              />
+            ))}
+            <span 
+              className="text-xs tracking-wide relative z-10"
+              style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
+            >
+              // FOR FORWARD-THINKING FOUNDERS:
+            </span>
+          </div>
         </div>
 
         {/* Headline - Scaled up for authority */}
@@ -109,34 +114,39 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-row gap-4 items-center">
-          {/* Book A Call - Primary with gradient, gold border and ripple */}
-          <button 
-            className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
-            style={{
-              background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
-              color: '#F1F5F9',
-              border: '2px solid #CA8A04',
-              boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
-            }}
-            onClick={(e) => createRipple(e, setButtonRipples)}
-          >
-            {buttonRipples.map(ripple => (
-              <span
-                key={ripple.id}
-                className="absolute rounded-full animate-ripple pointer-events-none"
-                style={{
-                  left: ripple.x,
-                  top: ripple.y,
-                  width: '10px',
-                  height: '10px',
-                  marginLeft: '-5px',
-                  marginTop: '-5px',
-                  background: 'rgba(202, 138, 4, 0.5)',
-                }}
-              />
-            ))}
-            <span className="relative z-10">Book A Call</span>
-          </button>
+          {/* Book A Call - Primary with gradient, gold border, ripple and pulse */}
+          <div className="relative">
+            {/* Pulse rings for button */}
+            <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn" style={{ border: '2px solid rgba(202, 138, 4, 0.4)' }} />
+            <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn-delayed" style={{ border: '2px solid rgba(202, 138, 4, 0.3)' }} />
+            <button 
+              className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
+              style={{
+                background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
+                color: '#F1F5F9',
+                border: '2px solid #CA8A04',
+                boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
+              }}
+              onClick={(e) => createRipple(e, setButtonRipples)}
+            >
+              {buttonRipples.map(ripple => (
+                <span
+                  key={ripple.id}
+                  className="absolute rounded-full animate-ripple pointer-events-none"
+                  style={{
+                    left: ripple.x,
+                    top: ripple.y,
+                    width: '10px',
+                    height: '10px',
+                    marginLeft: '-5px',
+                    marginTop: '-5px',
+                    background: 'rgba(202, 138, 4, 0.5)',
+                  }}
+                />
+              ))}
+              <span className="relative z-10">Book A Call</span>
+            </button>
+          </div>
 
           {/* Learn More - Ghost button */}
           <button 
