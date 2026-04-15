@@ -66,14 +66,45 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
-          <span className="text-xs tracking-widest font-bold relative z-10" style={{ color: '#F1F5F9' }}>
-            // FOR FORWARD-THINKING FOUNDERS:
-          </span>
+          {/* Pulse rings */}
+          <span className="absolute inset-0 rounded-full animate-pulse-ring" style={{ border: '1px solid rgba(202, 138, 4, 0.4)' }} />
+          <span className="absolute inset-0 rounded-full animate-pulse-ring-delayed" style={{ border: '1px solid rgba(202, 138, 4, 0.3)' }} />
+          <div 
+            className="inline-flex items-center px-3 py-1.5 rounded-full relative overflow-hidden cursor-pointer"
+            style={{ 
+              backgroundColor: '#1E293B',
+              border: '1px solid #CA8A04',
+              boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
+            }}
+            onClick={(e) => createRipple(e, setTagRipples)}
+          >
+            {tagRipples.map(ripple => (
+              <span
+                key={ripple.id}
+                className="absolute rounded-full animate-ripple pointer-events-none"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '10px',
+                  height: '10px',
+                  marginLeft: '-5px',
+                  marginTop: '-5px',
+                  background: 'rgba(202, 138, 4, 0.4)',
+                }}
+              />
+            ))}
+            <span 
+              className="text-xs tracking-wide relative z-10"
+              style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
+            >
+              // FOR FORWARD-THINKING FOUNDERS:
+            </span>
+          </div>
         </div>
 
-        {/* Headline - 3 Lines */}
+        {/* Headline - Scaled up for authority */}
         <h1 
-          className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-black mb-8 w-full text-left"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 max-w-4xl text-left"
           style={{ 
             fontFamily: 'var(--font-heading)', 
             lineHeight: '1.2',
@@ -81,10 +112,17 @@ export default function Hero() {
             color: '#F1F5F9',
           }}
         >
-          Build Market Dominance With
-          <br />
-          AI-Driven Premium Content
-          <br />
+          Build Market Dominance With{' '}
+          <span 
+            style={{ 
+              background: 'linear-gradient(90deg, #6366F1, #A855F7)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            AI-Driven Content
+          </span>{' '}
           Systems
         </h1>
 
