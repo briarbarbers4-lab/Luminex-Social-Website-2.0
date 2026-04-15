@@ -7,96 +7,110 @@ export default function Hero() {
     <section className="relative min-h-screen flex items-center bg-[#0B0E14] overflow-hidden">
       {/* Faint purple radial glow behind text */}
       <div 
-        className="absolute top-1/2 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] pointer-events-none"
+        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.12) 0%, transparent 60%)',
         }}
       />
 
-      {/* Left Content - 50% */}
-      <div className="relative z-10 w-full lg:w-1/2 px-6 md:px-12 lg:px-16 py-20 pt-32">
-        {/* Content container with max-width constraint */}
-        <div className="max-w-[750px]">
-          {/* Eyebrow Tag */}
-          <div 
-            className="inline-flex items-center px-3 py-1.5 rounded-full mb-4"
+      {/* Main Content - Full width with padding */}
+      <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
+        {/* Eyebrow Tag */}
+        <div className="flex items-center gap-2 mb-6">
+          <span 
+            className="w-2 h-2 rounded-full"
+            style={{ backgroundColor: '#CA8A04' }}
+          />
+          <span 
+            className="text-xs tracking-widest uppercase"
+            style={{ fontFamily: 'var(--font-mono)', color: '#CA8A04' }}
+          >
+            ENTREPRENEURS:
+          </span>
+        </div>
+
+        {/* Headline - Expanded width */}
+        <h1 
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 max-w-5xl"
+          style={{ 
+            fontFamily: 'var(--font-heading)', 
+            lineHeight: '0.95',
+            letterSpacing: '-0.02em',
+            color: '#F1F5F9',
+          }}
+        >
+          Attract Qualified Leads to Your Business Every Single Month Through Our Done-For-You{' '}
+          <span style={{ color: '#CA8A04' }}>
+            YouTube Organic System
+          </span>
+        </h1>
+
+        {/* Sub-headline */}
+        <p 
+          className="text-base md:text-lg max-w-xl mb-10"
+          style={{ 
+            fontFamily: 'var(--font-sans)',
+            color: 'rgba(248, 250, 252, 0.7)',
+            lineHeight: '1.6'
+          }}
+        >
+          Sign more clients without sending 50 DMs/day, sending 2000 cold emails/day, and spending a dime on paid ads
+        </p>
+
+        {/* Buttons */}
+        <div className="flex flex-row gap-4 items-center">
+          {/* Book A Call - Primary with gold border */}
+          <button 
+            className="flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
             style={{
-              background: '#1E293B',
-              border: '1px solid #CA8A04',
+              background: '#F1F5F9',
+              color: '#0B0E14',
             }}
           >
             <span 
-              className="text-xs tracking-wide"
-              style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
+              className="w-6 h-6 rounded flex items-center justify-center text-xs font-bold"
+              style={{ 
+                background: 'linear-gradient(135deg, #0B0E14, #1E293B)',
+                color: '#CA8A04',
+                border: '1px solid #CA8A04'
+              }}
             >
-              {'// FOR FORWARD-THINKING FOUNDERS'}
+              C
             </span>
-          </div>
+            Book A Call
+          </button>
 
-          {/* Headline */}
-          <h1 
-            className="text-5xl md:text-6xl font-black mb-4"
+          {/* Learn More - Ghost button */}
+          <button 
+            className="flex items-center gap-2 px-6 py-3.5 rounded-lg bg-transparent font-semibold text-base transition-all hover:bg-[#1E293B]/30"
             style={{ 
-              fontFamily: 'var(--font-heading)', 
-              lineHeight: '0.9',
-              letterSpacing: '-0.02em',
+              border: '1px solid #1E293B',
               color: '#F1F5F9',
             }}
           >
-            Build Your Market Dominance Every Single Month Through Our{' '}
-            <span 
-              className="bg-clip-text text-transparent"
-              style={{ backgroundImage: 'linear-gradient(to right, #6366F1, #A855F7)' }}
-            >
-              AI-Driven Premium Content
-            </span>{' '}
-            Systems
-          </h1>
+            Learn More
+            <ChevronDown className="w-4 h-4" />
+          </button>
+        </div>
 
-          {/* Sub-headline */}
-          <p 
-            className="text-lg max-w-[600px] mb-8"
+        {/* Our Partners - Positioned right */}
+        <div 
+          className="absolute right-16 lg:right-24 bottom-32 hidden md:flex flex-col items-center"
+        >
+          <div 
+            className="px-4 py-2 rounded-full"
             style={{ 
-              fontFamily: 'var(--font-sans)',
-              color: 'rgba(248, 250, 252, 0.7)',
-              lineHeight: '1.5'
+              border: '1px dashed #CA8A04',
             }}
           >
-            Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
-          </p>
-
-          {/* Buttons */}
-          <div className="flex flex-row gap-4 items-center">
-            {/* Book A Call - Primary with gold border */}
-            <button 
-              className="px-6 py-3 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
-              style={{
-                background: 'linear-gradient(to right, #1E1B4B, #4C1D95)',
-                border: '2px solid #CA8A04',
-                color: '#F1F5F9',
-              }}
+            <span 
+              className="text-sm italic"
+              style={{ fontFamily: 'var(--font-sans)', color: '#CA8A04' }}
             >
-              Book A Call
-            </button>
-
-            {/* Learn More - Ghost button */}
-            <button 
-              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent font-semibold text-base transition-all hover:bg-[#1E293B]/30"
-              style={{ 
-                border: '1px solid #1E293B',
-                color: '#F1F5F9',
-              }}
-            >
-              Learn More
-              <ChevronDown className="w-4 h-4" />
-            </button>
+              Our Partners
+            </span>
           </div>
         </div>
-      </div>
-
-      {/* Right Side - Reserved for background video (50%) */}
-      <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-        {/* Video will be added here */}
       </div>
 
       {/* Trust Bar - Bottom */}
