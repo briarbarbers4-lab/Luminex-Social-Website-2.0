@@ -56,8 +56,8 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
-        {/* Section Tag */}
-        <div className="flex items-center gap-2 mb-4">
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-2 mb-4">
           <span style={{ color: '#6366F1' }}>●</span>
           <span
             className="text-xs font-medium px-4 py-2 rounded-full"
@@ -73,9 +73,9 @@ export default function Testimonials() {
           <span style={{ color: '#6366F1' }}>●</span>
         </div>
 
-        {/* Subtitle */}
+        {/* Subtitle - Centered */}
         <p
-          className="text-sm mb-16"
+          className="text-sm mb-16 text-center"
           style={{
             fontFamily: 'var(--font-mono)',
             color: '#CBD5E1',
@@ -86,19 +86,41 @@ export default function Testimonials() {
         </p>
 
         {/* Main Testimonial Card with Navigation */}
-        <div className="flex items-center gap-6 md:gap-8">
-          {/* Previous Arrow */}
-          <button
-            onClick={handlePrev}
-            className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+        <div className="flex items-center justify-center gap-6 md:gap-8">
+          {/* Navigation Buttons Circle */}
+          <div
+            className="flex items-center gap-4 px-4 py-4 rounded-full"
             style={{
-              backgroundColor: 'rgba(30, 41, 59, 0.5)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
-              color: '#F8FAFC',
+              backgroundColor: 'rgba(30, 41, 59, 0.3)',
+              border: '1px solid rgba(99, 102, 241, 0.2)',
             }}
           >
-            <ChevronLeft className="w-6 h-6" />
-          </button>
+            {/* Previous Arrow */}
+            <button
+              onClick={handlePrev}
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+              style={{
+                backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                border: '1px solid rgba(99, 102, 241, 0.4)',
+                color: '#F8FAFC',
+              }}
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              onClick={handleNext}
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+              style={{
+                backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                border: '1px solid rgba(99, 102, 241, 0.4)',
+                color: '#F8FAFC',
+              }}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
 
           {/* Main Card - 40/60 Split */}
           <div
@@ -189,18 +211,6 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Next Arrow */}
-          <button
-            onClick={handleNext}
-            className="flex-shrink-0 w-12 h-12 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
-            style={{
-              backgroundColor: 'rgba(30, 41, 59, 0.5)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
-              color: '#F8FAFC',
-            }}
-          >
-            <ChevronRight className="w-6 h-6" />
-          </button>
         </div>
 
         {/* Indicator Dots */}
