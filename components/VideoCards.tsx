@@ -1,10 +1,16 @@
 'use client'
 
 export default function VideoCards() {
-  const videos = Array.from({ length: 7 }, (_, i) => ({
-    id: i + 1,
-    title: `Reel ${i + 1}`,
-  }))
+  const videos = [
+    { id: 1, url: 'https://ik.imagekit.io/5pahp6yywb/Crafted%20London.mp4' },
+    { id: 2, url: 'https://ik.imagekit.io/5pahp6yywb/8%20Months%20Ago%20I%20Founded%20203%20Media_V5.mp4' },
+    { id: 3, url: 'https://ik.imagekit.io/5pahp6yywb/Strategy%20For%20LinkedIn%20Growth_V1.mp4' },
+    { id: 4, url: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/SubMagic_V3.mp4' },
+    { id: 5, url: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/GO%20VIRAL%20BEFORE%20YOU%20PUBLISH_V3.mp4' },
+    { id: 6, url: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Followers_V1.mp4' },
+    { id: 7, url: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Olaf%20Carlson_V2.mp4' },
+    { id: 8, url: 'https://ik.imagekit.io/5pahp6yywb/drive-download-20251231T110107Z-3-001/Marketing_V2.mp4' },
+  ]
 
   return (
     <section className="py-24 px-4 bg-[#0B0E14] overflow-hidden">
@@ -22,19 +28,16 @@ export default function VideoCards() {
                 key={idx}
                 className="shrink-0 w-56 h-96 rounded-2xl overflow-hidden bg-[#1E293B] border border-[#334155] shadow-lg hover:border-[#6366F1] transition-all duration-300 group cursor-pointer hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]"
               >
-                {/* Video container with placeholder */}
-                <div className="w-full h-full bg-gradient-to-b from-[#1E293B] to-[#0F172A] flex items-center justify-center relative overflow-hidden">
-                  {/* Play button indicator */}
-                  <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-all" />
-                  <div className="relative z-10 flex flex-col items-center gap-4">
-                    <div className="w-20 h-20 rounded-full bg-white/20 flex items-center justify-center group-hover:bg-[#6366F1]/60 transition-all">
-                      <svg className="w-10 h-10 text-white ml-1" fill="currentColor" viewBox="0 0 24 24">
-                        <path d="M8 5v14l11-7z" />
-                      </svg>
-                    </div>
-                    <span className="text-sm font-medium text-[#CBD5E1] text-center">{video.title}</span>
-                  </div>
-                </div>
+                {/* Video element */}
+                <video
+                  className="w-full h-full object-cover"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                >
+                  <source src={video.url} type="video/mp4" />
+                </video>
               </div>
             ))}
           </div>
