@@ -147,9 +147,6 @@ export default function About() {
                 src="https://ik.imagekit.io/rqhbqqo2qx/Furqan%20and%20me.jpeg"
                 alt="Co-founders Ayyan Khattak and Furqan Shahid"
                 className="w-full h-full object-cover"
-                style={{
-                  filter: 'grayscale(1) contrast(1.1)',
-                }}
               />
 
               {/* Overlay Gradient */}
