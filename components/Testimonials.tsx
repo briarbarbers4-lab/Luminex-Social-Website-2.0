@@ -57,10 +57,10 @@ export default function Testimonials() {
     <section id="testimonials" className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
         {/* Section Tag - Centered */}
-        <div className="flex items-center justify-center gap-2 mb-4">
-          <span style={{ color: '#6366F1' }}>●</span>
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
           <span
-            className="text-xs font-medium px-4 py-2 rounded-full"
+            className="text-sm font-medium px-6 py-3 rounded-full"
             style={{
               color: '#6366F1',
               backgroundColor: 'rgba(99, 102, 241, 0.1)',
@@ -68,21 +68,21 @@ export default function Testimonials() {
               fontFamily: 'var(--font-sans)',
             }}
           >
-            testimonials
+            TESTIMONIALS
           </span>
-          <span style={{ color: '#6366F1' }}>●</span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
         </div>
 
         {/* Subtitle - Centered */}
         <p
-          className="text-sm mb-16 text-center"
+          className="text-base mb-16 text-center"
           style={{
             fontFamily: 'var(--font-mono)',
             color: '#CBD5E1',
             letterSpacing: '0.05em',
           }}
         >
-          Hear what our clients are saying
+          Hear what our clients are saying about us
         </p>
 
         {/* Main Testimonial Card with Navigation */}
