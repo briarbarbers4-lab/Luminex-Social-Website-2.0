@@ -108,7 +108,7 @@ export default function Hero() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-row gap-4 items-center mb-16">
+        <div className="flex flex-row gap-4 items-center">
           {/* Book A Call - Primary with gradient, gold border and ripple */}
           <button 
             className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
@@ -149,32 +149,6 @@ export default function Hero() {
             Learn More
             <ChevronDown className="w-4 h-4" />
           </button>
-        </div>
-
-        {/* Metrics Strip - Below buttons */}
-        <div 
-          className="inline-flex py-4 px-6 rounded-lg"
-          style={{ 
-            background: 'rgba(30, 41, 59, 0.7)',
-            backdropFilter: 'blur(8px)',
-          }}
-        >
-          <div 
-            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-sm"
-            style={{ fontFamily: 'var(--font-mono)' }}
-          >
-            <span style={{ color: '#CA8A04' }}>
-              <span className="font-bold">50M+</span> Views
-            </span>
-            <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
-            <span style={{ color: '#CA8A04' }}>
-              <span className="font-bold">24/7</span> Automation
-            </span>
-            <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
-            <span style={{ color: '#CA8A04' }}>
-              <span className="font-bold">Premium</span> Narrative
-            </span>
-          </div>
         </div>
 
       </div>
