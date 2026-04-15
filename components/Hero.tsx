@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center bg-[#0B0E14] overflow-hidden">
+    <section className="relative min-h-[100vh] flex items-center bg-[#0B0E14] overflow-hidden">
       {/* Faint purple radial glow behind text */}
       <div 
         className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none"
@@ -39,7 +39,7 @@ export default function Hero() {
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
         {/* Eyebrow Tag with Ripple */}
         <div 
-          className="inline-flex items-center px-3 py-1.5 rounded-full mb-4 relative overflow-hidden cursor-pointer"
+          className="inline-flex items-center px-3 py-1.5 rounded-full mb-6 relative overflow-hidden cursor-pointer"
           style={{ 
             backgroundColor: '#1E293B',
             border: '1px solid #CA8A04',
@@ -70,12 +70,12 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline - Reduced size, max 3 lines */}
+        {/* Headline - Scaled up for authority */}
         <h1 
-          className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 max-w-4xl"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '0.9',
+            lineHeight: '1.15',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
@@ -96,11 +96,12 @@ export default function Hero() {
 
         {/* Sub-headline */}
         <p 
-          className="text-base md:text-lg max-w-xl mb-8"
+          className="text-lg md:text-xl mb-12"
           style={{ 
             fontFamily: 'var(--font-sans)',
             color: 'rgba(248, 250, 252, 0.7)',
-            lineHeight: '1.6'
+            lineHeight: '1.6',
+            maxWidth: '800px',
           }}
         >
           Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
@@ -152,8 +153,8 @@ export default function Hero() {
 
       </div>
 
-      {/* Trust Bar - Bottom */}
-      <div className="absolute bottom-0 left-0 right-0 z-20">
+      {/* Trust Bar - Bottom with extra spacing */}
+      <div className="absolute bottom-10 left-0 right-0 z-20">
         <div 
           className="py-5"
           style={{ 
