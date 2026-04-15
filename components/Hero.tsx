@@ -35,8 +35,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Main Content - Full width with padding */}
-      <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
+      {/* Main Content - Contained and left-aligned */}
+      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
           {/* Pulse rings */}
@@ -77,7 +77,7 @@ export default function Hero() {
 
         {/* Headline - Scaled up for authority */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl text-left"
           style={{ 
             fontFamily: 'var(--font-heading)', 
             lineHeight: '1.15',
@@ -101,7 +101,7 @@ export default function Hero() {
 
         {/* Sub-headline */}
         <p 
-          className="text-lg md:text-xl mb-12"
+          className="text-lg md:text-xl mb-12 text-left"
           style={{ 
             fontFamily: 'var(--font-sans)',
             color: 'rgba(248, 250, 252, 0.7)',
@@ -113,7 +113,7 @@ export default function Hero() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-row gap-4 items-center justify-start">
           {/* Book A Call - Primary with gradient, gold border, ripple and pulse */}
           <div className="relative">
             {/* Pulse rings for button */}
