@@ -5,6 +5,7 @@ import Stats from '@/components/Stats'
 import Portfolio from '@/components/Portfolio'
 import Process from '@/components/Process'
 import Testimonials from '@/components/Testimonials'
+import ContentGallery from '@/components/ContentGallery'
 import About from '@/components/About'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
@@ -28,6 +29,10 @@ export default function Home() {
       <SectionDivider />
       <AnimatedSection>
         <Testimonials />
+      </AnimatedSection>
+      <SectionDivider />
+      <AnimatedSection>
+        <ContentGallery />
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>
