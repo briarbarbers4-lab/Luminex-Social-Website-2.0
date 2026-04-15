@@ -124,7 +124,57 @@ export default function About() {
           </div>
 
           {/* Right Column - Photo (60%) */}
-          <div className="md:col-span-3">
+          <div className="md:col-span-3 relative">
+            {/* Ayyan Label - Top Left */}
+            <div className="absolute -top-12 left-0 z-20 flex items-center gap-3">
+              <span
+                className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap"
+                style={{
+                  color: '#6366F1',
+                  backgroundColor: 'rgba(99, 102, 241, 0.1)',
+                  border: '1px solid #6366F1',
+                }}
+              >
+                AYYAN KHATTAK
+              </span>
+              <svg width="60" height="40" className="overflow-visible" style={{ marginTop: '8px' }}>
+                <path
+                  d="M 0 20 Q 20 10 40 5 Q 50 3 60 0"
+                  fill="none"
+                  stroke="#6366F1"
+                  strokeWidth="1"
+                  strokeDasharray="4,4"
+                  strokeLinecap="round"
+                />
+                <polygon points="60,0 58,6 55,4" fill="#6366F1" />
+              </svg>
+            </div>
+
+            {/* Furqan Label - Bottom Right */}
+            <div className="absolute -bottom-12 right-0 z-20 flex items-center gap-3 flex-row-reverse">
+              <span
+                className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap"
+                style={{
+                  color: '#A855F7',
+                  backgroundColor: 'rgba(168, 85, 247, 0.1)',
+                  border: '1px solid #A855F7',
+                }}
+              >
+                FURQAN SHAHID
+              </span>
+              <svg width="60" height="40" className="overflow-visible" style={{ marginBottom: '8px' }}>
+                <path
+                  d="M 60 20 Q 40 10 20 5 Q 10 3 0 0"
+                  fill="none"
+                  stroke="#A855F7"
+                  strokeWidth="1"
+                  strokeDasharray="4,4"
+                  strokeLinecap="round"
+                />
+                <polygon points="0,0 2,6 5,4" fill="#A855F7" />
+              </svg>
+            </div>
+
             <div
               className="relative aspect-square rounded-2xl overflow-hidden"
               style={{
