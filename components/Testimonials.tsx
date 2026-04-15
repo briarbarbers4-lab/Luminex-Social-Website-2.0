@@ -56,17 +56,34 @@ export default function Testimonials() {
   return (
     <section id="testimonials" className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
-        {/* Section Heading */}
-        <h2
-          className="text-5xl md:text-6xl font-black mb-16 text-left"
+        {/* Section Tag */}
+        <div className="flex items-center gap-2 mb-4">
+          <span style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-xs font-medium px-4 py-2 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            testimonials
+          </span>
+          <span style={{ color: '#6366F1' }}>●</span>
+        </div>
+
+        {/* Subtitle */}
+        <p
+          className="text-sm mb-16"
           style={{
-            fontFamily: 'var(--font-heading)',
-            color: '#F1F5F9',
-            letterSpacing: '-0.02em',
+            fontFamily: 'var(--font-mono)',
+            color: '#CBD5E1',
+            letterSpacing: '0.05em',
           }}
         >
-          Validated by Industry Leaders
-        </h2>
+          Hear what our clients are saying
+        </p>
 
         {/* Main Testimonial Card with Navigation */}
         <div className="flex items-center gap-6 md:gap-8">
