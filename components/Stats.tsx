@@ -9,14 +9,14 @@ export default function Stats() {
   ]
 
   const brands = [
-    { name: 'NEXUS', weight: 'font-bold' },
-    { name: 'Velocity', weight: 'font-light' },
-    { name: 'PRISM', weight: 'font-bold' },
-    { name: 'Catalyst', weight: 'font-normal' },
-    { name: 'ZENITH', weight: 'font-bold' },
-    { name: 'Aurora', weight: 'font-light' },
-    { name: 'VECTOR', weight: 'font-bold' },
-    { name: 'Flux', weight: 'font-normal' },
+    { name: 'PREMIER PRO', weight: 'font-bold' },
+    { name: 'n8n', weight: 'font-light' },
+    { name: 'PHOTOSHOP', weight: 'font-bold' },
+    { name: 'voiceflow', weight: 'font-normal' },
+    { name: 'MAKE', weight: 'font-bold' },
+    { name: 'zapier', weight: 'font-light' },
+    { name: 'CONVOCORE', weight: 'font-bold' },
+    { name: 'DaVinci', weight: 'font-normal' },
   ]
 
   return (
@@ -28,7 +28,7 @@ export default function Stats() {
           <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0B0E14] to-transparent z-10 pointer-events-none" />
           {/* Right fade gradient */}
           <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B0E14] to-transparent z-10 pointer-events-none" />
-          
+
           <div className="flex animate-marquee">
             {[...brands, ...brands].map((brand, idx) => (
               <div key={idx} className="flex items-center shrink-0">
