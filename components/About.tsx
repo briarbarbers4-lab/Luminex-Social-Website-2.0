@@ -1,64 +1,159 @@
 export default function About() {
   return (
-    <section className="py-20 px-4 bg-[#0B0E14]">
-      <div className="max-w-7xl mx-auto">
-        <h2 className="hud-label text-[#6366F1] mb-8 text-center">// WHO WE ARE</h2>
+    <section className="py-24 px-4 bg-[#0B0E14] relative overflow-hidden">
+      {/* Subtle Grid Overlay */}
+      <div
+        className="absolute inset-0"
+        style={{
+          backgroundImage: `linear-gradient(rgba(30, 41, 59, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.2) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
+        }}
+      />
 
-        <div className="grid md:grid-cols-2 gap-12 items-center">
-          {/* Text Content */}
-          <div>
-            <h3 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-6">
-              3 Years of Impact
-            </h3>
+      <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-12">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            ABOUT FOUNDERS
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
 
-            <p className="text-[#CBD5E1] text-lg leading-relaxed mb-4">
-              Luminex Social was founded on a simple belief: brands deserve both premium storytelling and intelligent systems. We&apos;re not just a content agency. We&apos;re architects of growth.
+        <div className="grid md:grid-cols-5 gap-12 items-center">
+          {/* Left Column - Text (40%) */}
+          <div className="md:col-span-2">
+            {/* Heading */}
+            <h2
+              className="text-5xl md:text-6xl font-black mb-8"
+              style={{
+                fontFamily: 'var(--font-heading)',
+                color: '#F1F5F9',
+                letterSpacing: '-0.02em',
+                lineHeight: '1.1',
+              }}
+            >
+              Engineered by{' '}
+              <span style={{
+                background: 'linear-gradient(90deg, #6366F1, #A855F7)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}>
+                Logic
+              </span>
+              . Proven by Narrative.
+            </h2>
+
+            {/* Intro Text */}
+            <p
+              className="text-lg mb-8 leading-relaxed"
+              style={{
+                fontFamily: 'var(--font-sans)',
+                color: 'rgba(248, 250, 252, 0.8)',
+              }}
+            >
+              A dual-leadership model that merges automation with storytelling. Ayyan drives the precision of AI systems, while Furqan crafts the narrative that commands attention. Together, they've built an agency where logic meets creativity.
             </p>
 
-            <p className="text-[#CBD5E1] text-lg leading-relaxed mb-6">
-              Over three years, we&apos;ve helped 20+ brands transform their content strategy through the convergence of logic and narrative. We blend creative excellence with AI-driven automation to deliver results that scale.
-            </p>
-
+            {/* Co-Founder Cards */}
             <div className="space-y-4">
-              <div className="flex gap-3">
-                <div className="text-[#2DD4BF]">→</div>
-                <p className="text-[#F8FAFC]">500+ videos produced and optimized</p>
+              {/* Card 1 */}
+              <div
+                className="p-5 rounded-lg backdrop-blur-[20px]"
+                style={{
+                  backgroundColor: 'rgba(30, 41, 59, 0.4)',
+                  border: '1px solid rgba(202, 138, 4, 0.2)',
+                  borderTop: '1px solid #CA8A04',
+                  borderLeft: '1px solid #CA8A04',
+                }}
+              >
+                <p
+                  className="text-sm font-mono"
+                  style={{
+                    color: '#CA8A04',
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  AYYAN KHATTAK | AI Automation Chief | Co-Founder
+                </p>
               </div>
-              <div className="flex gap-3">
-                <div className="text-[#2DD4BF]">→</div>
-                <p className="text-[#F8FAFC]">Millions of views across platforms</p>
+
+              {/* Card 2 */}
+              <div
+                className="p-5 rounded-lg backdrop-blur-[20px]"
+                style={{
+                  backgroundColor: 'rgba(30, 41, 59, 0.4)',
+                  border: '1px solid rgba(202, 138, 4, 0.2)',
+                  borderTop: '1px solid #CA8A04',
+                  borderLeft: '1px solid #CA8A04',
+                }}
+              >
+                <p
+                  className="text-sm font-mono"
+                  style={{
+                    color: '#CA8A04',
+                    letterSpacing: '0.1em',
+                  }}
+                >
+                  FURQAN SHAHID | Content & Editing Chief | Co-Founder
+                </p>
               </div>
-              <div className="flex gap-3">
-                <div className="text-[#2DD4BF]">→</div>
-                <p className="text-[#F8FAFC]">10x average engagement boost for clients</p>
-              </div>
+            </div>
+
+            {/* System Status Bar */}
+            <div className="mt-8 pt-6 border-t" style={{ borderColor: 'rgba(30, 41, 59, 0.6)' }}>
+              <p
+                className="text-xs font-mono uppercase tracking-widest"
+                style={{
+                  color: '#2DD4BF',
+                  letterSpacing: '0.15em',
+                }}
+              >
+                ● SYSTEM STATUS: OPERATIONAL
+              </p>
             </div>
           </div>
 
-          {/* Founder Card */}
-          <div className="relative">
-            <div className="relative bg-[#1E293B] rounded-xl p-8 aspect-square flex flex-col items-center justify-center border border-[#334155] overflow-hidden">
-              {/* Luminex Logo Watermark */}
-              <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
-                <span className="text-[180px] font-bold text-[#F8FAFC] select-none">L</span>
-              </div>
-              
-              {/* Founder Text Treatment */}
-              <div className="relative z-10 text-center">
-                <div className="text-2xl md:text-3xl font-bold text-[#F8FAFC] tracking-wide">
-                  Ayyan
-                </div>
-                <div className="text-[#6366F1] text-lg mt-1">·</div>
-                <div className="text-[#CBD5E1] text-sm font-mono uppercase tracking-widest mt-1">
-                  Founder
-                </div>
-              </div>
-              
-              {/* Subtle glow accent */}
-              <div 
-                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full pointer-events-none"
+          {/* Right Column - Photo (60%) */}
+          <div className="md:col-span-3">
+            <div
+              className="relative aspect-square rounded-2xl overflow-hidden"
+              style={{
+                backgroundColor: '#0F172A',
+                border: '1px solid #1E293B',
+                boxShadow: 'inset 0 0 30px rgba(248, 250, 252, 0.05)',
+              }}
+            >
+              {/* Top-Left Glow */}
+              <div
+                className="absolute -top-20 -left-20 w-40 h-40 pointer-events-none"
                 style={{
-                  background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+                  background: 'radial-gradient(circle, rgba(248, 250, 252, 0.15) 0%, transparent 70%)',
+                  filter: 'blur(30px)',
+                }}
+              />
+
+              {/* Co-Founders Photo */}
+              <img
+                src="https://ik.imagekit.io/rqhbqqo2qx/Furqan%20and%20me.jpeg"
+                alt="Co-founders Ayyan Khattak and Furqan Shahid"
+                className="w-full h-full object-cover"
+              />
+
+              {/* Overlay Gradient */}
+              <div
+                className="absolute inset-0 pointer-events-none"
+                style={{
+                  background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, transparent 100%)',
                 }}
               />
             </div>

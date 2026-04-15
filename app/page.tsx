@@ -2,10 +2,11 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import VideoCards from '@/components/VideoCards'
 import Stats from '@/components/Stats'
-import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import Process from '@/components/Process'
 import Testimonials from '@/components/Testimonials'
+import ContentGallery from '@/components/ContentGallery'
+import AIInfrastructure from '@/components/AIInfrastructure'
 import About from '@/components/About'
 import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
@@ -32,7 +33,11 @@ export default function Home() {
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>
-        <Services />
+        <ContentGallery />
+      </AnimatedSection>
+      <SectionDivider />
+      <AnimatedSection>
+        <AIInfrastructure />
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>
