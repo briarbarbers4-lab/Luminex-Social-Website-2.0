@@ -1,8 +1,21 @@
 export default function Hero() {
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center pt-20 px-4 overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute inset-0 bg-glow-indigo-strong pointer-events-none" />
+      {/* Noise/Grain Texture Overlay */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-[0.03]"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+        }}
+      />
+
+      {/* Radial Glow behind headline */}
+      <div 
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1200px] h-[1200px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 50%)',
+        }}
+      />
 
       <div className="relative z-10 text-center max-w-4xl mx-auto">
         {/* Main Headline */}
@@ -24,10 +37,21 @@ export default function Hero() {
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center mb-16">
-          <button className="px-8 py-3 rounded-lg bg-gradient-to-violet text-[#F8FAFC] font-semibold hover:shadow-lg hover:shadow-[#6366F1]/50 transition-all transform hover:scale-105">
+          <button 
+            className="px-8 py-3 rounded-lg text-[#F8FAFC] font-semibold transition-all transform hover:scale-105"
+            style={{
+              background: 'linear-gradient(to right, #6366F1, #A855F7)',
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.boxShadow = '0 0 24px rgba(99, 102, 241, 0.5), 0 0 48px rgba(168, 85, 247, 0.3)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.boxShadow = 'none';
+            }}
+          >
             Book a Discovery Call
           </button>
-          <button className="px-8 py-3 rounded-lg border border-[#6366F1] text-[#6366F1] font-semibold hover:bg-[#6366F1]/10 transition-all transform hover:scale-105">
+          <button className="px-8 py-3 rounded-lg bg-transparent border border-[#6366F1] text-[#6366F1] font-semibold hover:bg-[#6366F1]/10 transition-all transform hover:scale-105">
             See Our Work
           </button>
         </div>
