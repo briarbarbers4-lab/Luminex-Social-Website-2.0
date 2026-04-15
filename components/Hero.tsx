@@ -27,16 +27,43 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100vh] flex items-center bg-[#0B0E14] overflow-hidden">
+      {/* Background Video */}
+      <video
+        className="absolute inset-0 w-full h-full object-cover"
+        autoPlay
+        loop
+        muted
+        playsInline
+        style={{
+          filter: 'saturate(0.4) brightness(0.8)',
+          zIndex: 0,
+        }}
+      >
+        <source 
+          src="https://videos.pexels.com/video-files/3571200/3571200-hd_1920_1080_30fps.mp4" 
+          type="video/mp4" 
+        />
+      </video>
+
+      {/* Dark Overlay with Noise */}
+      <div 
+        className="absolute inset-0 z-[1]"
+        style={{
+          backgroundColor: 'rgba(11, 14, 20, 0.75)',
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
+        }}
+      />
+
       {/* Faint purple radial glow behind text */}
       <div 
-        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none"
+        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none z-[2]"
         style={{
-          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.12) 0%, transparent 60%)',
+          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 60%)',
         }}
       />
 
       {/* Main Content - Contained and left-aligned */}
-      <div className="relative z-10 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
           {/* Pulse rings */}
@@ -163,13 +190,7 @@ export default function Hero() {
 
       </div>
 
-      {/* Noise/Grain Texture Overlay */}
-      <div 
-        className="absolute inset-0 pointer-events-none opacity-[0.03] z-[5]"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
-        }}
-      />
+
     </section>
   )
 }

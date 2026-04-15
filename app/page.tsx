@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import VideoCards from '@/components/VideoCards'
 import Stats from '@/components/Stats'
 import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
@@ -21,6 +22,7 @@ export default function Home() {
     <main className="min-h-screen bg-[#0B0E14]">
       <Navbar />
       <Hero />
+      <VideoCards />
       <AnimatedSection>
         <Stats />
       </AnimatedSection>
