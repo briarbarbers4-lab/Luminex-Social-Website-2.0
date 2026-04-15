@@ -66,8 +66,8 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
-          <span className="text-xs tracking-widest font-bold relative z-10" style={{ color: '#FBBF24' }}>
-            ● ENTREPRENEURS:
+          <span className="text-xs tracking-widest font-bold relative z-10" style={{ color: '#F1F5F9' }}>
+            // FOR FORWARD-THINKING FOUNDERS:
           </span>
         </div>
 
@@ -81,27 +81,24 @@ export default function Hero() {
             color: '#F1F5F9',
           }}
         >
-          Attract Qualified Leads to Your Business
+          Build Market Dominance With
           <br />
-          Every Single Month Through Our Done-For-
+          AI-Driven Premium Content
           <br />
-          You{' '}
-          <span style={{ color: '#FBBF24' }}>
-            YouTube Organic System
-          </span>
+          Systems
         </h1>
 
         {/* Sub-headline */}
         <p 
-          className="text-base md:text-lg mb-12 text-left"
+          className="text-lg md:text-xl mb-12 text-left"
           style={{ 
             fontFamily: 'var(--font-sans)',
-            color: 'rgba(248, 250, 252, 0.8)',
+            color: 'rgba(248, 250, 252, 0.7)',
             lineHeight: '1.6',
-            maxWidth: '600px',
+            maxWidth: '800px',
           }}
         >
-          Sign more clients without sending 50 DMs/day, sending 2000 cold emails/day, and spending a dime on paid ads
+          Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
         </p>
 
         {/* Buttons */}
