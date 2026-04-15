@@ -28,6 +28,10 @@ export default function Home() {
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>
+        <Testimonials />
+      </AnimatedSection>
+      <SectionDivider />
+      <AnimatedSection>
         <Services />
       </AnimatedSection>
       <SectionDivider />
@@ -37,10 +41,6 @@ export default function Home() {
       <SectionDivider />
       <AnimatedSection>
         <Process />
-      </AnimatedSection>
-      <SectionDivider />
-      <AnimatedSection>
-        <Testimonials />
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>
