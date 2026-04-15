@@ -35,16 +35,32 @@ export default function About() {
             </div>
           </div>
 
-          {/* Image Placeholder */}
+          {/* Founder Card */}
           <div className="relative">
-            <div className="absolute inset-0 rounded-xl bg-gradient-to-br from-[#6366F1] to-[#A855F7] glow-indigo-border" />
-            <div className="relative bg-[#1E293B] rounded-xl p-8 aspect-square flex items-center justify-center border border-[#6366F1]">
-              <div className="text-center">
-                <div className="text-6xl mb-4">👥</div>
-                <p className="text-[#CBD5E1] font-mono text-sm">
-                  Team Photo Placeholder
-                </p>
+            <div className="relative bg-[#1E293B] rounded-xl p-8 aspect-square flex flex-col items-center justify-center border border-[#334155] overflow-hidden">
+              {/* Luminex Logo Watermark */}
+              <div className="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none">
+                <span className="text-[180px] font-bold text-[#F8FAFC] select-none">L</span>
               </div>
+              
+              {/* Founder Text Treatment */}
+              <div className="relative z-10 text-center">
+                <div className="text-2xl md:text-3xl font-bold text-[#F8FAFC] tracking-wide">
+                  Ayyan
+                </div>
+                <div className="text-[#6366F1] text-lg mt-1">·</div>
+                <div className="text-[#CBD5E1] text-sm font-mono uppercase tracking-widest mt-1">
+                  Founder
+                </div>
+              </div>
+              
+              {/* Subtle glow accent */}
+              <div 
+                className="absolute bottom-0 left-1/2 -translate-x-1/2 w-32 h-32 rounded-full pointer-events-none"
+                style={{
+                  background: 'radial-gradient(circle, rgba(99, 102, 241, 0.15) 0%, transparent 70%)',
+                }}
+              />
             </div>
           </div>
         </div>

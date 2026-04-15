@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
 
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
+  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
+  --font-heading: 'Satoshi', 'Satoshi Fallback', sans-serif;
+}
+
 @layer base {
   :root {
     --background: #0B0E14;
@@ -24,7 +30,8 @@
   }
 
   body {
-    @apply bg-[#0B0E14] text-[#F8FAFC] antialiased font-sans;
+    @apply bg-[#0B0E14] text-[#F8FAFC] antialiased;
+    font-family: var(--font-sans);
     background-image: 
       repeating-linear-gradient(
         0deg,
@@ -43,10 +50,16 @@
   }
 
   h1, h2, h3, h4, h5, h6 {
-    font-family: 'Satoshi', 'Satoshi Fallback', sans-serif;
+    font-family: var(--font-heading);
+    @apply font-bold;
   }
 
   code, pre {
+    font-family: var(--font-mono);
+  }
+
+  /* HUD Labels - use font-mono class for these */
+  .hud-label {
     font-family: var(--font-mono);
   }
 }
@@ -63,9 +76,5 @@
   .glow-indigo-border {
     border: 1px solid rgba(99, 102, 241, 0.5);
     box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
-  }
-
-  .hud-label {
-    @apply font-mono text-xs text-[#CBD5E1] uppercase tracking-widest;
   }
 }

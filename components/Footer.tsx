@@ -94,7 +94,7 @@ export default function Footer() {
         {/* Bottom Footer */}
         <div className="flex flex-col md:flex-row items-center justify-between text-sm text-[#CBD5E1]">
           <p>
-            © 2024 Luminex Social. All rights reserved.
+            © 2026 Luminex Social. All rights reserved.
           </p>
           <div className="flex gap-6 mt-4 md:mt-0">
             <a href="#" className="hover:text-[#6366F1] transition-colors">
