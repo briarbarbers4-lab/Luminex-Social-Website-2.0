@@ -1,8 +1,30 @@
 'use client'
 
 import { ChevronDown } from 'lucide-react'
+import { useState, useCallback } from 'react'
+
+interface Ripple {
+  x: number
+  y: number
+  id: number
+}
 
 export default function Hero() {
+  const [tagRipples, setTagRipples] = useState<Ripple[]>([])
+  const [buttonRipples, setButtonRipples] = useState<Ripple[]>([])
+
+  const createRipple = useCallback((e: React.MouseEvent<HTMLElement>, setRipples: React.Dispatch<React.SetStateAction<Ripple[]>>) => {
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+    const id = Date.now()
+    
+    setRipples(prev => [...prev, { x, y, id }])
+    setTimeout(() => {
+      setRipples(prev => prev.filter(r => r.id !== id))
+    }, 600)
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center bg-[#0B0E14] overflow-hidden">
       {/* Faint purple radial glow behind text */}
@@ -15,17 +37,33 @@ export default function Hero() {
 
       {/* Main Content - Full width with padding */}
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
-        {/* Eyebrow Tag */}
+        {/* Eyebrow Tag with Ripple */}
         <div 
-          className="inline-flex items-center px-3 py-1.5 rounded-full mb-4"
+          className="inline-flex items-center px-3 py-1.5 rounded-full mb-4 relative overflow-hidden cursor-pointer"
           style={{ 
             backgroundColor: '#1E293B',
             border: '1px solid #CA8A04',
             boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
           }}
+          onClick={(e) => createRipple(e, setTagRipples)}
         >
+          {tagRipples.map(ripple => (
+            <span
+              key={ripple.id}
+              className="absolute rounded-full animate-ripple pointer-events-none"
+              style={{
+                left: ripple.x,
+                top: ripple.y,
+                width: '10px',
+                height: '10px',
+                marginLeft: '-5px',
+                marginTop: '-5px',
+                background: 'rgba(202, 138, 4, 0.4)',
+              }}
+            />
+          ))}
           <span 
-            className="text-xs tracking-wide"
+            className="text-xs tracking-wide relative z-10"
             style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
           >
             // FOR FORWARD-THINKING FOUNDERS:
@@ -70,17 +108,33 @@ export default function Hero() {
 
         {/* Buttons */}
         <div className="flex flex-row gap-4 items-center">
-          {/* Book A Call - Primary with gradient and gold border */}
+          {/* Book A Call - Primary with gradient, gold border and ripple */}
           <button 
-            className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
+            className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
             style={{
               background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
               color: '#F1F5F9',
               border: '2px solid #CA8A04',
               boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
             }}
+            onClick={(e) => createRipple(e, setButtonRipples)}
           >
-            Book A Call
+            {buttonRipples.map(ripple => (
+              <span
+                key={ripple.id}
+                className="absolute rounded-full animate-ripple pointer-events-none"
+                style={{
+                  left: ripple.x,
+                  top: ripple.y,
+                  width: '10px',
+                  height: '10px',
+                  marginLeft: '-5px',
+                  marginTop: '-5px',
+                  background: 'rgba(202, 138, 4, 0.5)',
+                }}
+              />
+            ))}
+            <span className="relative z-10">Book A Call</span>
           </button>
 
           {/* Learn More - Ghost button */}
