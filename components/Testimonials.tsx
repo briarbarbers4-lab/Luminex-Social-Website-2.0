@@ -1,148 +1,234 @@
 'use client'
 
-import { Star } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
-// Star icon component for ratings
 const GoldStar = () => (
-  <Star className="w-4 h-4 text-amber-400" fill="#FBBF24" />
+  <Star className="w-4 h-4 text-amber-300" fill="#FCD34D" />
 )
 
 export default function Testimonials() {
+  const [currentIndex, setCurrentIndex] = useState(0)
+
   const testimonials = [
     {
       id: 1,
       name: 'Sarah Chen',
-      role: 'Head of Marketing',
+      title: 'Head of Marketing',
       company: 'TechFlow Ventures',
-      quote: 'Luminex transformed our content strategy. The AI automation alone saved us 40 hours monthly.',
+      quote: 'Luminex transformed our content strategy. The AI automation alone saved us 40 hours monthly while increasing engagement by 340%.',
       rating: 5,
+      videoUrl: 'https://ik.imagekit.io/5pahp6yywb/Crafted%20London.mp4',
+      metrics: '// 2.6M FOLLOWERS // 340% ENGAGEMENT INCREASE',
     },
     {
       id: 2,
       name: 'Marcus Rodriguez',
-      role: 'Creative Director',
+      title: 'Creative Director',
       company: 'Creative Agency Co',
-      quote: 'Premium quality meets intelligent systems. They delivered exactly what we needed, on time.',
+      quote: 'Premium quality meets intelligent systems. The convergence of logic and narrative isn\'t just theory—it\'s delivered on screen.',
       rating: 5,
+      videoUrl: 'https://ik.imagekit.io/5pahp6yywb/8%20Months%20Ago%20I%20Founded%20203%20Media_V5.mp4',
+      metrics: '// 15% LEAD INCREASE // 2.3M VIDEO VIEWS',
     },
     {
       id: 3,
       name: 'Lisa Park',
-      role: 'CEO',
+      title: 'CEO',
       company: 'Digital Growth Labs',
-      quote: 'The convergence of logic and narrative isn\'t just a tagline—it\'s what they deliver.',
+      quote: 'What impressed us most wasn\'t just the output quality—it was the strategic thinking behind every frame.',
       rating: 5,
+      videoUrl: 'https://ik.imagekit.io/5pahp6yywb/Strategy%20For%20LinkedIn%20Growth_V1.mp4',
+      metrics: '// 428% ROI IMPROVEMENT // 1.8M IMPRESSIONS',
     },
   ]
 
-  const dmMessages = [
-    { id: 1, sender: 'Alex M.', message: 'Just saw the final cut — this is INSANE', time: '2:34 PM', platform: 'instagram' },
-    { id: 2, sender: 'Jordan K.', message: 'Our engagement is up 340% since working with you guys', time: '11:22 AM', platform: 'imessage' },
-    { id: 3, sender: 'Chris W.', message: 'The automation you built is saving us so much time', time: '4:15 PM', platform: 'instagram' },
-    { id: 4, sender: 'Taylor S.', message: 'Can we do another project? This was amazing', time: '9:47 AM', platform: 'imessage' },
-    { id: 5, sender: 'Morgan P.', message: 'My team is blown away by the quality', time: '6:01 PM', platform: 'instagram' },
-    { id: 6, sender: 'Riley D.', message: 'Best investment we made this year tbh', time: '1:18 PM', platform: 'imessage' },
-    { id: 7, sender: 'Casey L.', message: 'The viral potential here is crazy', time: '10:33 AM', platform: 'instagram' },
-    { id: 8, sender: 'Jamie R.', message: 'You guys absolutely crushed it', time: '3:45 PM', platform: 'imessage' },
-    { id: 9, sender: 'Drew H.', message: 'Our CEO keeps rewatching the video lol', time: '5:29 PM', platform: 'instagram' },
-    { id: 10, sender: 'Sam T.', message: 'This is exactly what we envisioned', time: '8:12 AM', platform: 'imessage' },
-    { id: 11, sender: 'Quinn B.', message: 'Already getting compliments from clients', time: '12:44 PM', platform: 'instagram' },
-    { id: 12, sender: 'Avery N.', message: 'When can we start the next one?', time: '7:56 PM', platform: 'imessage' },
-  ]
+  const handleNext = () => {
+    setCurrentIndex((prev) => (prev + 1) % testimonials.length)
+  }
+
+  const handlePrev = () => {
+    setCurrentIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length)
+  }
+
+  const current = testimonials[currentIndex]
 
   return (
-    <section id="testimonials" className="py-20 px-4 bg-[#0B0E14]">
+    <section id="testimonials" className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#F8FAFC] mb-12 text-center">
-          Loved by our clients
-        </h2>
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            TESTIMONIALS
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
 
-        {/* Quote Cards */}
-        <div className="grid md:grid-cols-3 gap-8 mb-16">
-          {testimonials.map((testimonial) => (
-            <div
-              key={testimonial.id}
-              className="relative p-6 rounded-xl transition-all"
+        {/* Subtitle - Centered */}
+        <p
+          className="text-base mb-16 text-center"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            color: '#CBD5E1',
+            letterSpacing: '0.05em',
+          }}
+        >
+          Hear what our clients are saying about us
+        </p>
+
+        {/* Main Testimonial Card with Navigation */}
+        <div className="flex items-center justify-center gap-6 md:gap-8">
+          {/* Navigation Buttons Circle */}
+          <div
+            className="flex items-center gap-4 px-4 py-4 rounded-full"
+            style={{
+              backgroundColor: 'rgba(30, 41, 59, 0.3)',
+              border: '1px solid rgba(99, 102, 241, 0.2)',
+            }}
+          >
+            {/* Previous Arrow */}
+            <button
+              onClick={handlePrev}
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
               style={{
-                backgroundColor: '#1E293B',
-                borderLeft: '2px solid #6366F1',
-                boxShadow: '0 0 15px rgba(99, 102, 241, 0.15)',
+                backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                border: '1px solid rgba(99, 102, 241, 0.4)',
+                color: '#F8FAFC',
               }}
             >
-              {/* Gold Stars */}
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Next Arrow */}
+            <button
+              onClick={handleNext}
+              className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
+              style={{
+                backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                border: '1px solid rgba(99, 102, 241, 0.4)',
+                color: '#F8FAFC',
+              }}
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Main Card - 40/60 Split */}
+          <div
+            className="flex-1 flex rounded-2xl overflow-hidden transition-all"
+            style={{
+              backgroundColor: 'rgba(30, 41, 59, 0.5)',
+              backdropFilter: 'blur(20px)',
+              border: '1px solid rgba(99, 102, 241, 0.5)',
+              boxShadow: '0 0 40px rgba(99, 102, 241, 0.2)',
+            }}
+          >
+            {/* Left Side - 40% - Video Frame */}
+            <div className="w-2/5 relative bg-[#0F172A] flex items-center justify-center overflow-hidden group">
+              <video
+                src={current.videoUrl}
+                className="w-full h-full object-cover opacity-50"
+                muted
+                loop
+              />
+              {/* Play Icon Overlay */}
+              <div className="absolute inset-0 flex items-center justify-center">
+                <div
+                  className="w-20 h-20 rounded-full flex items-center justify-center transition-all group-hover:scale-110"
+                  style={{
+                    backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                    border: '2px solid #A855F7',
+                  }}
+                >
+                  <svg
+                    className="w-10 h-10 ml-1"
+                    fill="#A855F7"
+                    viewBox="0 0 24 24"
+                  >
+                    <path d="M8 5v14l11-7z" />
+                  </svg>
+                </div>
+              </div>
+            </div>
+
+            {/* Right Side - 60% - Content */}
+            <div className="w-3/5 p-8 md:p-10 flex flex-col justify-between">
+              {/* Star Rating */}
               <div className="flex gap-1 mb-4">
-                {Array.from({ length: testimonial.rating }).map((_, i) => (
+                {Array.from({ length: current.rating }).map((_, i) => (
                   <GoldStar key={i} />
                 ))}
               </div>
 
-              {/* Quote Text - Inter Italic */}
-              <p className="text-[#F8FAFC] italic font-light text-sm mb-6 leading-relaxed">
-                {`"${testimonial.quote}"`}
-              </p>
-
-              {/* Client Info */}
-              <div>
-                {/* Name - Satoshi Bold (using font-sans as fallback) */}
-                <h4 className="font-sans font-bold text-[#F8FAFC] text-sm">{testimonial.name}</h4>
-                {/* Role - JetBrains Mono smaller */}
-                <p className="font-mono text-[#CBD5E1] text-xs">{testimonial.role}, {testimonial.company}</p>
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* DM/Screenshot Wall */}
-        <div className="bg-[#1E293B] rounded-xl p-8">
-          <h3 className="font-mono text-xs uppercase tracking-widest mb-6 text-[#6366F1]">// Recent Feedback</h3>
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-            {dmMessages.map((dm) => (
-              <div
-                key={dm.id}
-                className="rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.02]"
+              {/* Quote */}
+              <p
+                className="text-lg md:text-xl mb-6 leading-relaxed"
                 style={{
-                  backgroundColor: dm.platform === 'imessage' ? '#1C1C1E' : '#121212',
-                  border: '1px solid #2A2A2E',
+                  color: '#F1F5F9',
+                  fontStyle: 'italic',
+                  fontFamily: 'var(--font-sans)',
                 }}
               >
-                {/* Message Header */}
-                <div className="flex items-center gap-2 mb-3">
-                  {/* Avatar Circle */}
-                  <div 
-                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
-                    style={{
-                      background: dm.platform === 'imessage' 
-                        ? 'linear-gradient(135deg, #34C759, #30D158)' 
-                        : 'linear-gradient(135deg, #833AB4, #E1306C, #F77737)',
-                    }}
-                  >
-                    {dm.sender.charAt(0)}
-                  </div>
-                  <div className="flex-1 min-w-0">
-                    <p className="text-[#F8FAFC] text-xs font-semibold truncate">{dm.sender}</p>
-                    <p className="text-[#8E8E93] text-[10px]">{dm.time}</p>
-                  </div>
-                </div>
+                {`"${current.quote}"`}
+              </p>
 
-                {/* Chat Bubble */}
-                <div 
-                  className="rounded-2xl rounded-tl-sm px-3 py-2"
+              {/* Client Name */}
+              <div>
+                <h3
+                  className="text-lg font-black mb-1"
                   style={{
-                    backgroundColor: dm.platform === 'imessage' ? '#007AFF' : '#3B3B3D',
+                    fontFamily: 'var(--font-heading)',
+                    color: '#F8FAFC',
                   }}
                 >
-                  <p className="text-[#F8FAFC] text-xs leading-relaxed">{dm.message}</p>
-                </div>
-
-                {/* Platform Indicator */}
-                <div className="mt-2 flex justify-end">
-                  <span className="text-[8px] uppercase tracking-wider text-[#6B6B6B]">
-                    {dm.platform === 'imessage' ? 'iMessage' : 'Instagram'}
-                  </span>
-                </div>
+                  {current.name}
+                </h3>
+                <p className="text-sm text-[#CBD5E1] mb-3">
+                  {current.title} • {current.company}
+                </p>
               </div>
-            ))}
+
+              {/* Metrics Strip */}
+              <p
+                className="text-xs uppercase tracking-widest pt-4 border-t border-[#334155]"
+                style={{
+                  fontFamily: 'var(--font-mono)',
+                  color: '#6366F1',
+                  letterSpacing: '0.15em',
+                }}
+              >
+                {current.metrics}
+              </p>
+            </div>
           </div>
+
+        </div>
+
+        {/* Indicator Dots */}
+        <div className="flex justify-center gap-2 mt-8">
+          {testimonials.map((_, idx) => (
+            <button
+              key={idx}
+              onClick={() => setCurrentIndex(idx)}
+              className="transition-all"
+              style={{
+                width: idx === currentIndex ? '24px' : '8px',
+                height: '8px',
+                borderRadius: '4px',
+                backgroundColor:
+                  idx === currentIndex ? '#6366F1' : 'rgba(99, 102, 241, 0.3)',
+              }}
+            />
+          ))}
         </div>
       </div>
     </section>
