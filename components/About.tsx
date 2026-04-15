@@ -124,65 +124,64 @@ export default function About() {
           </div>
 
           {/* Right Column - Photo (60%) */}
-          <div className="md:col-span-3 relative">
-            {/* Ayyan Label - Top Left */}
-            <div className="absolute -top-12 left-0 z-20 flex items-center gap-3">
-              <span
-                className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap"
-                style={{
-                  color: '#6366F1',
-                  backgroundColor: 'rgba(99, 102, 241, 0.1)',
-                  border: '1px solid #6366F1',
-                }}
-              >
-                AYYAN KHATTAK
-              </span>
-              <svg width="60" height="40" className="overflow-visible" style={{ marginTop: '8px' }}>
-                <path
-                  d="M 0 20 Q 20 10 40 5 Q 50 3 60 0"
-                  fill="none"
-                  stroke="#6366F1"
-                  strokeWidth="1"
-                  strokeDasharray="4,4"
-                  strokeLinecap="round"
-                />
-                <polygon points="60,0 58,6 55,4" fill="#6366F1" />
-              </svg>
-            </div>
-
-            {/* Furqan Label - Bottom Right */}
-            <div className="absolute -bottom-12 right-0 z-20 flex items-center gap-3 flex-row-reverse">
-              <span
-                className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap"
-                style={{
-                  color: '#A855F7',
-                  backgroundColor: 'rgba(168, 85, 247, 0.1)',
-                  border: '1px solid #A855F7',
-                }}
-              >
-                FURQAN SHAHID
-              </span>
-              <svg width="60" height="40" className="overflow-visible" style={{ marginBottom: '8px' }}>
-                <path
-                  d="M 60 20 Q 40 10 20 5 Q 10 3 0 0"
-                  fill="none"
-                  stroke="#A855F7"
-                  strokeWidth="1"
-                  strokeDasharray="4,4"
-                  strokeLinecap="round"
-                />
-                <polygon points="0,0 2,6 5,4" fill="#A855F7" />
-              </svg>
-            </div>
-
+          <div className="md:col-span-3">
             <div
-              className="relative aspect-square rounded-2xl overflow-hidden"
+              className="relative aspect-square rounded-2xl overflow-hidden group"
               style={{
                 backgroundColor: '#0F172A',
                 border: '1px solid #1E293B',
                 boxShadow: 'inset 0 0 30px rgba(248, 250, 252, 0.05)',
               }}
             >
+              {/* Ayyan Label - Inside Top Left */}
+              <div className="absolute top-6 left-6 z-20 flex items-center gap-2">
+                <span
+                  className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-md"
+                  style={{
+                    color: '#6366F1',
+                    backgroundColor: 'rgba(99, 102, 241, 0.2)',
+                    border: '1px solid #6366F1',
+                  }}
+                >
+                  AYYAN KHATTAK
+                </span>
+                <svg width="50" height="30" className="overflow-visible" style={{ marginTop: '-4px' }}>
+                  <path
+                    d="M 0 15 Q 15 5 35 0"
+                    fill="none"
+                    stroke="#6366F1"
+                    strokeWidth="1"
+                    strokeDasharray="3,3"
+                    strokeLinecap="round"
+                  />
+                  <polygon points="35,0 33,4 31,2" fill="#6366F1" />
+                </svg>
+              </div>
+
+              {/* Furqan Label - Inside Bottom Right */}
+              <div className="absolute bottom-6 right-6 z-20 flex items-center gap-2 flex-row-reverse">
+                <span
+                  className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-md"
+                  style={{
+                    color: '#A855F7',
+                    backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                    border: '1px solid #A855F7',
+                  }}
+                >
+                  FURQAN SHAHID
+                </span>
+                <svg width="50" height="30" className="overflow-visible" style={{ marginBottom: '-4px' }}>
+                  <path
+                    d="M 50 15 Q 35 5 15 0"
+                    fill="none"
+                    stroke="#A855F7"
+                    strokeWidth="1"
+                    strokeDasharray="3,3"
+                    strokeLinecap="round"
+                  />
+                  <polygon points="15,0 17,4 19,2" fill="#A855F7" />
+                </svg>
+              </div>
               {/* Top-Left Glow */}
               <div
                 className="absolute -top-20 -left-20 w-40 h-40 pointer-events-none"
