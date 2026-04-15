@@ -108,7 +108,7 @@ export default function Hero() {
         </p>
 
         {/* Buttons */}
-        <div className="flex flex-row gap-4 items-center">
+        <div className="flex flex-row gap-4 items-center mb-16">
           {/* Book A Call - Primary with gradient, gold border and ripple */}
           <button 
             className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
@@ -151,36 +151,32 @@ export default function Hero() {
           </button>
         </div>
 
-      </div>
-
-      {/* Trust Bar - Bottom with extra spacing */}
-      <div className="absolute bottom-10 left-0 right-0 z-20">
+        {/* Metrics Strip - Below buttons */}
         <div 
-          className="py-5"
+          className="inline-flex py-4 px-6 rounded-lg"
           style={{ 
             background: 'rgba(30, 41, 59, 0.7)',
             backdropFilter: 'blur(8px)',
           }}
         >
-          <div className="max-w-7xl mx-auto px-6 md:px-12">
-            <div 
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 text-sm"
-              style={{ fontFamily: 'var(--font-mono)' }}
-            >
-              <span style={{ color: '#CA8A04' }}>
-                <span className="font-bold">50M+</span> Views
-              </span>
-              <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
-              <span style={{ color: '#CA8A04' }}>
-                <span className="font-bold">24/7</span> Automation
-              </span>
-              <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
-              <span style={{ color: '#CA8A04' }}>
-                <span className="font-bold">Premium</span> Narrative
-              </span>
-            </div>
+          <div 
+            className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 text-sm"
+            style={{ fontFamily: 'var(--font-mono)' }}
+          >
+            <span style={{ color: '#CA8A04' }}>
+              <span className="font-bold">50M+</span> Views
+            </span>
+            <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
+            <span style={{ color: '#CA8A04' }}>
+              <span className="font-bold">24/7</span> Automation
+            </span>
+            <span className="hidden sm:inline" style={{ color: '#CA8A04' }}>//</span>
+            <span style={{ color: '#CA8A04' }}>
+              <span className="font-bold">Premium</span> Narrative
+            </span>
           </div>
         </div>
+
       </div>
 
       {/* Noise/Grain Texture Overlay */}
