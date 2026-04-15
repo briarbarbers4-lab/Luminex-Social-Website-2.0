@@ -30,6 +30,23 @@ export default function ContentGallery() {
   return (
     <section className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-16">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            CONTENT CREATION
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
+
         <div className="grid grid-cols-10 gap-8">
           {/* Left Column - 40% - Sticky */}
           <div className="col-span-4 sticky top-24 h-fit">
