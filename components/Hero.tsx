@@ -18,7 +18,7 @@ export default function Hero() {
     const x = e.clientX - rect.left
     const y = e.clientY - rect.top
     const id = Date.now()
-    
+
     setRipples(prev => [...prev, { x, y, id }])
     setTimeout(() => {
       setRipples(prev => prev.filter(r => r.id !== id))
@@ -39,14 +39,14 @@ export default function Hero() {
           zIndex: 0,
         }}
       >
-        <source 
-          src="https://videos.pexels.com/video-files/3571200/3571200-hd_1920_1080_30fps.mp4" 
-          type="video/mp4" 
+        <source
+          src="https://videos.pexels.com/video-files/3571200/3571200-hd_1920_1080_30fps.mp4"
+          type="video/mp4"
         />
       </video>
 
       {/* Dark Overlay with Noise */}
-      <div 
+      <div
         className="absolute inset-0 z-[1]"
         style={{
           backgroundColor: 'rgba(11, 14, 20, 0.75)',
@@ -55,7 +55,7 @@ export default function Hero() {
       />
 
       {/* Faint purple radial glow behind text */}
-      <div 
+      <div
         className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none z-[2]"
         style={{
           background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 60%)',
@@ -69,9 +69,9 @@ export default function Hero() {
           {/* Pulse rings */}
           <span className="absolute inset-0 rounded-full animate-pulse-ring" style={{ border: '1px solid rgba(202, 138, 4, 0.4)' }} />
           <span className="absolute inset-0 rounded-full animate-pulse-ring-delayed" style={{ border: '1px solid rgba(202, 138, 4, 0.3)' }} />
-          <div 
+          <div
             className="inline-flex items-center px-3 py-1.5 rounded-full relative overflow-hidden cursor-pointer"
-            style={{ 
+            style={{
               backgroundColor: '#1E293B',
               border: '1px solid #CA8A04',
               boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
@@ -93,7 +93,7 @@ export default function Hero() {
                 }}
               />
             ))}
-            <span 
+            <span
               className="text-xs tracking-wide relative z-10"
               style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
             >
@@ -103,33 +103,33 @@ export default function Hero() {
         </div>
 
         {/* Headline - Scaled up for authority */}
-        <h1 
+        <h1
           className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 max-w-4xl text-left"
-          style={{ 
-            fontFamily: 'var(--font-heading)', 
+          style={{
+            fontFamily: 'var(--font-heading)',
             lineHeight: '1.2',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
         >
-          Build Market Dominance With{' '}
-          <span 
-            style={{ 
+          Build Your Market Dominance Every Single Month Through Our{' '}
+          <span
+            style={{
               background: 'linear-gradient(90deg, #6366F1, #A855F7)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}
           >
-            AI-Driven Content
+            Premium Content AND
           </span>{' '}
-          Systems
+          AI Automated Systems
         </h1>
 
         {/* Sub-headline */}
-        <p 
+        <p
           className="text-lg md:text-xl mb-12 text-left"
-          style={{ 
+          style={{
             fontFamily: 'var(--font-sans)',
             color: 'rgba(248, 250, 252, 0.7)',
             lineHeight: '1.6',
@@ -146,7 +146,7 @@ export default function Hero() {
             {/* Pulse rings for button */}
             <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn" style={{ border: '2px solid rgba(202, 138, 4, 0.4)' }} />
             <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn-delayed" style={{ border: '2px solid rgba(202, 138, 4, 0.3)' }} />
-            <button 
+            <button
               className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
               style={{
                 background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
@@ -176,9 +176,9 @@ export default function Hero() {
           </div>
 
           {/* Learn More - Ghost button */}
-          <button 
+          <button
             className="flex items-center gap-2 px-6 py-3.5 rounded-lg bg-transparent font-semibold text-base transition-all hover:bg-[#1E293B]/30"
-            style={{ 
+            style={{
               border: '1px solid #1E293B',
               color: '#F1F5F9',
             }}
