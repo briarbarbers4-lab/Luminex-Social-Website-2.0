@@ -133,8 +133,8 @@ export default function About() {
                 boxShadow: 'inset 0 0 30px rgba(248, 250, 252, 0.05)',
               }}
             >
-              {/* Ayyan Label - Inside Top Left */}
-              <div className="absolute top-6 left-6 z-20 flex items-center gap-2">
+              {/* Ayyan Label - Inside Left Near Face */}
+              <div className="absolute top-1/3 left-6 z-20 flex items-center gap-2">
                 <span
                   className="text-xs font-mono px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-md"
                   style={{
