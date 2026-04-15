@@ -1,10 +1,18 @@
+'use client'
+
 import { Star } from 'lucide-react'
+
+// Star icon component for ratings
+const GoldStar = () => (
+  <Star className="w-4 h-4 text-amber-400" fill="#FBBF24" />
+)
 
 export default function Testimonials() {
   const testimonials = [
     {
       id: 1,
       name: 'Sarah Chen',
+      role: 'Head of Marketing',
       company: 'TechFlow Ventures',
       quote: 'Luminex transformed our content strategy. The AI automation alone saved us 40 hours monthly.',
       rating: 5,
@@ -12,6 +20,7 @@ export default function Testimonials() {
     {
       id: 2,
       name: 'Marcus Rodriguez',
+      role: 'Creative Director',
       company: 'Creative Agency Co',
       quote: 'Premium quality meets intelligent systems. They delivered exactly what we needed, on time.',
       rating: 5,
@@ -19,16 +28,27 @@ export default function Testimonials() {
     {
       id: 3,
       name: 'Lisa Park',
+      role: 'CEO',
       company: 'Digital Growth Labs',
       quote: 'The convergence of logic and narrative isn\'t just a tagline—it\'s what they deliver.',
       rating: 5,
     },
   ]
 
-  const dmWall = Array.from({ length: 12 }, (_, i) => ({
-    id: i,
-    initials: String.fromCharCode(65 + (i % 26)),
-  }))
+  const dmMessages = [
+    { id: 1, sender: 'Alex M.', message: 'Just saw the final cut — this is INSANE', time: '2:34 PM', platform: 'instagram' },
+    { id: 2, sender: 'Jordan K.', message: 'Our engagement is up 340% since working with you guys', time: '11:22 AM', platform: 'imessage' },
+    { id: 3, sender: 'Chris W.', message: 'The automation you built is saving us so much time', time: '4:15 PM', platform: 'instagram' },
+    { id: 4, sender: 'Taylor S.', message: 'Can we do another project? This was amazing', time: '9:47 AM', platform: 'imessage' },
+    { id: 5, sender: 'Morgan P.', message: 'My team is blown away by the quality', time: '6:01 PM', platform: 'instagram' },
+    { id: 6, sender: 'Riley D.', message: 'Best investment we made this year tbh', time: '1:18 PM', platform: 'imessage' },
+    { id: 7, sender: 'Casey L.', message: 'The viral potential here is crazy', time: '10:33 AM', platform: 'instagram' },
+    { id: 8, sender: 'Jamie R.', message: 'You guys absolutely crushed it', time: '3:45 PM', platform: 'imessage' },
+    { id: 9, sender: 'Drew H.', message: 'Our CEO keeps rewatching the video lol', time: '5:29 PM', platform: 'instagram' },
+    { id: 10, sender: 'Sam T.', message: 'This is exactly what we envisioned', time: '8:12 AM', platform: 'imessage' },
+    { id: 11, sender: 'Quinn B.', message: 'Already getting compliments from clients', time: '12:44 PM', platform: 'instagram' },
+    { id: 12, sender: 'Avery N.', message: 'When can we start the next one?', time: '7:56 PM', platform: 'imessage' },
+  ]
 
   return (
     <section id="testimonials" className="py-20 px-4 bg-[#0B0E14]">
@@ -42,31 +62,31 @@ export default function Testimonials() {
           {testimonials.map((testimonial) => (
             <div
               key={testimonial.id}
-              className="relative p-6 rounded-xl bg-[#1E293B] border border-[#334155] hover:border-[#6366F1] transition-all group"
+              className="relative p-6 rounded-xl transition-all"
+              style={{
+                backgroundColor: '#1E293B',
+                borderLeft: '2px solid #6366F1',
+                boxShadow: '0 0 15px rgba(99, 102, 241, 0.15)',
+              }}
             >
-              {/* Left Border Glow */}
-              <div className="absolute left-0 top-0 bottom-0 w-1 rounded-l-xl bg-[#6366F1] group-hover:shadow-lg group-hover:shadow-[#6366F1]/50 transition-all" />
-
-              {/* Quote Text */}
-              <p className="text-[#F8FAFC] italic text-sm mb-4 leading-relaxed">
-                {`"${testimonial.quote}"`}
-              </p>
-
-              {/* Rating */}
+              {/* Gold Stars */}
               <div className="flex gap-1 mb-4">
                 {Array.from({ length: testimonial.rating }).map((_, i) => (
-                  <Star
-                    key={i}
-                    className="w-4 h-4 text-[#A855F7]"
-                    fill="#A855F7"
-                  />
+                  <GoldStar key={i} />
                 ))}
               </div>
 
+              {/* Quote Text - Inter Italic */}
+              <p className="text-[#F8FAFC] italic font-light text-sm mb-6 leading-relaxed">
+                {`"${testimonial.quote}"`}
+              </p>
+
               {/* Client Info */}
               <div>
-                <h4 className="font-bold text-[#F8FAFC] text-sm">{testimonial.name}</h4>
-                <p className="text-[#CBD5E1] text-xs">{testimonial.company}</p>
+                {/* Name - Satoshi Bold (using font-sans as fallback) */}
+                <h4 className="font-sans font-bold text-[#F8FAFC] text-sm">{testimonial.name}</h4>
+                {/* Role - JetBrains Mono smaller */}
+                <p className="font-mono text-[#CBD5E1] text-xs">{testimonial.role}, {testimonial.company}</p>
               </div>
             </div>
           ))}
@@ -74,18 +94,51 @@ export default function Testimonials() {
 
         {/* DM/Screenshot Wall */}
         <div className="bg-[#1E293B] rounded-xl p-8">
-          <h3 className="hud-label mb-6 text-[#6366F1]">// Recent Feedback</h3>
-          <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-            {dmWall.map((item) => (
+          <h3 className="font-mono text-xs uppercase tracking-widest mb-6 text-[#6366F1]">// Recent Feedback</h3>
+          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {dmMessages.map((dm) => (
               <div
-                key={item.id}
-                className="aspect-square rounded-lg bg-gradient-to-br from-[#6366F1] to-[#A855F7] p-4 flex items-center justify-center border border-[#334155] hover:glow-indigo-border transition-all group cursor-pointer"
+                key={dm.id}
+                className="rounded-2xl p-4 cursor-pointer transition-all hover:scale-[1.02]"
+                style={{
+                  backgroundColor: dm.platform === 'imessage' ? '#1C1C1E' : '#121212',
+                  border: '1px solid #2A2A2E',
+                }}
               >
-                <div className="text-center">
-                  <div className="text-2xl font-bold text-[#F8FAFC] group-hover:scale-110 transition-transform">
-                    {item.initials}
+                {/* Message Header */}
+                <div className="flex items-center gap-2 mb-3">
+                  {/* Avatar Circle */}
+                  <div 
+                    className="w-8 h-8 rounded-full flex items-center justify-center text-xs font-bold text-white"
+                    style={{
+                      background: dm.platform === 'imessage' 
+                        ? 'linear-gradient(135deg, #34C759, #30D158)' 
+                        : 'linear-gradient(135deg, #833AB4, #E1306C, #F77737)',
+                    }}
+                  >
+                    {dm.sender.charAt(0)}
                   </div>
-                  <div className="text-xs text-[#F8FAFC]/60 mt-1">DM</div>
+                  <div className="flex-1 min-w-0">
+                    <p className="text-[#F8FAFC] text-xs font-semibold truncate">{dm.sender}</p>
+                    <p className="text-[#8E8E93] text-[10px]">{dm.time}</p>
+                  </div>
+                </div>
+
+                {/* Chat Bubble */}
+                <div 
+                  className="rounded-2xl rounded-tl-sm px-3 py-2"
+                  style={{
+                    backgroundColor: dm.platform === 'imessage' ? '#007AFF' : '#3B3B3D',
+                  }}
+                >
+                  <p className="text-[#F8FAFC] text-xs leading-relaxed">{dm.message}</p>
+                </div>
+
+                {/* Platform Indicator */}
+                <div className="mt-2 flex justify-end">
+                  <span className="text-[8px] uppercase tracking-wider text-[#6B6B6B]">
+                    {dm.platform === 'imessage' ? 'iMessage' : 'Instagram'}
+                  </span>
                 </div>
               </div>
             ))}
