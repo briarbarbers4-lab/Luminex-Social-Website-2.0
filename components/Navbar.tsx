@@ -51,7 +51,7 @@ export default function Navbar() {
             : 'bg-[#0B0E14]/30 backdrop-blur-lg border border-[#334155]/30'
         }`}
       >
-        <div className="px-8 py-3 flex items-center gap-6">
+        <div className="px-8 py-3 flex items-center justify-between gap-8">
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-6">
             <a href="#work" onClick={(e) => handleNavClick(e, '#work')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
@@ -67,6 +67,39 @@ export default function Navbar() {
               Testimonials
             </a>
           </div>
+
+          {/* CTA Button */}
+          <button 
+            ref={buttonRef}
+            onClick={handleRipple}
+            className="hidden md:flex items-center relative px-6 py-2 rounded-full font-medium text-sm overflow-hidden transition-all transform hover:scale-110 active:scale-95 group"
+          >
+            {/* Gradient Background */}
+            <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] rounded-full" />
+            
+            {/* Animated Border */}
+            <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] bg-clip-border opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+            
+            {/* Glass Effect Overlay */}
+            <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-sm opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
+            
+            {/* Glow Effect */}
+            <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] opacity-0 blur-lg group-hover:opacity-60 transition-opacity duration-300 -z-10" />
+            
+            {/* Shadow Ring 1 */}
+            <div className="absolute inset-0 rounded-full border border-[#6366F1]/30 scale-100 group-hover:scale-110 transition-transform duration-300 opacity-50" />
+            
+            {/* Shadow Ring 2 */}
+            <div className="absolute inset-0 rounded-full border border-[#A855F7]/20 scale-95 opacity-30" />
+            
+            {/* Content */}
+            <span className="relative z-10 text-[#F8FAFC] font-semibold tracking-wider flex items-center gap-2">
+              Book a Call
+              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </span>
+          </button>
 
           {/* Mobile Menu Button */}
           <button
@@ -100,38 +133,6 @@ export default function Navbar() {
         )}
       </nav>
 
-      {/* Floating CTA Button */}
-      <button 
-        ref={buttonRef}
-        onClick={handleRipple}
-        className="fixed top-8 right-8 z-50 relative px-8 py-3 rounded-full font-medium text-sm overflow-hidden transition-all transform hover:scale-110 active:scale-95 group"
-      >
-        {/* Gradient Background */}
-        <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] rounded-full" />
-        
-        {/* Animated Border */}
-        <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] bg-clip-border opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
-        
-        {/* Glass Effect Overlay */}
-        <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-sm opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
-        
-        {/* Glow Effect */}
-        <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] opacity-0 blur-lg group-hover:opacity-60 transition-opacity duration-300 -z-10" />
-        
-        {/* Shadow Ring 1 */}
-        <div className="absolute inset-0 rounded-full border border-[#6366F1]/30 scale-100 group-hover:scale-110 transition-transform duration-300 opacity-50" />
-        
-        {/* Shadow Ring 2 */}
-        <div className="absolute inset-0 rounded-full border border-[#A855F7]/20 scale-95 opacity-30" />
-        
-        {/* Content */}
-        <span className="relative z-10 text-[#F8FAFC] font-semibold tracking-wider flex items-center gap-2">
-          Book a Call
-          <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
-          </svg>
-        </span>
-      </button>
     </>
   )
 }
