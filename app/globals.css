@@ -1,0 +1,71 @@
+@import 'tailwindcss';
+@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
+
+@layer base {
+  :root {
+    --background: #0B0E14;
+    --foreground: #F8FAFC;
+    --card: #1E293B;
+    --card-foreground: #F8FAFC;
+    --primary: #6366F1;
+    --primary-foreground: #F8FAFC;
+    --secondary: #A855F7;
+    --secondary-foreground: #F8FAFC;
+    --accent: #2DD4BF;
+    --accent-foreground: #0B0E14;
+    --muted: #475569;
+    --muted-foreground: #CBD5E1;
+    --border: #334155;
+    --radius: 0.5rem;
+  }
+
+  html {
+    @apply scroll-smooth;
+  }
+
+  body {
+    @apply bg-[#0B0E14] text-[#F8FAFC] antialiased font-sans;
+    background-image: 
+      repeating-linear-gradient(
+        0deg,
+        transparent,
+        transparent 1px,
+        rgba(248, 250, 252, 0.01) 1px,
+        rgba(248, 250, 252, 0.01) 2px
+      ),
+      repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 1px,
+        rgba(248, 250, 252, 0.01) 1px,
+        rgba(248, 250, 252, 0.01) 2px
+      );
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Satoshi', 'Satoshi Fallback', sans-serif;
+  }
+
+  code, pre {
+    font-family: var(--font-mono);
+  }
+}
+
+@layer components {
+  .gradient-indigo-violet {
+    @apply bg-gradient-to-violet;
+  }
+
+  .glow-indigo {
+    box-shadow: 0 0 30px rgba(99, 102, 241, 0.3);
+  }
+
+  .glow-indigo-border {
+    border: 1px solid rgba(99, 102, 241, 0.5);
+    box-shadow: 0 0 15px rgba(99, 102, 241, 0.2);
+  }
+
+  .hud-label {
+    @apply font-mono text-xs text-[#CBD5E1] uppercase tracking-widest;
+  }
+}
