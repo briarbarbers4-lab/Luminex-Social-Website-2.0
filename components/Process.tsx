@@ -29,6 +29,23 @@ export default function Process() {
   return (
     <section id="process" className="py-24 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-8">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            OUR PROCESS
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
+
         {/* Main Heading */}
         <h2
           className="text-6xl md:text-7xl font-black mb-4 text-center"

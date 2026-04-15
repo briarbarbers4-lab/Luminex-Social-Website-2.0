@@ -11,6 +11,23 @@ export default function About() {
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-12">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            ABOUT FOUNDERS
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
+
         <div className="grid md:grid-cols-5 gap-12 items-center">
           {/* Left Column - Text (40%) */}
           <div className="md:col-span-2">
