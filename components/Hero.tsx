@@ -29,12 +29,12 @@ export default function Hero() {
           </span>
         </div>
 
-        {/* Headline - Expanded width */}
+        {/* Headline - Reduced size, max 3 lines */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-6 max-w-5xl"
+          className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 max-w-4xl"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '0.95',
+            lineHeight: '1.1',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
