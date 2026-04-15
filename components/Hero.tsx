@@ -66,77 +66,42 @@ export default function Hero() {
       <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
-          {/* Pulse rings */}
-          <span className="absolute inset-0 rounded-full animate-pulse-ring" style={{ border: '1px solid rgba(202, 138, 4, 0.4)' }} />
-          <span className="absolute inset-0 rounded-full animate-pulse-ring-delayed" style={{ border: '1px solid rgba(202, 138, 4, 0.3)' }} />
-          <div 
-            className="inline-flex items-center px-3 py-1.5 rounded-full relative overflow-hidden cursor-pointer"
-            style={{ 
-              backgroundColor: '#1E293B',
-              border: '1px solid #CA8A04',
-              boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
-            }}
-            onClick={(e) => createRipple(e, setTagRipples)}
-          >
-            {tagRipples.map(ripple => (
-              <span
-                key={ripple.id}
-                className="absolute rounded-full animate-ripple pointer-events-none"
-                style={{
-                  left: ripple.x,
-                  top: ripple.y,
-                  width: '10px',
-                  height: '10px',
-                  marginLeft: '-5px',
-                  marginTop: '-5px',
-                  background: 'rgba(202, 138, 4, 0.4)',
-                }}
-              />
-            ))}
-            <span 
-              className="text-xs tracking-wide relative z-10"
-              style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
-            >
-              // FOR FORWARD-THINKING FOUNDERS:
-            </span>
-          </div>
+          <span className="text-xs tracking-widest font-bold relative z-10" style={{ color: '#FBBF24' }}>
+            ● ENTREPRENEURS:
+          </span>
         </div>
 
-        {/* Headline - Scaled up for authority */}
+        {/* Headline - 3 Lines */}
         <h1 
-          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 max-w-4xl text-left"
+          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl text-left"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '1.2',
+            lineHeight: '1.15',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
         >
-          Build Market Dominance With{' '}
-          <span 
-            style={{ 
-              background: 'linear-gradient(90deg, #6366F1, #A855F7)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
-            AI-Driven Content
-          </span>{' '}
-          Systems
+          Attract Qualified Leads to Your Business
+          <br />
+          Every Single Month Through Our Done-For-
+          <br />
+          You{' '}
+          <span style={{ color: '#FBBF24' }}>
+            YouTube Organic System
+          </span>
         </h1>
 
         {/* Sub-headline */}
         <p 
-          className="text-lg md:text-xl mb-12 text-left"
+          className="text-base md:text-lg mb-12 text-left"
           style={{ 
             fontFamily: 'var(--font-sans)',
-            color: 'rgba(248, 250, 252, 0.7)',
+            color: 'rgba(248, 250, 252, 0.8)',
             lineHeight: '1.6',
-            maxWidth: '800px',
+            maxWidth: '600px',
           }}
         >
-          Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
+          Sign more clients without sending 50 DMs/day, sending 2000 cold emails/day, and spending a dime on paid ads
         </p>
 
         {/* Buttons */}
