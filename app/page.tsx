@@ -2,7 +2,6 @@ import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
 import VideoCards from '@/components/VideoCards'
 import Stats from '@/components/Stats'
-import Services from '@/components/Services'
 import Portfolio from '@/components/Portfolio'
 import Process from '@/components/Process'
 import Testimonials from '@/components/Testimonials'
@@ -29,10 +28,6 @@ export default function Home() {
       <SectionDivider />
       <AnimatedSection>
         <Testimonials />
-      </AnimatedSection>
-      <SectionDivider />
-      <AnimatedSection>
-        <Services />
       </AnimatedSection>
       <SectionDivider />
       <AnimatedSection>

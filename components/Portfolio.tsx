@@ -6,30 +6,28 @@ import { useState } from 'react'
 const categoryColors: Record<string, { bg: string; text: string; badge: string }> = {
   'short-form': { bg: 'from-[#6366F1]/30 to-[#A855F7]/30', text: '#6366F1', badge: 'Short Form' },
   'long-form': { bg: 'from-[#A855F7]/30 to-[#6366F1]/30', text: '#A855F7', badge: 'Long Form' },
-  'branded': { bg: 'from-[#2DD4BF]/30 to-[#6366F1]/30', text: '#2DD4BF', badge: 'Branded' },
 }
 
 export default function Portfolio() {
-  const [activeFilter, setActiveFilter] = useState('all')
+  const [activeFilter, setActiveFilter] = useState('short-form')
   const [hoveredId, setHoveredId] = useState<number | null>(null)
 
   const portfolioItems = [
     { id: 1, title: 'Brand Launch Campaign', category: 'short-form' },
     { id: 2, title: 'Product Demo Reel', category: 'short-form' },
-    { id: 3, title: 'YouTube Tutorial Series', category: 'long-form' },
-    { id: 4, title: 'AI Workflow Showcase', category: 'branded' },
-    { id: 5, title: 'TikTok Series', category: 'short-form' },
-    { id: 6, title: 'Podcast Episode 1', category: 'long-form' },
-    { id: 7, title: 'Social Media Kit', category: 'branded' },
-    { id: 8, title: 'Lead Gen Automation', category: 'branded' },
-    { id: 9, title: 'Reels Compilation', category: 'short-form' },
+    { id: 3, title: 'Viral Growth Strategy', category: 'short-form' },
+    { id: 4, title: 'TikTok Series', category: 'short-form' },
+    { id: 5, title: 'Reels Compilation', category: 'short-form' },
+    { id: 6, title: 'Instagram Story Ads', category: 'short-form' },
+    { id: 7, title: 'YouTube Tutorial Series', category: 'long-form' },
+    { id: 8, title: 'Podcast Episode 1', category: 'long-form' },
+    { id: 9, title: 'Documentary Style Content', category: 'long-form' },
+    { id: 10, title: 'Educational Webinar', category: 'long-form' },
   ]
 
-  const filters = ['all', 'short-form', 'long-form', 'branded']
+  const filters = ['short-form', 'long-form']
 
-  const filteredItems = activeFilter === 'all'
-    ? portfolioItems
-    : portfolioItems.filter(item => item.category === activeFilter)
+  const filteredItems = portfolioItems.filter(item => item.category === activeFilter)
 
   return (
     <section id="work" className="py-20 px-4 bg-[#0B0E14]">
@@ -50,7 +48,7 @@ export default function Portfolio() {
                   : 'bg-[#1E293B] text-[#CBD5E1] hover:border-[#6366F1] border border-[#334155]'
               }`}
             >
-              {filter === 'all' ? 'All' : filter === 'short-form' ? 'Short Form' : filter === 'long-form' ? 'Long Form' : 'Branded'}
+              {filter === 'short-form' ? 'Short Form (6)' : 'Long Form (4)'}
             </button>
           ))}
         </div>
