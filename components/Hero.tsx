@@ -88,28 +88,7 @@ export default function Hero() {
 
       {/* Right Side - Reserved for background video (50%) */}
       <div className="absolute top-0 right-0 w-1/2 h-full hidden lg:block">
-        {/* Video placeholder area - gradient simulation */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'linear-gradient(135deg, #0B0E14 0%, #1E293B 25%, #0B0E14 50%, #1E293B 75%, #0B0E14 100%)',
-            backgroundSize: '400% 400%',
-            animation: 'gradientShift 15s ease infinite',
-          }}
-        />
-        {/* Motion blur overlay strips */}
-        <div className="absolute inset-0 opacity-30">
-          <div className="absolute top-1/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#F8FAFC]/30 to-transparent" style={{ filter: 'blur(2px)' }} />
-          <div className="absolute top-1/2 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#6366F1]/50 to-transparent" style={{ filter: 'blur(3px)' }} />
-          <div className="absolute top-3/4 left-0 right-0 h-px bg-gradient-to-r from-transparent via-[#A855F7]/30 to-transparent" style={{ filter: 'blur(2px)' }} />
-        </div>
-        {/* Radial glow */}
-        <div 
-          className="absolute inset-0"
-          style={{
-            background: 'radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 60%)',
-          }}
-        />
+        {/* Video will be added here */}
       </div>
 
       {/* Trust Bar - Bottom */}
@@ -147,13 +126,7 @@ export default function Hero() {
         }}
       />
 
-      <style jsx>{`
-        @keyframes gradientShift {
-          0% { background-position: 0% 50%; }
-          50% { background-position: 100% 50%; }
-          100% { background-position: 0% 50%; }
-        }
-      `}</style>
+
     </section>
   )
 }
