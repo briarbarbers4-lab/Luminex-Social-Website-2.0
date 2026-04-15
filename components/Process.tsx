@@ -29,9 +29,34 @@ export default function Process() {
   return (
     <section id="process" className="py-20 px-4 bg-[#0B0E14]">
       <div className="max-w-7xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-bold text-[#F8FAFC] mb-16 text-center">
-          Our Process
-        </h2>
+        {/* Section Tag - Centered */}
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+          <span
+            className="text-sm font-medium px-6 py-3 rounded-full"
+            style={{
+              color: '#6366F1',
+              backgroundColor: 'rgba(99, 102, 241, 0.1)',
+              border: '1px solid rgba(99, 102, 241, 0.3)',
+              fontFamily: 'var(--font-sans)',
+            }}
+          >
+            OUR PROCESS
+          </span>
+          <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
+        </div>
+
+        {/* Subtitle - Centered */}
+        <p
+          className="text-base mb-16 text-center"
+          style={{
+            fontFamily: 'var(--font-mono)',
+            color: '#CBD5E1',
+            letterSpacing: '0.05em',
+          }}
+        >
+          From strategy to delivery, here's how we create winning content
+        </p>
 
         {/* Desktop Process Flow */}
         <div className="hidden md:block">
