@@ -136,7 +136,7 @@ export default function Hero() {
             maxWidth: '800px',
           }}
         >
-          On-Board more clients without relying on word of mouth, sending large volumes of outreach hoping someone replies. Build your brand, automate follow-ups and autopilot the business.
+          On-Board more clients without relying on word of mouth, sending large volumes of outreach hoping someone replies. Build your brand, automate follow-ups and autopilot the business. Without spending a dime on ads.
         </p>
 
         {/* Buttons */}
