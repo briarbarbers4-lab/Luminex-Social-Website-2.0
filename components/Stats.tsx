@@ -1,9 +1,9 @@
 export default function Stats() {
   const stats = [
-    { number: '03', label: 'Years' },
-    { number: '500+', label: 'Videos' },
-    { number: 'XM', label: 'Views' },
-    { number: '20+', label: 'Clients' },
+    { number: '03', label: 'Years', suffix: '' },
+    { number: '500', label: 'Videos', suffix: '+' },
+    { number: '50M', label: 'Views', suffix: '+' },
+    { number: '20', label: 'Clients', suffix: '+' },
   ]
 
   return (
@@ -14,6 +14,7 @@ export default function Stats() {
             <div key={idx} className="text-center">
               <div className="font-mono text-3xl md:text-4xl font-bold text-[#6366F1] mb-2">
                 {stat.number}
+                {stat.suffix && <span className="text-[#A855F7]">{stat.suffix}</span>}
               </div>
               <div className="font-mono text-xs uppercase tracking-widest text-[#CBD5E1]">
                 {stat.label}
