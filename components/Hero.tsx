@@ -104,15 +104,15 @@ export default function Hero() {
 
         {/* Headline - Scaled up for authority */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl text-left"
+          className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-8 max-w-4xl text-left"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '1.15',
+            lineHeight: '1.2',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
         >
-          Build Your Market Dominance Every Single Month Through Our{' '}
+          Build Market Dominance With{' '}
           <span 
             style={{ 
               background: 'linear-gradient(90deg, #6366F1, #A855F7)',
@@ -121,7 +121,7 @@ export default function Hero() {
               backgroundClip: 'text',
             }}
           >
-            AI-Driven Premium Content
+            AI-Driven Content
           </span>{' '}
           Systems
         </h1>
