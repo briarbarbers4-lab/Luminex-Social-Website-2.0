@@ -16,67 +16,70 @@ export default function Hero() {
       {/* Main Content - Full width with padding */}
       <div className="relative z-10 w-full px-8 md:px-16 lg:px-20 py-20 pt-32">
         {/* Eyebrow Tag */}
-        <div className="flex items-center gap-2 mb-6">
+        <div 
+          className="inline-flex items-center px-3 py-1.5 rounded-full mb-4"
+          style={{ 
+            backgroundColor: '#1E293B',
+            border: '1px solid #CA8A04',
+            boxShadow: '0 0 8px rgba(202, 138, 4, 0.3)',
+          }}
+        >
           <span 
-            className="w-2 h-2 rounded-full"
-            style={{ backgroundColor: '#CA8A04' }}
-          />
-          <span 
-            className="text-xs tracking-widest uppercase"
-            style={{ fontFamily: 'var(--font-mono)', color: '#CA8A04' }}
+            className="text-xs tracking-wide"
+            style={{ fontFamily: 'var(--font-mono)', color: '#F1F5F9' }}
           >
-            ENTREPRENEURS:
+            // FOR FORWARD-THINKING FOUNDERS:
           </span>
         </div>
 
         {/* Headline - Reduced size, max 3 lines */}
         <h1 
-          className="text-3xl sm:text-4xl md:text-5xl font-black mb-6 max-w-4xl"
+          className="text-3xl sm:text-4xl md:text-5xl font-black mb-4 max-w-4xl"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '1.1',
+            lineHeight: '0.9',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
         >
-          Attract Qualified Leads to Your Business Every Single Month Through Our Done-For-You{' '}
-          <span style={{ color: '#CA8A04' }}>
-            YouTube Organic System
-          </span>
+          Build Your Market Dominance Every Single Month Through Our{' '}
+          <span 
+            style={{ 
+              background: 'linear-gradient(90deg, #6366F1, #A855F7)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
+            }}
+          >
+            AI-Driven Premium Content
+          </span>{' '}
+          Systems
         </h1>
 
         {/* Sub-headline */}
         <p 
-          className="text-base md:text-lg max-w-xl mb-10"
+          className="text-base md:text-lg max-w-xl mb-8"
           style={{ 
             fontFamily: 'var(--font-sans)',
             color: 'rgba(248, 250, 252, 0.7)',
             lineHeight: '1.6'
           }}
         >
-          Sign more clients without sending 50 DMs/day, sending 2000 cold emails/day, and spending a dime on paid ads
+          Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
         </p>
 
         {/* Buttons */}
         <div className="flex flex-row gap-4 items-center">
-          {/* Book A Call - Primary with gold border */}
+          {/* Book A Call - Primary with gradient and gold border */}
           <button 
-            className="flex items-center gap-2 px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
+            className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
             style={{
-              background: '#F1F5F9',
-              color: '#0B0E14',
+              background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
+              color: '#F1F5F9',
+              border: '2px solid #CA8A04',
+              boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
             }}
           >
-            <span 
-              className="w-6 h-6 rounded flex items-center justify-center text-xs font-bold"
-              style={{ 
-                background: 'linear-gradient(135deg, #0B0E14, #1E293B)',
-                color: '#CA8A04',
-                border: '1px solid #CA8A04'
-              }}
-            >
-              C
-            </span>
             Book A Call
           </button>
 
@@ -93,24 +96,6 @@ export default function Hero() {
           </button>
         </div>
 
-        {/* Our Partners - Positioned right */}
-        <div 
-          className="absolute right-16 lg:right-24 bottom-32 hidden md:flex flex-col items-center"
-        >
-          <div 
-            className="px-4 py-2 rounded-full"
-            style={{ 
-              border: '1px dashed #CA8A04',
-            }}
-          >
-            <span 
-              className="text-sm italic"
-              style={{ fontFamily: 'var(--font-sans)', color: '#CA8A04' }}
-            >
-              Our Partners
-            </span>
-          </div>
-        </div>
       </div>
 
       {/* Trust Bar - Bottom */}
