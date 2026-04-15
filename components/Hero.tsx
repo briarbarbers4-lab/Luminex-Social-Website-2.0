@@ -136,7 +136,7 @@ export default function Hero() {
             maxWidth: '800px',
           }}
         >
-          Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
+          On-Board more clients without relying on word of mouth, sending large volumes of outreach hoping someone replies. Build your brand, automate follow-ups and autopilot the business.
         </p>
 
         {/* Buttons */}
