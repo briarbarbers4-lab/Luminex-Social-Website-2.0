@@ -73,10 +73,10 @@ export default function Hero() {
 
         {/* Headline - 3 Lines */}
         <h1 
-          className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black mb-8 max-w-5xl text-left"
+          className="text-5xl sm:text-5xl md:text-6xl lg:text-6xl font-black mb-8 w-full text-left"
           style={{ 
             fontFamily: 'var(--font-heading)', 
-            lineHeight: '1.15',
+            lineHeight: '1.2',
             letterSpacing: '-0.02em',
             color: '#F1F5F9',
           }}
