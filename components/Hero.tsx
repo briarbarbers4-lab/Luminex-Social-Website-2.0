@@ -15,80 +15,82 @@ export default function Hero() {
 
       {/* Left Content - 50% */}
       <div className="relative z-10 w-full lg:w-1/2 px-6 md:px-12 lg:px-16 py-20 pt-32">
-        {/* Eyebrow Tag */}
-        <div 
-          className="inline-flex items-center px-4 py-2 rounded-full mb-8"
-          style={{
-            background: '#1E293B',
-            border: '1px solid #6366F1',
-            boxShadow: '0 0 12px rgba(99, 102, 241, 0.4), 0 0 24px rgba(99, 102, 241, 0.2)',
-          }}
-        >
-          <span 
-            className="text-xs md:text-sm tracking-wide"
-            style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
-          >
-            {'// FOR FORWARD-THINKING FOUNDERS:'}
-          </span>
-        </div>
-
-        {/* Headline */}
-        <h1 
-          className="text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black mb-6"
-          style={{ 
-            fontFamily: 'var(--font-heading)', 
-            lineHeight: '0.95',
-            letterSpacing: '-0.02em',
-            color: '#F1F5F9',
-          }}
-        >
-          Build Your Market Dominance Every Single Month Through Our{' '}
-          <span 
-            className="bg-clip-text text-transparent"
-            style={{ backgroundImage: 'linear-gradient(to right, #6366F1, #A855F7)' }}
-          >
-            AI-Driven Premium Content
-          </span>{' '}
-          Systems
-        </h1>
-
-        {/* Sub-headline */}
-        <p 
-          className="text-base md:text-lg lg:text-xl max-w-xl mb-10"
-          style={{ 
-            fontFamily: 'var(--font-sans)',
-            color: 'rgba(248, 250, 252, 0.8)',
-            lineHeight: '1.6'
-          }}
-        >
-          Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
-        </p>
-
-        {/* Buttons */}
-        <div className="flex flex-row gap-4 items-center">
-          {/* Book A Call - Primary with gold border */}
-          <button 
-            className="px-8 py-4 rounded-lg font-semibold text-base md:text-lg transition-all transform hover:scale-105"
+        {/* Content container with max-width constraint */}
+        <div className="max-w-[750px]">
+          {/* Eyebrow Tag */}
+          <div 
+            className="inline-flex items-center px-3 py-1.5 rounded-full mb-4"
             style={{
-              background: 'linear-gradient(to right, #1E1B4B, #4C1D95)',
-              border: '2px solid #CA8A04',
-              color: '#F1F5F9',
+              background: '#1E293B',
+              border: '1px solid #CA8A04',
             }}
           >
-            Book A Call
-          </button>
+            <span 
+              className="text-xs tracking-wide"
+              style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
+            >
+              {'// FOR FORWARD-THINKING FOUNDERS'}
+            </span>
+          </div>
 
-          {/* Learn More - Ghost button */}
-          <button 
-            className="flex items-center gap-2 px-8 py-4 rounded-lg bg-transparent font-semibold text-base md:text-lg transition-all hover:bg-[#1E293B]/30"
+          {/* Headline */}
+          <h1 
+            className="text-5xl md:text-6xl font-black mb-4"
             style={{ 
-              border: '1px solid #1E293B',
+              fontFamily: 'var(--font-heading)', 
+              lineHeight: '0.9',
+              letterSpacing: '-0.02em',
               color: '#F1F5F9',
             }}
           >
-            Learn More
-            <ChevronDown className="w-4 h-4" />
-          </button>
+            Build Your Market Dominance Every Single Month Through Our{' '}
+            <span 
+              className="bg-clip-text text-transparent"
+              style={{ backgroundImage: 'linear-gradient(to right, #6366F1, #A855F7)' }}
+            >
+              AI-Driven Premium Content
+            </span>{' '}
+            Systems
+          </h1>
+
+          {/* Sub-headline */}
+          <p 
+            className="text-lg max-w-[600px] mb-8"
+            style={{ 
+              fontFamily: 'var(--font-sans)',
+              color: 'rgba(248, 250, 252, 0.7)',
+              lineHeight: '1.5'
+            }}
+          >
+            Scale your brand authority without spending 10 hours on scripts, managing disjointed editors, or wasting a penny on inefficient outreach.
+          </p>
+
+          {/* Buttons */}
+          <div className="flex flex-row gap-4 items-center">
+            {/* Book A Call - Primary with gold border */}
+            <button 
+              className="px-6 py-3 rounded-lg font-semibold text-base transition-all transform hover:scale-105"
+              style={{
+                background: 'linear-gradient(to right, #1E1B4B, #4C1D95)',
+                border: '2px solid #CA8A04',
+                color: '#F1F5F9',
+              }}
+            >
+              Book A Call
+            </button>
+
+            {/* Learn More - Ghost button */}
+            <button 
+              className="flex items-center gap-2 px-6 py-3 rounded-lg bg-transparent font-semibold text-base transition-all hover:bg-[#1E293B]/30"
+              style={{ 
+                border: '1px solid #1E293B',
+                color: '#F1F5F9',
+              }}
+            >
+              Learn More
+              <ChevronDown className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
 
