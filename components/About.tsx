@@ -83,7 +83,7 @@ export default function About() {
                     letterSpacing: '0.1em',
                   }}
                 >
-                  AYYAN KHATTAK // AI Automation Lead
+                  AYYAN KHATTAK | AI Automation Chief | Co-Founder
                 </p>
               </div>
 
@@ -104,7 +104,7 @@ export default function About() {
                     letterSpacing: '0.1em',
                   }}
                 >
-                  FURQAN SHAHID // Content & Narrative Lead
+                  FURQAN SHAHID | Content & Editing Chief | Co-Founder
                 </p>
               </div>
             </div>
