@@ -29,36 +29,12 @@ const WhatsAppIcon = () => (
   </svg>
 )
 
-const ZapierIcon = () => (
+const CapCutIcon = () => (
   <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-    <path d="M15.088 4.372l-.688 4.48h-4.8l-.688-4.48h-4.8L6.64 8.852l-3.392 3.392 4.48.688v4.8l-4.48.688 3.392 3.392 3.392-3.392.688-4.48h4.8l.688 4.48 3.392 3.392 3.392-3.392-4.48-.688v-4.8l4.48-.688-3.392-3.392-3.392 3.392zm-1.584 7.632h-3.008v-3.008h3.008z" />
-  </svg>
-)
-
-const MakeIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-    <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-1 15.5v-4.17L7.12 17.21 5.71 15.8 9.59 11.5H5.5v-2h5.5v8zm7.5-6.5h-5.5v-2h4.17L13.29 5.12l1.41-1.41L18.59 7.6V3.5h2V11z" />
-  </svg>
-)
-
-const GoHighLevelIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-    <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5" stroke="currentColor" strokeWidth="1.8" fill="none" strokeLinecap="round" strokeLinejoin="round" />
-  </svg>
-)
-
-const N8nIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-    <path d="M12.76 2.06a1.5 1.5 0 00-1.52 0L3.32 6.62a1.5 1.5 0 00-.76 1.3v9.16a1.5 1.5 0 00.76 1.3l7.92 4.56a1.5 1.5 0 001.52 0l7.92-4.56a1.5 1.5 0 00.76-1.3V7.92a1.5 1.5 0 00-.76-1.3L12.76 2.06z" fill="none" stroke="currentColor" strokeWidth="1.4" strokeLinejoin="round" />
-    <text x="12" y="14.5" textAnchor="middle" fontSize="7" fontWeight="bold" fill="currentColor" fontFamily="sans-serif">n8n</text>
-  </svg>
-)
-
-const VoiceflowIcon = () => (
-  <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
-    <path d="M12 2a10 10 0 100 20 10 10 0 000-20z" fill="none" stroke="currentColor" strokeWidth="1.4" />
-    <path d="M8 9.5l4 5 4-5" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/>
-    <circle cx="12" cy="8" r="1.5" fill="currentColor" />
+    <path d="M9 2a7 7 0 107 7" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" />
+    <path d="M16 9l-4 3 4 3V9z" fill="currentColor" />
+    <circle cx="9" cy="16" r="3" fill="none" stroke="currentColor" strokeWidth="1.4" />
+    <circle cx="9" cy="16" r="1" fill="currentColor" />
   </svg>
 )
 
@@ -77,16 +53,19 @@ const DotSeparator = () => (
 
 /* ──────────────── Component ──────────────── */
 
-const techs = [
-  { name: 'Instagram',   Icon: InstagramIcon   },
-  { name: 'TikTok',      Icon: TikTokIcon      },
-  { name: 'YouTube',     Icon: YouTubeIcon     },
-  { name: 'WhatsApp',    Icon: WhatsAppIcon    },
-  { name: 'Zapier',      Icon: ZapierIcon      },
-  { name: 'Make.com',    Icon: MakeIcon        },
-  { name: 'GoHighLevel', Icon: GoHighLevelIcon },
-  { name: 'n8n',         Icon: N8nIcon         },
-  { name: 'Voiceflow',   Icon: VoiceflowIcon   },
+const techs: { name: string; Icon?: React.FC; img?: string }[] = [
+  { name: 'Instagram',    Icon: InstagramIcon },
+  { name: 'TikTok',       Icon: TikTokIcon    },
+  { name: 'YouTube',      Icon: YouTubeIcon   },
+  { name: 'WhatsApp',     Icon: WhatsAppIcon  },
+  { name: 'Zapier',       img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/Zapier-Logo-PNG1.png' },
+  { name: 'Make.com',     img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/Make.com-Logo-PNG-2.png' },
+  { name: 'n8n',          img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/n8n-seeklogo.png' },
+  { name: 'Voiceflow',    img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/voiceflow-seeklogo.png' },
+  { name: 'Premiere Pro', img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/adobe-premiere-seeklogo.png' },
+  { name: 'Photoshop',    img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/adobe-photoshop-seeklogo.png' },
+  { name: 'DaVinci',      img: 'https://ik.imagekit.io/rqhbqqo2qx/logos%20of%20softwares/davinci-resolve-seeklogo.png' },
+  { name: 'CapCut',       Icon: CapCutIcon    },
 ]
 
 export default function TechMarquee() {
@@ -152,9 +131,20 @@ export default function TechMarquee() {
                   }}
                 />
 
-                {/* Icon */}
+                {/* Icon / Logo */}
                 <div className="tech-icon relative z-10 transition-all duration-400" style={{ color: 'rgba(148,163,184,0.6)' }}>
-                  <tech.Icon />
+                  {tech.img ? (
+                    <img
+                      src={tech.img}
+                      alt={tech.name}
+                      width={28}
+                      height={28}
+                      style={{ width: '28px', height: '28px', objectFit: 'contain' }}
+                      draggable={false}
+                    />
+                  ) : tech.Icon ? (
+                    <tech.Icon />
+                  ) : null}
                 </div>
 
                 {/* Name */}
