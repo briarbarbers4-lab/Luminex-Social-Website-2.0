@@ -27,30 +27,6 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100vh] flex items-center overflow-hidden" style={{ background: '#0B0E14' }}>
-      {/* Base Background Image */}
-      <div
-        className="absolute inset-0 z-[0] pointer-events-none"
-        style={{
-          backgroundImage: 'url("https://ik.imagekit.io/rqhbqqo2qx/Hero%20background%202.png")',
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundRepeat: 'no-repeat',
-          opacity: 0.6,
-        }}
-      />
-
-      {/* Bottom merge layer with blur and gradient color fade */}
-      <div
-        className="absolute bottom-0 left-0 w-full h-48 z-[1] pointer-events-none"
-        style={{
-          background: 'linear-gradient(to bottom, transparent, #0B0E14)',
-          backdropFilter: 'blur(8px)',
-          WebkitBackdropFilter: 'blur(8px)',
-          maskImage: 'linear-gradient(to bottom, transparent, black)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black)',
-        }}
-      />
-
       {/* Layer 1: Noise/grain texture at 0.05 opacity */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
