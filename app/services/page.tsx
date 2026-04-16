@@ -80,24 +80,22 @@ export default function ServicesPage() {
 
       {/* ── 2. Section 01: Narrative (Content Creation) ── */}
       <section className="relative py-24 px-4 overflow-hidden" style={{ background: '#0B0E14' }}>
-        {/* Static Noise Background */}
-        <div
-          className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
-          style={{
-            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
-          }}
-        />
-        
-        {/* 1px Technical Grid for depth */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `linear-gradient(rgba(30, 41, 59, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.2) 1px, transparent 1px)`,
-            backgroundSize: '40px 40px',
-            maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
-          }}
-        />
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            src="https://ik.imagekit.io/rqhbqqo2qx/15283259_1920_1080_60fps.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{
+              filter: 'saturate(0) blur(8px) brightness(0.3)',
+            }}
+          />
+        </div>
+        {/* Darkening Overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none bg-[#0B0E14]/60" />
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
           <h2
@@ -164,35 +162,22 @@ export default function ServicesPage() {
 
       {/* ── 3. Section 02: Logic (AI & Automation) ── */}
       <section className="relative py-24 px-4 overflow-hidden bg-[#0B0E14]">
-        {/* Technical Grid Overlay */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(30, 41, 59, 1) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(30, 41, 59, 1) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px',
-            opacity: 0.2, // Subtle
-            maskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-            WebkitMaskImage: 'radial-gradient(ellipse at center, black 40%, transparent 80%)',
-          }}
-        />
-
-        {/* CRT Scanline Overlay */}
-        <div
-          className="absolute inset-0 z-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage: 'repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(30,41,59,0.3) 2px, rgba(30,41,59,0.3) 4px)',
-          }}
-        />
-
-        {/* Animated Data Pulses via CSS */}
-        <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <div className="absolute top-1/4 -left-10 w-2 h-2 bg-[#6366F1] rounded-full shadow-[0_0_15px_#6366F1] animate-data-pulse-1" />
-          <div className="absolute top-2/4 -right-10 w-2 h-2 bg-[#6366F1] rounded-full shadow-[0_0_15px_#6366F1] animate-data-pulse-2" />
-          <div className="absolute top-3/4 -left-10 w-2 h-2 bg-[#6366F1] rounded-full shadow-[0_0_15px_#6366F1] animate-data-pulse-3" />
+        {/* Background Video */}
+        <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
+          <video
+            src="https://ik.imagekit.io/rqhbqqo2qx/203986-923133871.mp4"
+            autoPlay
+            loop
+            muted
+            playsInline
+            className="w-full h-full object-cover"
+            style={{
+              filter: 'saturate(0.5) blur(8px) brightness(0.3)',
+            }}
+          />
         </div>
+        {/* Darkening Overlay */}
+        <div className="absolute inset-0 z-[1] pointer-events-none bg-[#0B0E14]/60" />
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
           <h2
@@ -253,6 +238,125 @@ export default function ServicesPage() {
                 </div>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEW: Technical Specifications ── */}
+      <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
+        <div className="max-w-5xl w-full mx-auto">
+          <h2 className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+            Technical Specifications
+          </h2>
+          <div className="overflow-x-auto w-full">
+            <table className="w-full text-left border-collapse" style={{ backgroundColor: '#1E293B', borderColor: '#F8FAFC', borderWidth: '1px' }}>
+              <thead>
+                <tr className="border-b" style={{ borderColor: '#F8FAFC' }}>
+                  <th className="p-6 text-sm uppercase tracking-widest text-[#F8FAFC]" style={{ fontFamily: 'var(--font-heading)' }}>Parameter</th>
+                  <th className="p-6 text-sm uppercase tracking-widest text-[#F8FAFC] border-none md:border-l" style={{ fontFamily: 'var(--font-heading)', borderColor: '#F8FAFC' }}>Content Specs</th>
+                  <th className="p-6 text-sm uppercase tracking-widest text-[#F8FAFC] border-none md:border-l" style={{ fontFamily: 'var(--font-heading)', borderColor: '#F8FAFC' }}>Automation Specs</th>
+                </tr>
+              </thead>
+              <tbody style={{ fontFamily: 'var(--font-mono)' }} className="text-sm">
+                <tr className="border-b" style={{ borderColor: '#F8FAFC' }}>
+                  <td className="p-6 font-semibold" style={{ color: '#E2E8F0' }}>Architecture</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#6366F1' }}>Non-Linear Edits</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#CA8A04' }}>Event-Driven Hooks</td>
+                </tr>
+                <tr className="border-b" style={{ borderColor: '#F8FAFC' }}>
+                  <td className="p-6 font-semibold" style={{ color: '#E2E8F0' }}>Latency / Turnaround</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#6366F1' }}>48hr Batch Delivery</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#CA8A04' }}>&lt; 500ms API Rest</td>
+                </tr>
+                <tr className="border-b" style={{ borderColor: '#F8FAFC' }}>
+                  <td className="p-6 font-semibold" style={{ color: '#E2E8F0' }}>Volume Limit</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#6366F1' }}>60 Assets / Month</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#CA8A04' }}>Uncapped I/O</td>
+                </tr>
+                <tr>
+                  <td className="p-6 font-semibold" style={{ color: '#E2E8F0' }}>Retention Target</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#6366F1' }}>65%+ (3 sec mark)</td>
+                  <td className="p-6 border-none md:border-l" style={{ borderColor: '#F8FAFC', color: '#CA8A04' }}>99% Uptime</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEW: The Infrastructure Stack ── */}
+      <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
+        <div className="max-w-5xl w-full mx-auto">
+          <h2 className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+            The Infrastructure Stack
+          </h2>
+          <div className="flex flex-wrap justify-center gap-4">
+            {[
+              '[ n8n_Core ]', '[ GPT-4o_Engine ]', '[ Claude_3.5_Sonnet ]', '[ Vapi_Voice ]',
+              '[ Retell_AI ]', '[ ElevenLabs_TTS ]', '[ Make.com ]', '[ Meta_Graph_API ]',
+              '[ Premiere_Pro ]', '[ After_Effects ]', '[ DaVinci_Node ]', '[ Figma_UI ]'
+            ].map((tag, idx) => (
+              <div 
+                key={idx}
+                className="px-5 py-3 text-sm tracking-widest border"
+                style={{
+                  backgroundColor: '#1E293B',
+                  borderColor: '#F8FAFC',
+                  fontFamily: 'var(--font-mono)',
+                  color: '#E2E8F0'
+                }}
+              >
+                {tag}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── NEW: The Lifecycle Map ── */}
+      <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
+        <div className="max-w-4xl w-full mx-auto">
+          <h2 className="text-3xl font-bold mb-16 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+            The Lifecycle Map
+          </h2>
+          <div className="relative pl-8 md:pl-0">
+            {/* Vertical Line */}
+            <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-px -translate-x-1/2" style={{ backgroundColor: '#F8FAFC' }} />
+
+            {/* Timeline Elements */}
+            <div className="space-y-12">
+              {[
+                { day: 'Day 01', title: 'System Onboarding & Architecture Planning', desc: 'Full deep dive into your offer, scripting formats, and backend CRM.' },
+                { day: 'Day 07', title: 'First Content Batch Initiated', desc: 'Delivery of the first batch of heavily scripted, shot, and edited high-retention short forms.' },
+                { day: 'Day 14', title: 'Automated Workflows Go Live', desc: 'n8n pipelines fully connect. First automated incoming leads routed instantly via Webhook.' },
+                { day: 'Day 21', title: 'AI Agents Deployed', desc: 'Inbound chat agents intercept DMs; Voice agents begin processing pre-calls.' },
+                { day: 'Day 30', title: 'Ecosystem Optimization', desc: 'Full infrastructure firing simultaneously. We review metrics, optimize hook retention & iterate agent prompts.' }
+              ].map((step, idx) => (
+                <div key={idx} className={`relative flex flex-col md:flex-row items-center justify-between group ${idx % 2 === 0 ? 'md:flex-row-reverse' : ''}`}>
+                  
+                  {/* Point */}
+                  <div className="absolute left-0 md:left-1/2 w-4 h-4 rounded-full -translate-x-1/2 z-10" style={{ backgroundColor: '#CA8A04', border: '2px solid #0B0E14' }} />
+
+                  {/* Spacer for Alternate Layout */}
+                  <div className="hidden md:block w-1/2" />
+
+                  {/* Card */}
+                  <div className={`w-full md:w-1/2 pl-8 md:pl-0 md:px-8 mt-4 md:mt-0`}>
+                    <div className="p-6 border" style={{ backgroundColor: '#1E293B', borderColor: '#F8FAFC' }}>
+                      <span className="text-xs tracking-widest block mb-2 font-bold" style={{ fontFamily: 'var(--font-mono)', color: '#6366F1' }}>
+                        // {step.day}
+                      </span>
+                      <h3 className="text-lg font-bold mb-2 text-[#F8FAFC]" style={{ fontFamily: 'var(--font-heading)' }}>
+                        {step.title}
+                      </h3>
+                      <p className="text-sm leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: '#E2E8F0' }}>
+                        {step.desc}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
