@@ -54,18 +54,12 @@ export default function Navbar() {
         <div className="px-8 py-3 flex items-center justify-between gap-8">
           {/* Desktop Links */}
           <div className="hidden md:flex items-center gap-6">
-            <a href="#work" onClick={(e) => handleNavClick(e, '#work')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
-              Work
-            </a>
+            <Link href="/" className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
+              Home
+            </Link>
             <Link href="/services" className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
               Services
             </Link>
-            <a href="#process" onClick={(e) => handleNavClick(e, '#process')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
-              Process
-            </a>
-            <a href="#testimonials" onClick={(e) => handleNavClick(e, '#testimonials')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
-              Testimonials
-            </a>
           </div>
 
           {/* CTA Button */}
@@ -116,18 +110,12 @@ export default function Navbar() {
         {isOpen && (
           <div className="md:hidden bg-[#1E293B]/80 backdrop-blur-lg border-t border-[#334155]/50 rounded-b-3xl">
             <div className="flex flex-col gap-4 px-8 py-4">
-              <a href="#work" onClick={(e) => handleNavClick(e, '#work')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
-                Work
-              </a>
+              <Link href="/" onClick={() => setIsOpen(false)} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
+                Home
+              </Link>
               <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
                 Services
               </Link>
-              <a href="#process" onClick={(e) => handleNavClick(e, '#process')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
-                Process
-              </a>
-              <a href="#testimonials" onClick={(e) => handleNavClick(e, '#testimonials')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
-                Testimonials
-              </a>
             </div>
           </div>
         )}
