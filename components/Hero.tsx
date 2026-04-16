@@ -27,72 +27,49 @@ export default function Hero() {
 
   return (
     <section className="relative min-h-[100vh] flex items-center overflow-hidden" style={{ background: '#0B0E14' }}>
-      {/* Background Video */}
-      <video
-        className="absolute inset-0 w-full h-full object-cover"
-        autoPlay
-        loop
-        muted
-        playsInline
-        style={{
-          filter: 'saturate(0.3) brightness(0.7)',
-          zIndex: 0,
-        }}
-      >
-        <source
-          src="https://videos.pexels.com/video-files/3571200/3571200-hd_1920_1080_30fps.mp4"
-          type="video/mp4"
-        />
-      </video>
-
-      {/* Layer 1: 70% opacity dark overlay on video */}
+      {/* Layer 1: Noise/grain texture at 0.05 opacity */}
       <div
-        className="absolute inset-0 z-[1]"
-        style={{ backgroundColor: 'rgba(11, 14, 20, 0.70)' }}
+        className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+        }}
       />
 
-      {/* Layer 2: Noise/grain texture at 5% opacity */}
+      {/* Layer 2: 40px CSS grid overlay using linear-gradient at 15% opacity with fading edges */}
       <div
         className="absolute inset-0 z-[2] pointer-events-none"
         style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
-          opacity: 1,
-        }}
-      />
-
-      {/* Layer 3: 40px CSS grid overlay at 10% opacity */}
-      <div
-        className="absolute inset-0 z-[3] pointer-events-none"
-        style={{
           backgroundImage: `
-            linear-gradient(rgba(30, 41, 59, 0.10) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(30, 41, 59, 0.10) 1px, transparent 1px)
+            linear-gradient(rgba(30, 41, 59, 0.15) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(30, 41, 59, 0.15) 1px, transparent 1px)
           `,
           backgroundSize: '40px 40px',
+          maskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)',
+          WebkitMaskImage: 'radial-gradient(ellipse at center, black 20%, transparent 80%)',
         }}
       />
 
-      {/* Layer 4: Deep Amethyst atmospheric glow — bottom-right */}
+      {/* Layer 3: Deep Amethyst radial glow — top-left (15% opacity), Drifting */}
       <div
-        className="absolute pointer-events-none z-[4]"
+        className="absolute pointer-events-none z-[3] animate-drift-1"
+        style={{
+          top: '-20%',
+          left: '-10%',
+          width: '800px',
+          height: '800px',
+          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 65%)',
+        }}
+      />
+
+      {/* Layer 4: Muted Gold radial glow — bottom-right (5% opacity), Drifting */}
+      <div
+        className="absolute pointer-events-none z-[3] animate-drift-2"
         style={{
           bottom: '-20%',
           right: '-10%',
-          width: '900px',
-          height: '900px',
-          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.08) 0%, transparent 65%)',
-        }}
-      />
-
-      {/* Layer 5: Secondary subtle glow — top-left for balance */}
-      <div
-        className="absolute pointer-events-none z-[4]"
-        style={{
-          top: '-15%',
-          left: '-5%',
-          width: '700px',
-          height: '700px',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 60%)',
+          width: '800px',
+          height: '800px',
+          background: 'radial-gradient(circle, rgba(202, 138, 4, 0.05) 0%, transparent 65%)',
         }}
       />
 
@@ -221,10 +198,29 @@ export default function Hero() {
             <ChevronDown className="w-4 h-4" />
           </button>
         </div>
-
       </div>
 
-
+      {/* ── Scoped Styles ── */}
+      <style jsx>{`
+        @keyframes drift {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+        @keyframes drift-reverse {
+          0% { transform: translate(0, 0) scale(1); }
+          33% { transform: translate(-30px, 50px) scale(1.1); }
+          66% { transform: translate(20px, -20px) scale(0.9); }
+          100% { transform: translate(0, 0) scale(1); }
+        }
+        .animate-drift-1 {
+          animation: drift 20s ease-in-out infinite;
+        }
+        .animate-drift-2 {
+          animation: drift-reverse 25s ease-in-out infinite;
+        }
+      `}</style>
     </section>
   )
 }
