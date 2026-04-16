@@ -57,9 +57,9 @@ export default function Navbar() {
             <a href="#work" onClick={(e) => handleNavClick(e, '#work')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
               Work
             </a>
-            <a href="#services" onClick={(e) => handleNavClick(e, '#services')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
+            <Link href="/services" className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
               Services
-            </a>
+            </Link>
             <a href="#process" onClick={(e) => handleNavClick(e, '#process')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors font-mono text-sm">
               Process
             </a>
@@ -119,9 +119,9 @@ export default function Navbar() {
               <a href="#work" onClick={(e) => handleNavClick(e, '#work')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
                 Work
               </a>
-              <a href="#services" onClick={(e) => handleNavClick(e, '#services')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
+              <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
                 Services
-              </a>
+              </Link>
               <a href="#process" onClick={(e) => handleNavClick(e, '#process')} className="text-[#F8FAFC] hover:text-[#6366F1] transition-colors">
                 Process
               </a>

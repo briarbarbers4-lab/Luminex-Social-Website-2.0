@@ -125,10 +125,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: 'Short Form Editing', href: '#services' },
-                { label: 'Long Form Editing', href: '#services' },
-                { label: 'AI Automation', href: '#services' },
-                { label: 'Content Creation', href: '#services' },
+                { label: 'Short Form Editing', href: '/services' },
+                { label: 'Long Form Editing', href: '/services' },
+                { label: 'AI Automation', href: '/services' },
+                { label: 'Content Creation', href: '/services' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
