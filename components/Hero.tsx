@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100vh] flex items-center bg-[#0B0E14] overflow-hidden">
+    <section className="relative min-h-[100vh] flex items-center overflow-hidden" style={{ background: '#0B0E14' }}>
       {/* Background Video */}
       <video
         className="absolute inset-0 w-full h-full object-cover"
@@ -35,7 +35,7 @@ export default function Hero() {
         muted
         playsInline
         style={{
-          filter: 'saturate(0.4) brightness(0.8)',
+          filter: 'saturate(0.3) brightness(0.7)',
           zIndex: 0,
         }}
       >
@@ -45,20 +45,54 @@ export default function Hero() {
         />
       </video>
 
-      {/* Dark Overlay with Noise */}
+      {/* Layer 1: 70% opacity dark overlay on video */}
       <div
         className="absolute inset-0 z-[1]"
+        style={{ backgroundColor: 'rgba(11, 14, 20, 0.70)' }}
+      />
+
+      {/* Layer 2: Noise/grain texture at 5% opacity */}
+      <div
+        className="absolute inset-0 z-[2] pointer-events-none"
         style={{
-          backgroundColor: 'rgba(11, 14, 20, 0.75)',
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E")`,
+          opacity: 1,
         }}
       />
 
-      {/* Faint purple radial glow behind text */}
+      {/* Layer 3: 40px CSS grid overlay at 10% opacity */}
       <div
-        className="absolute top-1/2 left-1/3 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[1000px] pointer-events-none z-[2]"
+        className="absolute inset-0 z-[3] pointer-events-none"
         style={{
-          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.15) 0%, transparent 60%)',
+          backgroundImage: `
+            linear-gradient(rgba(30, 41, 59, 0.10) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(30, 41, 59, 0.10) 1px, transparent 1px)
+          `,
+          backgroundSize: '40px 40px',
+        }}
+      />
+
+      {/* Layer 4: Deep Amethyst atmospheric glow — bottom-right */}
+      <div
+        className="absolute pointer-events-none z-[4]"
+        style={{
+          bottom: '-20%',
+          right: '-10%',
+          width: '900px',
+          height: '900px',
+          background: 'radial-gradient(circle, rgba(76, 29, 149, 0.08) 0%, transparent 65%)',
+        }}
+      />
+
+      {/* Layer 5: Secondary subtle glow — top-left for balance */}
+      <div
+        className="absolute pointer-events-none z-[4]"
+        style={{
+          top: '-15%',
+          left: '-5%',
+          width: '700px',
+          height: '700px',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.04) 0%, transparent 60%)',
         }}
       />
 
