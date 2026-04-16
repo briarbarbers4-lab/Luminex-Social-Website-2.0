@@ -38,7 +38,7 @@ export default function Footer() {
                 className="font-bold text-xl tracking-tight transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}
               >
-                Luminex<span style={{ color: '#6366F1' }}>.</span>
+                Luminex Social<span style={{ color: '#6366F1' }}>.</span>
               </span>
             </Link>
 
@@ -125,9 +125,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: 'Short Form', href: '#services' },
+                { label: 'Short Form Editing', href: '#services' },
+                { label: 'Long Form Editing', href: '#services' },
                 { label: 'AI Automation', href: '#services' },
-                { label: 'Lead Systems', href: '#services' },
+                { label: 'Content Creation', href: '#services' },
               ].map((link) => (
                 <li key={link.label}>
                   <a

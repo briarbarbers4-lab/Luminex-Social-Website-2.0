@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 
 export default function AIInfrastructure() {
   const [pulses, setPulses] = useState<{ id: number; progress: number }[]>([])
-  
+
   // Custom terminal string to look alive
   const terminalLog = "[ STATUS ] DEPLOYING N8N_WORKFLOW... DONE | VOICE_AGENT_CORE... ACTIVE | LATENCY... 120ms"
   const [displayText, setDisplayText] = useState('')
@@ -89,7 +89,7 @@ export default function AIInfrastructure() {
               fontFamily: 'var(--font-sans)',
             }}
           >
-            Blueprint
+            AI AUTOMATION
           </span>
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
         </div>
@@ -108,7 +108,7 @@ export default function AIInfrastructure() {
 
         {/* 3-Column Systems Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          
+
           {/* Animated Connecting Data Trails (Desktop Only for visual structure) */}
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
@@ -135,7 +135,7 @@ export default function AIInfrastructure() {
               // Is this pulse going between col1 & col2? or col2 & col3?
               const isFirstGap = idx % 2 === 0
               const xStart = isFirstGap ? 33 : 66
-              const xEnd = isFirstGap ? 66 : 99 
+              const xEnd = isFirstGap ? 66 : 99
               // We'll interpolate between start and end using pulse.progress (0-100)
               const xPos = xStart + (pulse.progress / 100) * (xEnd - xStart)
               const yPos = row * 120
@@ -152,7 +152,7 @@ export default function AIInfrastructure() {
                     // Fade out at edges of segment
                     opacity:
                       pulse.progress < 10 ? pulse.progress / 10 :
-                      pulse.progress > 90 ? (100 - pulse.progress) / 10 : 1
+                        pulse.progress > 90 ? (100 - pulse.progress) / 10 : 1
                   }}
                 />
               )
@@ -184,8 +184,8 @@ export default function AIInfrastructure() {
                 }}
               >
                 {/* ID Tag */}
-                <span 
-                  className="absolute bottom-2 right-3 text-[10px]" 
+                <span
+                  className="absolute bottom-2 right-3 text-[10px]"
                   style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
                 >
                   // SYS_1{idx + 1}
@@ -228,8 +228,8 @@ export default function AIInfrastructure() {
                 }}
               >
                 {/* ID Tag */}
-                <span 
-                  className="absolute bottom-2 right-3 text-[10px]" 
+                <span
+                  className="absolute bottom-2 right-3 text-[10px]"
                   style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
                 >
                   // SYS_2{idx + 1}
@@ -272,8 +272,8 @@ export default function AIInfrastructure() {
                 }}
               >
                 {/* ID Tag */}
-                <span 
-                  className="absolute bottom-2 right-3 text-[10px]" 
+                <span
+                  className="absolute bottom-2 right-3 text-[10px]"
                   style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
                 >
                   // SYS_3{idx + 1}
