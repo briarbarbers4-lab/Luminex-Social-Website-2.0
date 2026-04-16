@@ -4,8 +4,13 @@ import { useEffect, useState } from 'react'
 
 export default function AIInfrastructure() {
   const [pulses, setPulses] = useState<{ id: number; progress: number }[]>([])
-  const [logLines, setLogLines] = useState<string[]>([])
+  
+  // Custom terminal string to look alive
+  const terminalLog = "[ STATUS ] DEPLOYING N8N_WORKFLOW... DONE | VOICE_AGENT_CORE... ACTIVE | LATENCY... 120ms"
+  const [displayText, setDisplayText] = useState('')
+  const [showCursor, setShowCursor] = useState(true)
 
+  // Data pulses animation
   useEffect(() => {
     const pulseIds = Array.from({ length: 6 }, (_, i) => ({ id: i, progress: (i * 16) % 100 }))
     setPulses(pulseIds)
@@ -14,244 +19,272 @@ export default function AIInfrastructure() {
       setPulses(prev =>
         prev.map(pulse => ({
           ...pulse,
-          progress: (pulse.progress + 1.5) % 100,
+          progress: (pulse.progress + 1.2) % 100, // Speed
         }))
       )
-    }, 50)
+    }, 30)
 
     return () => clearInterval(interval)
   }, [])
 
+  // Terminal typing effect
   useEffect(() => {
-    const logMessages = [
-      '[ 14:23:45 ] • SYSTEM INITIALIZED — All infrastructure online',
-      '[ 14:23:46 ] • LEAD EXTRACTION ACTIVE — 847 new prospects identified',
-      '[ 14:23:48 ] • CONTEXT ANALYSIS — 94.7% accuracy on prospecting',
-      '[ 14:23:50 ] • CRM SYNC COMPLETE — Zero-friction onboarding ready',
-      '[ 14:23:52 ] • SCHEDULING ENGINE — 23 automated sequences queued',
-      '[ 14:23:54 ] • SYSTEM HEALTH — 99.9% uptime maintained',
-    ]
+    let currentIndex = 0
+    const typingInterval = setInterval(() => {
+      if (currentIndex <= terminalLog.length) {
+        setDisplayText(terminalLog.slice(0, currentIndex))
+        currentIndex++
+      } else {
+        clearInterval(typingInterval)
+      }
+    }, 40) // Typing speed
 
-    setLogLines(logMessages)
+    return () => clearInterval(typingInterval)
+  }, [terminalLog])
 
-    const scrollInterval = setInterval(() => {
-      setLogLines(prev => {
-        const newLines = [...prev.slice(1), prev[0]]
-        return newLines
-      })
-    }, 3000)
-
-    return () => clearInterval(scrollInterval)
+  // Cursor blink
+  useEffect(() => {
+    const blinkInterval = setInterval(() => {
+      setShowCursor(prev => !prev)
+    }, 500)
+    return () => clearInterval(blinkInterval)
   }, [])
 
-  const inputItems = ['24/7 Lead Extraction', 'AI Appointment Setting']
-  const logicItems = ['Context-Aware Prospecting', 'Automated Content Scheduling']
-  const outputItems = ['Zero-Friction Onboarding', 'Autonomous CRM Management']
+  const col1Items = ['AI Voice Agents (Vapi/Retell)', '24/7 Intelligent Chatbots']
+  const col2Items = ['Custom n8n Enterprise Workflows', 'Autonomous AI Agents']
+  const col3Items = ['Workflow Optimization', 'Custom Web Infrastructure']
 
   return (
-    <section className="py-24 px-4 bg-[#0B0E14] relative overflow-hidden">
-      {/* Grid Background Pattern - 20px */}
+    <section className="py-24 px-4 relative overflow-hidden" style={{ backgroundColor: '#0B0E14' }}>
+      {/* Background Technical Grid Overlay */}
       <div
-        className="absolute inset-0"
+        className="absolute inset-0 pointer-events-none z-0"
         style={{
-          backgroundImage: `linear-gradient(rgba(30, 41, 59, 0.3) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.3) 1px, transparent 1px)`,
-          backgroundSize: '20px 20px',
+          backgroundImage: `linear-gradient(rgba(30, 41, 59, 0.4) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.4) 1px, transparent 1px)`,
+          backgroundSize: '40px 40px',
         }}
       />
 
-      {/* Radial Glow Background */}
+      {/* Radial Background Glow for depth */}
       <div
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none"
+        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none z-[1]"
         style={{
           width: '800px',
           height: '800px',
-          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.08) 0%, transparent 70%)',
-          filter: 'blur(80px)',
+          background: 'radial-gradient(circle, rgba(99, 102, 241, 0.05) 0%, transparent 60%)',
+          filter: 'blur(60px)',
         }}
       />
 
       <div className="max-w-7xl mx-auto relative z-10">
-        {/* Section Tag - Centered */}
+        {/* Section Tag */}
         <div className="flex items-center justify-center gap-3 mb-8">
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
           <span
-            className="text-sm font-medium px-6 py-3 rounded-full"
+            className="text-sm font-medium px-6 py-3 rounded-full uppercase tracking-widest"
             style={{
               color: '#6366F1',
-              backgroundColor: 'rgba(99, 102, 241, 0.1)',
-              border: '1px solid rgba(99, 102, 241, 0.3)',
+              backgroundColor: 'rgba(99, 102, 241, 0.05)',
+              border: '1px solid rgba(99, 102, 241, 0.2)',
               fontFamily: 'var(--font-sans)',
             }}
           >
-            AI AUTOMATION
+            Blueprint
           </span>
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
         </div>
 
         {/* Main Heading */}
         <h2
-          className="text-5xl md:text-6xl font-black mb-16 text-center"
+          className="text-5xl md:text-6xl font-black mb-20 text-center"
           style={{
             fontFamily: 'var(--font-heading)',
             color: '#F8FAFC',
-            letterSpacing: '-0.02em',
+            letterSpacing: '-0.04em', // Tightened explicitly
           }}
         >
           Engineered For Absolute Precision
         </h2>
 
-        {/* 3-Column Infrastructure Grid */}
+        {/* 3-Column Systems Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
-          {/* Animated connecting lines with pulses */}
+          
+          {/* Animated Connecting Data Trails (Desktop Only for visual structure) */}
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            style={{ zIndex: 0 }}
+            className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
+            style={{ zIndex: -1 }}
             preserveAspectRatio="none"
           >
-            {/* Lines connecting columns */}
-            <defs>
-              <linearGradient id="pulseGradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgba(99, 102, 241, 0)" />
-                <stop offset="50%" stopColor="rgba(99, 102, 241, 0.6)" />
-                <stop offset="100%" stopColor="rgba(99, 102, 241, 0)" />
-              </linearGradient>
-            </defs>
-
-            {/* Horizontal connecting lines */}
-            {[0, 1].map(rowIdx => (
+            {/* Horizontal connection lines spanning the columns */}
+            {[1, 2].map(rowIdx => (
               <line
                 key={`line-${rowIdx}`}
-                x1="33.33%"
-                y1={100 + rowIdx * 120}
-                x2="66.66%"
-                y2={100 + rowIdx * 120}
-                stroke="rgba(99, 102, 241, 0.2)"
+                x1="33%"
+                y1={rowIdx * 120}
+                x2="66%"
+                y2={rowIdx * 120}
+                stroke="rgba(99, 102, 241, 0.15)"
                 strokeWidth="1"
+                strokeDasharray="4 4"
               />
             ))}
 
-            {/* Animated pulse markers */}
+            {/* Render data pulses traveling Left -> Right */}
             {pulses.map((pulse, idx) => {
-              const row = Math.floor(idx / 2)
-              const isFirstToSecond = idx % 2 === 0
-              const x = isFirstToSecond ? 33.33 + (pulse.progress / 100) * 33.33 : 66.66 + (pulse.progress / 100) * 33.33
-              const y = 100 + row * 120
+              const row = Math.floor(idx / 2) + 1
+              // Is this pulse going between col1 & col2? or col2 & col3?
+              const isFirstGap = idx % 2 === 0
+              const xStart = isFirstGap ? 33 : 66
+              const xEnd = isFirstGap ? 66 : 99 
+              // We'll interpolate between start and end using pulse.progress (0-100)
+              const xPos = xStart + (pulse.progress / 100) * (xEnd - xStart)
+              const yPos = row * 120
 
               return (
                 <circle
                   key={`pulse-${pulse.id}`}
-                  cx={`${x}%`}
-                  cy={y}
-                  r="3"
+                  cx={`${xPos}%`}
+                  cy={yPos}
+                  r="2.5"
                   fill="#6366F1"
-                  opacity={Math.sin(pulse.progress * Math.PI / 100) * 0.8 + 0.2}
+                  style={{
+                    filter: 'drop-shadow(0 0 6px rgba(99,102,241,0.8))',
+                    // Fade out at edges of segment
+                    opacity:
+                      pulse.progress < 10 ? pulse.progress / 10 :
+                      pulse.progress > 90 ? (100 - pulse.progress) / 10 : 1
+                  }}
                 />
               )
             })}
           </svg>
 
-          {/* INPUT Column */}
+          {/* FRONT-END INTERACTION Column */}
           <div className="relative z-20 space-y-6">
             <h3
-              className="text-xs font-mono uppercase tracking-widest"
+              className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
-                color: '#6366F1',
-                letterSpacing: '0.15em',
+                fontFamily: 'var(--font-mono)',
               }}
             >
-              → INPUT
+              [ FRONT-END INTERACTION ]
             </h3>
-            {inputItems.map((item, idx) => (
+            {col1Items.map((item, idx) => (
               <div
                 key={idx}
-                className="relative group p-5 rounded-lg transition-all backdrop-blur-[20px] overflow-hidden"
+                className="relative group p-6 rounded-lg transition-all overflow-hidden"
                 style={{
                   backgroundColor: 'rgba(30, 41, 59, 0.4)',
-                  borderTop: '1px solid #F8FAFC',
-                  borderLeft: '1px solid #F8FAFC',
-                  borderRight: 'none',
-                  borderBottom: 'none',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                  borderTop: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderLeft: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderRight: '1px solid transparent',
+                  borderBottom: '1px solid transparent',
                 }}
               >
-                {/* Active Status Dot */}
+                {/* ID Tag */}
+                <span 
+                  className="absolute bottom-2 right-3 text-[10px]" 
+                  style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
+                >
+                  // SYS_1{idx + 1}
+                </span>
+
                 <div
-                  className="absolute top-3 right-3 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: '#2DD4BF' }}
+                  className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full"
+                  style={{ backgroundColor: '#2DD4BF', boxShadow: '0 0 8px rgba(45,212,191,0.5)' }}
                 />
 
-                <p className="text-sm text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
+                <p className="text-[15px] font-medium text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
                   {item}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* LOGIC Column */}
+          {/* BACKEND EXECUTION Column */}
           <div className="relative z-20 space-y-6">
             <h3
-              className="text-xs font-mono uppercase tracking-widest"
+              className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
-                color: '#6366F1',
-                letterSpacing: '0.15em',
+                fontFamily: 'var(--font-mono)',
               }}
             >
-              ⚙ LOGIC
+              [ BACKEND EXECUTION ]
             </h3>
-            {logicItems.map((item, idx) => (
+            {col2Items.map((item, idx) => (
               <div
                 key={idx}
-                className="relative group p-5 rounded-lg transition-all backdrop-blur-[20px] overflow-hidden"
+                className="relative group p-6 rounded-lg transition-all overflow-hidden"
                 style={{
                   backgroundColor: 'rgba(30, 41, 59, 0.4)',
-                  borderTop: '1px solid #F8FAFC',
-                  borderLeft: '1px solid #F8FAFC',
-                  borderRight: 'none',
-                  borderBottom: 'none',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                  borderTop: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderLeft: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderRight: '1px solid transparent',
+                  borderBottom: '1px solid transparent',
                 }}
               >
-                {/* Active Status Dot */}
+                {/* ID Tag */}
+                <span 
+                  className="absolute bottom-2 right-3 text-[10px]" 
+                  style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
+                >
+                  // SYS_2{idx + 1}
+                </span>
+
                 <div
-                  className="absolute top-3 right-3 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: '#2DD4BF' }}
+                  className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full"
+                  style={{ backgroundColor: '#2DD4BF', boxShadow: '0 0 8px rgba(45,212,191,0.5)' }}
                 />
 
-                <p className="text-sm text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
+                <p className="text-[15px] font-medium text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
                   {item}
                 </p>
               </div>
             ))}
           </div>
 
-          {/* OUTPUT Column */}
+          {/* SYSTEM ECOSYSTEM Column */}
           <div className="relative z-20 space-y-6">
             <h3
-              className="text-xs font-mono uppercase tracking-widest"
+              className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
-                color: '#6366F1',
-                letterSpacing: '0.15em',
+                fontFamily: 'var(--font-mono)',
               }}
             >
-              OUTPUT →
+              [ SYSTEM ECOSYSTEM ]
             </h3>
-            {outputItems.map((item, idx) => (
+            {col3Items.map((item, idx) => (
               <div
                 key={idx}
-                className="relative group p-5 rounded-lg transition-all backdrop-blur-[20px] overflow-hidden"
+                className="relative group p-6 rounded-lg transition-all overflow-hidden"
                 style={{
                   backgroundColor: 'rgba(30, 41, 59, 0.4)',
-                  borderTop: '1px solid #F8FAFC',
-                  borderLeft: '1px solid #F8FAFC',
-                  borderRight: 'none',
-                  borderBottom: 'none',
+                  backdropFilter: 'blur(20px)',
+                  boxShadow: '0 4px 20px rgba(0,0,0,0.2)',
+                  borderTop: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderLeft: '1px solid rgba(248, 250, 252, 0.15)',
+                  borderRight: '1px solid transparent',
+                  borderBottom: '1px solid transparent',
                 }}
               >
-                {/* Active Status Dot */}
+                {/* ID Tag */}
+                <span 
+                  className="absolute bottom-2 right-3 text-[10px]" 
+                  style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.5)' }}
+                >
+                  // SYS_3{idx + 1}
+                </span>
+
                 <div
-                  className="absolute top-3 right-3 w-2 h-2 rounded-full"
-                  style={{ backgroundColor: '#2DD4BF' }}
+                  className="absolute top-4 right-4 w-1.5 h-1.5 rounded-full"
+                  style={{ backgroundColor: '#2DD4BF', boxShadow: '0 0 8px rgba(45,212,191,0.5)' }}
                 />
 
-                <p className="text-sm text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
+                <p className="text-[15px] font-medium text-[#F8FAFC]" style={{ fontFamily: 'var(--font-sans)' }}>
                   {item}
                 </p>
               </div>
@@ -259,48 +292,30 @@ export default function AIInfrastructure() {
           </div>
         </div>
 
-        {/* System Log Footer */}
-        <div className="mt-20 pt-6 border-t" style={{ borderColor: 'rgba(30, 41, 59, 0.6)' }}>
+        {/* Technical Terminal Footer */}
+        <div className="mt-24 pt-6 border-t" style={{ borderColor: 'rgba(30, 41, 59, 0.6)' }}>
           <div
-            className="overflow-hidden rounded-lg p-4 h-20"
+            className="flex items-center px-6 py-4 rounded-lg w-full"
             style={{
-              backgroundColor: 'rgba(30, 41, 59, 0.3)',
+              backgroundColor: 'rgba(11, 14, 20, 0.8)',
               border: '1px solid rgba(99, 102, 241, 0.2)',
+              boxShadow: 'inset 0 2px 15px rgba(0,0,0,0.5)',
             }}
           >
-            <div className="space-y-1 animate-scroll-up">
-              {logLines.map((line, idx) => (
-                <p
-                  key={idx}
-                  className="text-xs whitespace-nowrap"
-                  style={{
-                    fontFamily: 'var(--font-mono)',
-                    color: '#6366F1',
-                    letterSpacing: '0.02em',
-                  }}
-                >
-                  {line}
-                </p>
-              ))}
-            </div>
+            <p
+              className="text-xs sm:text-sm"
+              style={{
+                fontFamily: 'var(--font-mono)',
+                color: '#6366F1', // Neural Indigo
+                letterSpacing: '0.05em',
+              }}
+            >
+              {displayText}
+              <span className={`inline-block w-2.5 h-3.5 ml-1 align-middle bg-[#6366F1] ${showCursor ? 'opacity-100' : 'opacity-0'}`} />
+            </p>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-up {
-          0% {
-            transform: translateY(0);
-          }
-          100% {
-            transform: translateY(-25px);
-          }
-        }
-        
-        .animate-scroll-up {
-          animation: scroll-up 3s ease-in-out forwards;
-        }
-      `}</style>
     </section>
   )
 }
