@@ -79,45 +79,39 @@ export default function ServicesPage() {
       </section>
 
       {/* ── 2. Section 01: Narrative (Content Creation) ── */}
-      <section className="relative py-24 px-4 overflow-hidden">
-        {/* Background Video */}
-        <video
-          className="absolute inset-0 w-full h-full object-cover"
-          autoPlay
-          loop
-          muted
-          playsInline
+      <section className="relative py-24 px-4 overflow-hidden" style={{ background: '#0B0E14' }}>
+        {/* Static Noise Background */}
+        <div
+          className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
           style={{
-            filter: 'saturate(0.1) brightness(0.2)',
-            zIndex: 0,
+            backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.08'/%3E%3C/svg%3E")`,
           }}
-        >
-          <source
-            src="https://videos.pexels.com/video-files/3129576/3129576-hd_1920_1080_30fps.mp4"
-            type="video/mp4"
-          />
-        </video>
+        />
         
-        {/* Overlay fade to blend into the next section */}
-        <div className="absolute inset-0 z-0" style={{ background: 'linear-gradient(to bottom, #0B0E14 0%, transparent 20%, transparent 80%, #0B0E14 100%)' }} />
-
-        {/* Bokeh Blur Effect */}
-        <div className="absolute top-1/4 -left-32 w-96 h-96 bg-[#4C1D95] rounded-full mix-blend-screen filter blur-[120px] opacity-20 pointer-events-none z-0" />
-        <div className="absolute bottom-1/4 -right-32 w-96 h-96 bg-[#2DD4BF] rounded-full mix-blend-screen filter blur-[120px] opacity-10 pointer-events-none z-0" />
+        {/* 1px Technical Grid for depth */}
+        <div
+          className="absolute inset-0 z-0 pointer-events-none"
+          style={{
+            backgroundImage: `linear-gradient(rgba(30, 41, 59, 0.2) 1px, transparent 1px), linear-gradient(90deg, rgba(30, 41, 59, 0.2) 1px, transparent 1px)`,
+            backgroundSize: '40px 40px',
+            maskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+            WebkitMaskImage: 'radial-gradient(ellipse at center, black 30%, transparent 70%)',
+          }}
+        />
 
         <div className="max-w-7xl mx-auto relative z-10 flex flex-col items-center">
           <h2
             className="text-3xl md:text-4xl font-bold mb-6 text-center"
             style={{ fontFamily: 'var(--font-heading)' }}
           >
-            High-Retention Narrative Systems
+            High-Retention <span style={{ color: '#CA8A04', textShadow: '0 0 20px rgba(202,138,4,0.5)' }}>Narrative</span> Systems
           </h2>
 
           {/* Scrolling Tech Ribbon */}
           <div className="w-full overflow-hidden mb-16 opacity-50 relative">
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0B0E14] to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B0E14] to-transparent z-10 pointer-events-none" />
-            <div className="flex animate-marquee-fast whitespace-nowrap">
+            <div className="flex animate-marquee-fast whitespace-nowrap" style={{ willChange: 'transform' }}>
               {/* Duplicate array for seamless scroll */}
               {[...Array(3)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8 px-4 text-xs tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-mono)' }}>
@@ -132,21 +126,17 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full gap-y-8">
             {narrativeStack.map((item, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-xl border transition-all duration-300 relative overflow-hidden flex flex-col h-full"
+                className="group p-6 border transition-colors duration-300 relative flex flex-col h-full hover:border-[#6366F1]"
                 style={{
-                  backgroundColor: 'rgba(30,41,59,0.4)',
-                  backdropFilter: 'blur(20px)',
-                  borderColor: 'rgba(248,250,252,0.1)',
-                  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+                  backgroundColor: 'rgba(30,41,59,0.95)',
+                  borderColor: '#4C1D95',
+                  boxShadow: 'none',
                 }}
               >
-                {/* Accent line on hover */}
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-[#CA8A04] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-                
                 <h3
                   className="text-[14px] font-bold uppercase tracking-widest mb-4"
                   style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
@@ -161,8 +151,8 @@ export default function ServicesPage() {
                 </p>
 
                 {/* Performance Metric */}
-                <div className="mt-auto pt-4 border-t border-[rgba(248,250,252,0.05)]">
-                  <span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: 'var(--font-mono)', color: '#CA8A04' }}>
+                <div className="mt-auto pt-4 border-t border-[#4C1D95]">
+                  <span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: 'var(--font-mono)', color: '#E2E8F0' }}>
                     {item.metric}
                   </span>
                 </div>
@@ -216,7 +206,7 @@ export default function ServicesPage() {
           <div className="w-full overflow-hidden mb-16 opacity-50 relative">
             <div className="absolute left-0 top-0 bottom-0 w-24 bg-gradient-to-r from-[#0B0E14] to-transparent z-10 pointer-events-none" />
             <div className="absolute right-0 top-0 bottom-0 w-24 bg-gradient-to-l from-[#0B0E14] to-transparent z-10 pointer-events-none" />
-            <div className="flex animate-marquee-fast whitespace-nowrap">
+            <div className="flex animate-marquee-fast whitespace-nowrap" style={{ willChange: 'transform' }}>
               {/* Duplicate array for seamless scroll */}
               {[...Array(3)].map((_, i) => (
                 <div key={i} className="flex items-center gap-8 px-4 text-xs tracking-[0.2em] uppercase" style={{ fontFamily: 'var(--font-mono)' }}>
@@ -231,21 +221,17 @@ export default function ServicesPage() {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full gap-y-8">
             {logicStack.map((item, idx) => (
               <div
                 key={idx}
-                className="group p-6 rounded-xl border transition-all duration-300 relative overflow-hidden flex flex-col h-full"
+                className="group p-6 border transition-colors duration-300 relative flex flex-col h-full hover:border-[#6366F1]"
                 style={{
-                  backgroundColor: 'rgba(30,41,59,0.4)',
-                  backdropFilter: 'blur(20px)',
-                  borderColor: 'rgba(248,250,252,0.1)',
-                  boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)',
+                  backgroundColor: 'rgba(30,41,59,0.95)',
+                  borderColor: '#4C1D95',
+                  boxShadow: 'none',
                 }}
               >
-                {/* Accent line on hover */}
-                <div className="absolute top-0 left-0 w-full h-0.5 bg-[#6366F1] transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300" />
-
                 <h3
                   className="text-[14px] font-bold uppercase tracking-widest mb-4"
                   style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
@@ -260,8 +246,8 @@ export default function ServicesPage() {
                 </p>
 
                 {/* Performance Metric */}
-                <div className="mt-auto pt-4 border-t border-[rgba(248,250,252,0.05)]">
-                  <span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: 'var(--font-mono)', color: '#6366F1' }}>
+                <div className="mt-auto pt-4 border-t border-[#4C1D95]">
+                  <span className="text-[10px] tracking-widest uppercase" style={{ fontFamily: 'var(--font-mono)', color: '#E2E8F0' }}>
                     {item.metric}
                   </span>
                 </div>
