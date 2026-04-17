@@ -1,117 +1,166 @@
 'use client'
 
-import { useState } from 'react'
+import React from 'react'
 
-// SVG Icons
-const FilmIcon = ({ color }: { color: string }) => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="2" y="2" width="20" height="20" rx="2.18" ry="2.18" />
-    <line x1="7" y1="2" x2="7" y2="22" />
-    <line x1="17" y1="2" x2="17" y2="22" />
-    <line x1="2" y1="12" x2="22" y2="12" />
-    <line x1="2" y1="7" x2="7" y2="7" />
-    <line x1="2" y1="17" x2="7" y2="17" />
-    <line x1="17" y1="17" x2="22" y2="17" />
-    <line x1="17" y1="7" x2="22" y2="7" />
-  </svg>
-)
-
-const DocumentIcon = ({ color }: { color: string }) => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" />
-    <polyline points="14 2 14 8 20 8" />
-    <line x1="16" y1="13" x2="8" y2="13" />
-    <line x1="16" y1="17" x2="8" y2="17" />
-    <line x1="10" y1="9" x2="8" y2="9" />
-  </svg>
-)
-
-const ChipIcon = ({ color }: { color: string }) => (
-  <svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
-    <rect x="4" y="4" width="16" height="16" rx="2" ry="2" />
-    <rect x="9" y="9" width="6" height="6" />
-    <line x1="9" y1="1" x2="9" y2="4" />
-    <line x1="15" y1="1" x2="15" y2="4" />
-    <line x1="9" y1="20" x2="9" y2="23" />
-    <line x1="15" y1="20" x2="15" y2="23" />
-    <line x1="20" y1="9" x2="23" y2="9" />
-    <line x1="20" y1="14" x2="23" y2="14" />
-    <line x1="1" y1="9" x2="4" y2="9" />
-    <line x1="1" y1="14" x2="4" y2="14" />
-  </svg>
-)
+const servicesData = [
+  {
+    id: "video-editing",
+    name: "Premium Video Editing",
+    definition: "Premium Video Editing is a data-driven approach to visual storytelling that optimizes pacing, audio design, and narrative flow to maximize viewer retention. By integrating psychological hooks and precise cuts, we transform raw footage into high-converting digital assets designed for viral scalability and long-term brand authority.",
+    logicSteps: [
+      "Deep Audit & Asset Ingestion: We analyze your existing content and extract high-performing themes.",
+      "Algorithmic Editing & Hook Engineering: We edit with rigorous pacing rules to spike retention in the first 3 seconds.",
+      "Multi-format Distribution Strategy: Output is tailored for high-impact platforms for omni-channel dominance."
+    ],
+    impactMetrics: [
+      "3x increase in hook retention (0-3s watch time).",
+      "45% average increase in overall viewer engagement rate.",
+      "10x faster production cycle from raw recording to published asset."
+    ],
+    faqs: [
+      {
+        question: "How does premium video editing increase viewer retention?",
+        answer: "By utilizing strategic cuts, sound effects, and pattern interrupts every 3-5 seconds, premium video editing keeps the viewer's brain actively engaged, significantly reducing the drop-off rate."
+      },
+      {
+        question: "What makes data-driven video hooks so effective for B2B brands?",
+        answer: "Data-driven hooks rely on proven psychological triggers—like curiosity gaps and immediate value propositions—which have been historically validated to stop the scroll and immediately establish subject matter authority."
+      },
+      {
+        question: "Can premium short-form editing convert viewers into leads?",
+        answer: "Yes, when matched with a strong call-to-action and narrative authority, short-form video establishes trust rapidly, driving high-intent traffic directly to your sales and conversion funnels."
+      }
+    ]
+  },
+  {
+    id: "ai-automation",
+    name: "AI Automation Systems",
+    definition: "AI Automation Systems are intelligent, autonomous workflows that connect disjointed software tools to completely remove manual repetitive tasks. By deploying machine learning models, autonomous agents, and strategic logic, organizations can scale operations seamlessly, maintain pinpoint accuracy in outreach, and reclaim hundreds of hours of creative and strategic focus.",
+    logicSteps: [
+      "Workflow Telemetry & Bottleneck Identification: We map out your manual processes to find inefficiencies.",
+      "Agentic Bot Integration: Deploying autonomous AI agents to manage data entry, CRM updates, and communications.",
+      "Execution & Continuous Optimization: The system runs 24/7, continuously learning and improving response rates."
+    ],
+    impactMetrics: [
+      "100% elimination of manual data entry tasks.",
+      "60% reduction in churn via automated, personalized follow-ups.",
+      "5x increase in qualified booked calls through AI-driven B2B outreach."
+    ],
+    faqs: [
+      {
+        question: "How does AI automate B2B outreach?",
+        answer: "AI automates B2B outreach by scraping lead data, drafting hyper-personalized emails via LLMs, and autonomously sequencing follow-ups based on prospect replies without human intervention."
+      },
+      {
+        question: "Are AI automation workflows secure for enterprise data?",
+        answer: "Absolutely. We build integrations using secure API gateways, encrypted data transmission, and local or private LLM instances to ensure full compliance with strict industry data security standards."
+      },
+      {
+        question: "What is the ROI timeline for an AI automation system implementation?",
+        answer: "Most organizations see a positive return within the first 30 days due to the immediate recovery of labor hours and the rapid increase in lead processing velocity."
+      }
+    ]
+  }
+]
 
 export default function Services() {
-  const [hoveredCard, setHoveredCard] = useState<number | null>(null)
-
-  const services = [
-    {
-      id: 1,
-      title: 'Short Form Editing',
-      description: 'High-impact reels, clips, and TikToks that stop scrolls and drive engagement. Fast-paced, data-driven cuts.',
-      accent: '#6366F1',
-      Icon: FilmIcon,
-    },
-    {
-      id: 2,
-      title: 'Long Form & Scripting',
-      description: 'Premium YouTube videos, podcast episodes, and branded content. Strategic narratives that convert.',
-      accent: '#A855F7',
-      Icon: DocumentIcon,
-    },
-    {
-      id: 3,
-      title: 'AI Automation',
-      description: 'Intelligent workflows, lead generation systems, and autonomous content pipelines. Technology at scale.',
-      accent: '#2DD4BF',
-      Icon: ChipIcon,
-    },
-  ]
-
   return (
-    <section id="services" className="py-20 px-4 bg-[#0B0E14]">
-      <div className="max-w-7xl mx-auto">
+    <section id="services" className="py-24 px-4 bg-[#0B0E14]">
+      <div className="max-w-5xl mx-auto">
+        <div className="flex items-center justify-center gap-3 mb-6">
+          <span className="text-lg text-[#2DD4BF]">●</span>
+          <span className="text-sm font-medium px-6 py-3 rounded-full text-[#2DD4BF] bg-[rgba(45,212,191,0.1)] border border-[rgba(45,212,191,0.3)] font-sans uppercase tracking-widest">
+            AEO Optimized Services
+          </span>
+          <span className="text-lg text-[#2DD4BF]">●</span>
+        </div>
+
         <h2 className="text-4xl md:text-5xl font-bold text-[#F8FAFC] mb-16 text-center">
-          Our Services
+          Answer Engine Ready Infrastructure
         </h2>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {services.map((service) => (
+        <div className="space-y-16">
+          {servicesData.map((service) => (
             <div
               key={service.id}
-              className="relative group"
-              onMouseEnter={() => setHoveredCard(service.id)}
-              onMouseLeave={() => setHoveredCard(null)}
+              className="border border-[#334155] rounded-3xl p-8 md:p-12 bg-[rgba(30,41,59,0.4)] backdrop-blur-lg shadow-[0_0_40px_rgba(0,0,0,0.3)]"
             >
-              <div
-                className="relative p-8 rounded-xl transition-all duration-300 h-full flex flex-col overflow-hidden"
-                style={{
-                  backgroundColor: 'rgba(30, 41, 59, 0.85)',
-                  border: `1px solid ${hoveredCard === service.id ? service.accent : '#334155'}`,
-                  boxShadow: hoveredCard === service.id ? `0 0 20px ${service.accent}50` : 'none',
+              {/* FAQ JSON-LD Schema Injection */}
+              <script
+                type="application/ld+json"
+                dangerouslySetInnerHTML={{
+                  __html: JSON.stringify({
+                    "@context": "https://schema.org",
+                    "@type": "FAQPage",
+                    "mainEntity": service.faqs.map(faq => ({
+                      "@type": "Question",
+                      "name": faq.question,
+                      "acceptedAnswer": {
+                        "@type": "Answer",
+                        "text": faq.answer
+                      }
+                    }))
+                  })
                 }}
-              >
-                {/* Icon */}
-                <div className="mb-4">
-                  <service.Icon color={service.accent} />
+              />
+
+              <h2 className="text-3xl md:text-4xl font-bold text-[#F8FAFC] mb-8 font-heading">
+                {service.name}
+              </h2>
+
+              {/* Direct Answer */}
+              <div className="mb-12 p-6 rounded-2xl bg-[rgba(99,102,241,0.1)] border border-[rgba(99,102,241,0.25)] text-[#E2E8F0] text-lg leading-relaxed font-sans">
+                <strong className="text-[#A855F7] font-bold block mb-2 font-mono uppercase tracking-wider text-sm">Direct Answer</strong>
+                {service.definition}
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
+                {/* The Logic */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
+                    <span className="text-[#6366F1] font-mono">01 //</span> How the System Works
+                  </h3>
+                  <ol className="space-y-5 text-[#CBD5E1]">
+                    {service.logicSteps.map((step, i) => (
+                      <li key={i} className="flex items-start gap-4">
+                        <span className="flex-shrink-0 flex items-center justify-center w-7 h-7 rounded-full bg-[#1E293B] border border-[#475569] text-xs font-mono font-bold mt-0.5 text-[#F8FAFC]">
+                          {i + 1}
+                        </span>
+                        <span className="leading-relaxed">{step}</span>
+                      </li>
+                    ))}
+                  </ol>
                 </div>
 
-                {/* Title */}
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-3">
-                  {service.title}
-                </h3>
-
-                {/* Description */}
-                <p className="text-[#CBD5E1] text-sm leading-relaxed flex-grow mb-4">
-                  {service.description}
-                </p>
-
-                {/* Bottom Accent Line */}
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-[2px]"
-                  style={{ backgroundColor: service.accent }}
-                />
+                {/* The Narrative */}
+                <div>
+                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
+                    <span className="text-[#A855F7] font-mono">02 //</span> The Business Impact
+                  </h3>
+                  <ul className="space-y-5 text-[#CBD5E1]">
+                    {service.impactMetrics.map((metric, i) => (
+                      <li key={i} className="flex items-start gap-3">
+                        <span className="text-[#2DD4BF] mt-1 text-lg leading-none">✓</span>
+                        <span className="leading-relaxed font-medium text-[#F1F5F9]">{metric}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
               </div>
+
+              {/* FAQs */}
+              <div className="pt-10 border-t border-[#334155]">
+                <h3 className="text-xl font-bold text-[#F8FAFC] mb-8 font-heading">Frequently Asked Questions</h3>
+                <div className="space-y-4">
+                  {service.faqs.map((faq, i) => (
+                    <div key={i} className="p-6 rounded-2xl border border-[#334155] bg-[#0F172A] hover:border-[#6366F1] transition-colors">
+                      <h4 className="text-lg font-semibold text-[#F1F5F9] mb-3 leading-snug">{faq.question}</h4>
+                      <p className="text-[#94A3B8] leading-relaxed">{faq.answer}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+              
             </div>
           ))}
         </div>
@@ -119,3 +168,4 @@ export default function Services() {
     </section>
   )
 }
+

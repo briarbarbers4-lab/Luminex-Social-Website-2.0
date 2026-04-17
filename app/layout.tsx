@@ -35,8 +35,67 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Luminex Social",
+    "url": "https://luminexsocial.com",
+    "logo": "https://luminexsocial.com/icon.svg",
+    "sameAs": [
+      "https://www.linkedin.com/company/placeholder",
+      "https://youtube.com/@placeholder"
+    ],
+    "knowsAbout": [
+      "Agentic Workflows",
+      "Short-form Video Retention",
+      "B2B Lead Gen Automation",
+      "Narrative-led Marketing"
+    ],
+    "founder": {
+      "@type": "Person",
+      "name": "Ayyan",
+      "jobTitle": "CEO & Founder",
+      "sameAs": [
+        "https://www.linkedin.com/in/placeholder"
+      ]
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "AI Automation Systems"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Premium Video Editing"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Strategic Content Creation"
+          }
+        }
+      ]
+    }
+  };
+
   return (
     <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-[#0B0E14]`}>
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="font-sans antialiased bg-[#0B0E14] text-[#F8FAFC]">
         {children}
         <Analytics />
