@@ -40,6 +40,7 @@ export default function RootLayout({
       <body className="font-sans antialiased bg-[#0B0E14] text-[#F8FAFC]">
         {children}
         <Analytics />
+        <SpeedInsights />
       </body>
     </html>
   )
