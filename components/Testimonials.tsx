@@ -19,6 +19,7 @@ export default function Testimonials() {
       quote: 'Luminex Social helped me scaled from 5k to 20k, Has always been on time and super duper fast',
       rating: 5,
       videoUrl: 'https://ik.imagekit.io/imkyby1j5/Video/Brett%20Boudrow.mp4?updatedAt=1766814332140',
+      caseStudyUrl: 'https://www.notion.so/Case-Study-Brett-Boudrow-305baae6cd1f807ba11fe82adf03eeb5?source=copy_link',
       metrics: '// 1.5k FOLLOWERS // 125% ENGAGEMENT INCREASE',
     },
     {
@@ -29,6 +30,7 @@ export default function Testimonials() {
       quote: 'So far I am satisfied with their work, On time, Profesional, really good at communication and understands what we are looking for',
       rating: 5,
       videoUrl: 'https://ik.imagekit.io/imkyby1j5/Video/IMG_1005.MP4',
+      caseStudyUrl: '#',
       metrics: '// 15% LEAD INCREASE // 2.3M VIDEO VIEWS',
     },
     {
@@ -39,6 +41,7 @@ export default function Testimonials() {
       quote: 'I am actually competing with alot of competitors in my market because of him (Ayyan)',
       rating: 5,
       videoUrl: 'https://ik.imagekit.io/rqhbqqo2qx/fakyu%20ayana_.mp4',
+      caseStudyUrl: 'https://www.notion.so/Case-Study-2f9baae6cd1f80cc9609c399cf101306?source=copy_link',
       metrics: '// 428% ROI IMPROVEMENT // 1.8M IMPRESSIONS',
     },
   ]
@@ -141,7 +144,7 @@ export default function Testimonials() {
                 loop
               />
               {/* Play Icon Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center">
+              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
                 <div
                   className="w-20 h-20 rounded-full flex items-center justify-center transition-all group-hover:scale-110"
                   style={{
@@ -150,7 +153,7 @@ export default function Testimonials() {
                   }}
                 >
                   <svg
-                    className="w-10 h-10 ml-1"
+                    className="w-10 h-10 ml-1 pointer-events-auto cursor-pointer"
                     fill="#A855F7"
                     viewBox="0 0 24 24"
                   >
@@ -158,6 +161,29 @@ export default function Testimonials() {
                   </svg>
                 </div>
               </div>
+
+              {/* Case Study Button */}
+              {current.caseStudyUrl && (
+                <a
+                  href={current.caseStudyUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-2.5 rounded-full font-sans text-sm font-semibold transition-all hover:scale-105 z-10 flex items-center gap-2 whitespace-nowrap opacity-90 hover:opacity-100"
+                  style={{
+                    backgroundColor: 'rgba(99, 102, 241, 0.9)',
+                    color: '#FFFFFF',
+                    boxShadow: '0 4px 20px rgba(0, 0, 0, 0.5)',
+                    backdropFilter: 'blur(8px)',
+                    border: '1px solid rgba(255, 255, 255, 0.2)',
+                  }}
+                >
+                  <span>View Case Study</span>
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                  </svg>
+                </a>
+              )}
             </div>
 
             {/* Right Side - 60% - Content */}
