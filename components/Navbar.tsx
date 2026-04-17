@@ -54,14 +54,14 @@ export default function Navbar() {
 
           {/* Element B (The Nav - Center) */}
           <nav className="pointer-events-auto absolute left-1/2 -translate-x-1/2 flex items-center gap-8 px-8 py-3 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
-            <Link href="#work" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
-              Work
+            <Link href="/" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
+              Home
             </Link>
             <Link href="/services" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Services
             </Link>
-            <Link href="#process" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
-              Process
+            <Link href="#work" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
+              Work
             </Link>
           </nav>
 
@@ -123,14 +123,14 @@ export default function Navbar() {
         >
           <div className="bg-[#0B0E14]/90 backdrop-blur-xl border border-[#1E293B] rounded-[2rem] overflow-hidden shadow-2xl">
             <div className="flex flex-col gap-2 p-6">
-              <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
-                Work
+              <Link href="/" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
+                Home
               </Link>
               <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-y border-[#1E293B]/50">
                 Services
               </Link>
-              <Link href="#process" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
-                Process
+              <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
+                Work
               </Link>
               
               <button className="mt-4 flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-mono text-xs uppercase tracking-widest font-semibold">
