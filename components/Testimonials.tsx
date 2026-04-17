@@ -26,7 +26,7 @@ export default function Testimonials() {
       name: 'Kahyl Jadavji',
       title: 'Founder',
       company: 'Marketing Agency',
-      quote: 'So far I am satisfied with their work, On time, Profesional, really good at communication and understand's what we are looking for',
+      quote: 'So far I am satisfied with their work, On time, Profesional, really good at communication and understands what we are looking for',
       rating: 5,
       videoUrl: 'https://ik.imagekit.io/imkyby1j5/Video/IMG_1005.MP4',
       metrics: '// 15% LEAD INCREASE // 2.3M VIDEO VIEWS',
