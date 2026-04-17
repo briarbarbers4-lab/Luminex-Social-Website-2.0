@@ -5,15 +5,10 @@ import Link from 'next/link'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
   const buttonRef = useRef<HTMLButtonElement>(null)
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 50)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    // Scroll event listener removed as the three-element header does not alter styling on scroll.
   }, [])
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -43,22 +38,22 @@ export default function Navbar() {
 
   return (
     <>
-      <header 
-        className={`sticky top-0 w-full z-50 transition-all duration-300 ${
-          scrolled 
-            ? 'border-b border-[#1E293B] bg-[#050505]/40 backdrop-blur-md' 
-            : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-7xl mx-auto px-6 lg:px-8 py-4 flex items-center justify-between">
+      {/* The Container - Transparent, Sticky, No Background/Border */}
+      <header className="sticky top-0 w-full z-50 pointer-events-none pt-6">
+        
+        {/* Desktop Layout - Three Independent 'Satellites' */}
+        <div className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between relative">
           
-          {/* Logo on the far left */}
-          <Link href="/" className="relative flex items-center justify-center w-12 h-12 rounded-full border border-[#1E293B] bg-white/5 backdrop-blur-sm hover:scale-105 transition-transform duration-300 shrink-0 z-50">
-            <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png" alt="Luminex Logo" className="w-7 h-7 object-contain" />
+          {/* Element A (The Logo - Left) */}
+          <Link 
+            href="/" 
+            className="pointer-events-auto relative flex items-center justify-center w-12 h-12 rounded-full border border-[#1E293B] bg-[#0B0E14]/60 backdrop-blur-[12px] hover:scale-105 transition-transform duration-300 shrink-0"
+          >
+            <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png" alt="Luminex Logo" className="w-6 h-6 object-contain" />
           </Link>
 
-          {/* Centered Pill for Nav Links (Desktop) */}
-          <nav className="absolute left-1/2 -translate-x-1/2 hidden md:flex items-center gap-8 px-8 py-2.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B] z-50">
+          {/* Element B (The Nav - Center) */}
+          <nav className="pointer-events-auto absolute left-1/2 -translate-x-1/2 flex items-center gap-8 px-8 py-3 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
             <Link href="#work" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Work
             </Link>
@@ -70,56 +65,78 @@ export default function Navbar() {
             </Link>
           </nav>
 
-          {/* Right Side */}
-          <div className="flex items-center gap-4 shrink-0 z-50">
-            {/* CTA Button */}
+          {/* Element C (The CTA - Right) */}
+          <div className="pointer-events-auto flex items-center shrink-0">
             <button 
               ref={buttonRef}
               onClick={handleRipple}
-              className="hidden md:flex items-center relative px-6 py-2 rounded-full font-medium text-sm overflow-hidden transition-all transform hover:scale-105 active:scale-95 group"
+              className="flex items-center relative px-6 py-2.5 rounded-full font-medium text-sm overflow-hidden transition-all transform hover:scale-105 active:scale-95 group"
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] rounded-full" />
-              <div className="absolute inset-0 rounded-full border-2 border-transparent bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] bg-clip-border opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+              {/* Vibrant Gradient Background */}
+              <div className="absolute inset-0 bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] rounded-full opacity-90 group-hover:opacity-100 transition-opacity duration-300" />
+              
+              {/* Pulsing Glow */}
+              <div className="absolute -inset-2 rounded-full bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] opacity-40 blur-lg animate-pulse group-hover:opacity-80 group-hover:animate-none transition-all duration-300 -z-10" />
+              
+              {/* Glass Effect Overlay */}
               <div className="absolute inset-0 rounded-full bg-white/10 backdrop-blur-sm opacity-50 group-hover:opacity-70 transition-opacity duration-300" />
-              <div className="absolute -inset-1 rounded-full bg-gradient-to-r from-[#6366F1] via-[#A855F7] to-[#6366F1] opacity-0 blur-lg group-hover:opacity-60 transition-opacity duration-300 -z-10" />
-              <div className="absolute inset-0 rounded-full border border-[#6366F1]/30 scale-100 group-hover:scale-110 transition-transform duration-300 opacity-50" />
-              <div className="absolute inset-0 rounded-full border border-[#A855F7]/20 scale-95 opacity-30" />
-              <span className="relative z-10 text-[#F8FAFC] font-semibold tracking-wider flex items-center gap-2">
+              
+              {/* Outer Border */}
+              <div className="absolute inset-0 rounded-full border border-white/20 scale-100 group-hover:scale-105 transition-transform duration-300" />
+              
+              {/* CTA Content */}
+              <span className="relative z-10 text-[#F8FAFC] font-semibold tracking-wider flex items-center gap-2 font-mono text-xs uppercase">
                 Book a Call
                 <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
             </button>
+          </div>
+        </div>
 
-            {/* Mobile Menu Button */}
+        {/* Mobile Layout - Single Pill */}
+        <div className="md:hidden px-4 pointer-events-none relative z-50">
+          <div className="pointer-events-auto mx-auto w-fit flex items-center gap-4 p-1.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
+            {/* Logo */}
+            <Link href="/" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
+              <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png" alt="Luminex Logo" className="w-5 h-5 object-contain" />
+            </Link>
+
+            {/* Hamburger Icon */}
             <button
-              className="md:hidden w-10 h-10 flex flex-col justify-center items-center gap-1.5 relative z-50"
+              className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 pr-2"
               onClick={() => setIsOpen(!isOpen)}
             >
-              <span className={`w-6 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
-              <span className={`w-6 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
-              <span className={`w-6 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+              <span className={`w-5 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-5 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-5 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? '-rotate-45 -translate-y-2' : ''}`} />
             </button>
           </div>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Dropdown */}
         <div 
-          className={`absolute top-full left-0 w-full bg-[#050505]/95 backdrop-blur-xl border-b border-[#1E293B] transition-all duration-300 overflow-hidden md:hidden ${
-            isOpen ? 'max-h-64 opacity-100' : 'max-h-0 opacity-0 border-transparent'
+          className={`md:hidden absolute top-full left-0 w-full px-4 pt-4 transition-all duration-300 pointer-events-none ${
+            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 -translate-y-4'
           }`}
         >
-          <div className="flex flex-col gap-6 px-6 py-6">
-            <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest">
-              Work
-            </Link>
-            <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest">
-              Services
-            </Link>
-            <Link href="#process" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest">
-              Process
-            </Link>
+          <div className="bg-[#0B0E14]/90 backdrop-blur-xl border border-[#1E293B] rounded-[2rem] overflow-hidden shadow-2xl">
+            <div className="flex flex-col gap-2 p-6">
+              <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
+                Work
+              </Link>
+              <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-y border-[#1E293B]/50">
+                Services
+              </Link>
+              <Link href="#process" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
+                Process
+              </Link>
+              
+              <button className="mt-4 flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-mono text-xs uppercase tracking-widest font-semibold">
+                 Book a Call
+              </button>
+            </div>
           </div>
         </div>
       </header>
