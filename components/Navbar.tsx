@@ -60,6 +60,9 @@ export default function Navbar() {
             <Link href="/services" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Services
             </Link>
+            <Link href="/global-ai-automation" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
+              AI Automation
+            </Link>
             <Link href="#work" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Work
             </Link>
@@ -126,8 +129,11 @@ export default function Navbar() {
               <Link href="/" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
                 Home
               </Link>
-              <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-y border-[#1E293B]/50">
+              <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50">
                 Services
+              </Link>
+              <Link href="/global-ai-automation" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50">
+                AI Automation
               </Link>
               <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
                 Work
