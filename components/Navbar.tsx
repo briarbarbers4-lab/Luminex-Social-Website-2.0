@@ -49,7 +49,7 @@ export default function Navbar() {
             href="/"
             className="pointer-events-auto relative flex items-center justify-center w-12 h-12 rounded-full border border-[#1E293B] bg-[#0B0E14]/60 backdrop-blur-[12px] hover:scale-105 transition-transform duration-300 shrink-0"
           >
-            <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png" alt="Luminex Logo" className="w-6 h-6 object-contain" />
+            <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png?tr=f-auto,w-70,h-56,c-at_max" alt="Luminex Logo" width={35} height={28} fetchPriority="high" className="object-contain" />
           </Link>
 
           {/* Element B (The Nav - Center) */}
@@ -116,7 +116,7 @@ export default function Navbar() {
           <div className="pointer-events-auto mx-auto w-fit flex items-center gap-4 p-1.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
             {/* Logo */}
             <Link href="/" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
-              <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png" alt="Luminex Logo" className="w-5 h-5 object-contain" />
+              <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png?tr=f-auto,w-70,h-56,c-at_max" alt="Luminex Logo" width={35} height={28} fetchPriority="high" className="object-contain" />
             </Link>
 
             {/* Hamburger Icon */}

@@ -1,10 +1,11 @@
 import type { Metadata, Viewport } from 'next'
-import { Inter, JetBrains_Mono } from 'next/font/google'
+import { Inter, JetBrains_Mono, Outfit } from 'next/font/google'
 import PrivacyProvider from '@/components/PrivacyProvider'
 import './globals.css'
 
-const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
-const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: '--font-mono' });
+const inter = Inter({ subsets: ["latin"], variable: '--font-sans', display: 'swap' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: '--font-mono', display: 'swap' });
+const outfit = Outfit({ subsets: ["latin"], variable: '--font-heading', display: 'swap' });
 
 export const viewport: Viewport = {
   themeColor: '#000814',
@@ -193,7 +194,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} bg-[#0B0E14]`}>
+    <html lang="en" className={`${inter.variable} ${jetbrainsMono.variable} ${outfit.variable} bg-[#0B0E14]`}>
       <head>
         <script
           type="application/ld+json"

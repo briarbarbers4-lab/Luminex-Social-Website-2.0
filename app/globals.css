@@ -1,10 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Satoshi:wght@400;700&display=swap');
 @import 'tailwindcss';
 
 @theme inline {
-  --font-sans: 'Inter', 'Inter Fallback', sans-serif;
-  --font-mono: 'JetBrains Mono', 'JetBrains Mono Fallback', monospace;
-  --font-heading: 'Satoshi', 'Satoshi Fallback', sans-serif;
+  --font-sans: var(--font-sans);
+  --font-mono: var(--font-mono);
+  --font-heading: var(--font-heading);
 }
 
 @layer base {

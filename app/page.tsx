@@ -1,15 +1,18 @@
+import dynamic from 'next/dynamic'
+
+const VideoCards = dynamic(() => import('@/components/VideoCards'), { ssr: false })
+const Portfolio = dynamic(() => import('@/components/Portfolio'), { ssr: false })
+const ContentGallery = dynamic(() => import('@/components/ContentGallery'), { ssr: false })
+const ROICalculator = dynamic(() => import('@/components/ROICalculator'), { ssr: false })
+
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
-import VideoCards from '@/components/VideoCards'
 import Stats from '@/components/Stats'
-import Portfolio from '@/components/Portfolio'
 import Process from '@/components/Process'
 import Testimonials from '@/components/Testimonials'
-import ContentGallery from '@/components/ContentGallery'
 import AIInfrastructure from '@/components/AIInfrastructure'
 import Comparison from '@/components/Comparison'
 import TechMarquee from '@/components/TechMarquee'
-import ROICalculator from '@/components/ROICalculator'
 import InfrastructureFooter from '@/components/InfrastructureFooter'
 import About from '@/components/About'
 import CTA from '@/components/CTA'
