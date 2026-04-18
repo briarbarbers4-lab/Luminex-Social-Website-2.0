@@ -259,8 +259,8 @@ export default function Footer() {
 
           {/* Legal links */}
           <div className="flex items-center gap-6">
-            <a
-              href="#"
+            <Link
+              href="/privacy-policy"
               className="text-xs hover:text-[#CBD5E1] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-mono)',
@@ -268,7 +268,7 @@ export default function Footer() {
               }}
             >
               Privacy Policy
-            </a>
+            </Link>
             <a
               href="#"
               className="text-xs hover:text-[#CBD5E1] transition-colors duration-300"

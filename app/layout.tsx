@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
-import { Analytics } from '@vercel/analytics/next'
-import { SpeedInsights } from '@vercel/speed-insights/next'
+import PrivacyProvider from '@/components/PrivacyProvider'
 import './globals.css'
 
 const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
@@ -47,11 +46,9 @@ export const metadata: Metadata = {
       'max-image-preview': 'large',
       'max-video-preview': -1,
     },
-    // The `other` field serialises to additional <meta name="robots"> directives,
-    // which non-Google crawlers (Bing, Perplexity, etc.) honour.
-    other: {
-      robots: 'max-snippet:-1, max-image-preview:large, max-video-preview:-1',
-    },
+    'max-snippet': -1,
+    'max-image-preview': 'large',
+    'max-video-preview': -1,
   },
 
   // ── Open Graph — powers rich cards in Perplexity, ChatGPT browse, and social
@@ -150,7 +147,8 @@ export default function RootLayout({
 
     "sameAs": [
       "https://www.linkedin.com/company/luminex-social",
-      "https://www.instagram.com/luminex.social/"
+      "https://www.instagram.com/luminex.social/",
+      "https://www.youtube.com/@luminex.social"
     ],
 
     "knowsAbout": [
@@ -215,8 +213,7 @@ export default function RootLayout({
       </head>
       <body className="font-sans antialiased bg-[#0B0E14] text-[#F8FAFC]">
         {children}
-        <Analytics />
-        <SpeedInsights />
+        <PrivacyProvider />
       </body>
     </html>
   )
