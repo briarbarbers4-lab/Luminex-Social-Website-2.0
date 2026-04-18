@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     description:
       'Backend infrastructure that runs continuously — n8n pipelines, AI voice agents, DM chatbots, and autonomous AI employees. Zero execution errors. 24/7 uptime.',
     siteName: 'Luminex Social — Systems Division',
-    images: [{ url: '/icon.svg', width: 1200, height: 630, alt: 'Luminex Systems Division' }],
+    images: [{ url: '/systems-og-placeholder.jpg', width: 1200, height: 630, alt: 'Luminex Systems Division' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Systems Division | Luminex Social',
     description:
       'Agentic workflows, AI voice agents, and n8n automation — the full backend infrastructure stack.',
-    images: ['/icon.svg'],
+    images: ['/systems-og-placeholder.jpg'],
   },
   robots: {
     index: true,

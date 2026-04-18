@@ -26,14 +26,14 @@ export const metadata: Metadata = {
     description:
       'Short-form video engineered to clear the 65% retention threshold and drive the algorithm. Psychological hooks, rhythmic editing, and multi-platform distribution — 30 assets per month.',
     siteName: 'Luminex Social — Creative Division',
-    images: [{ url: '/icon.svg', width: 1200, height: 630, alt: 'Luminex Creative Division' }],
+    images: [{ url: '/creative-og-placeholder.jpg', width: 1200, height: 630, alt: 'Luminex Creative Division' }],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Creative Division | Luminex Social',
     description:
       'High-retention short-form video: psychological scripting, rhythmic editing, and multi-platform distribution.',
-    images: ['/icon.svg'],
+    images: ['/creative-og-placeholder.jpg'],
   },
   robots: {
     index: true,

@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+import type { Metadata, Viewport } from 'next'
 import { Inter, JetBrains_Mono } from 'next/font/google'
 import PrivacyProvider from '@/components/PrivacyProvider'
 import './globals.css'
@@ -6,13 +6,19 @@ import './globals.css'
 const inter = Inter({ subsets: ["latin"], variable: '--font-sans' });
 const jetbrainsMono = JetBrains_Mono({ subsets: ["latin"], variable: '--font-mono' });
 
+export const viewport: Viewport = {
+  themeColor: '#000814',
+}
+
 export const metadata: Metadata = {
   // ── Canonical base — required for Next.js to resolve absolute OG/sitemap URLs
   metadataBase: new URL('https://luminexsocial.com'),
 
-  title: 'Luminex Social | AI Automation & Premium Content',
-  description:
-    'Luminex Social — The Convergence of Logic & Narrative. We build synchronized AI automation systems and high-retention video content for founders who want compounding growth without ad spend.',
+  title: {
+    template: '%s | Luminex Social',
+    default: 'Luminex Social | AI Automation & Premium Content',
+  },
+  description: 'Global AI Automation and High-Retention Content',
   generator: 'v0.app',
   applicationName: 'Luminex Social',
   referrer: 'origin-when-cross-origin',
@@ -39,13 +45,6 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-snippet': -1,
-      'max-image-preview': 'large',
-      'max-video-preview': -1,
-    },
     'max-snippet': -1,
     'max-image-preview': 'large',
     'max-video-preview': -1,
@@ -57,15 +56,14 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://luminexsocial.com',
     siteName: 'Luminex Social',
-    title: 'Luminex Social | AI Automation & Premium Content',
-    description:
-      'Synchronized AI automation systems and high-retention video — built as one compounding infrastructure for founders who want to scale without ads.',
+    title: 'Luminex Social',
+    description: 'Global AI Automation and High-Retention Content',
     images: [
       {
-        url: '/icon.svg',
+        url: 'https://luminexsocial.com/og-image-placeholder.jpg', // Placeholder for root og:image
         width: 1200,
         height: 630,
-        alt: 'Luminex Social — Logic & Narrative',
+        alt: 'Luminex Social',
       },
     ],
   },
@@ -73,34 +71,25 @@ export const metadata: Metadata = {
   // ── Twitter / X card
   twitter: {
     card: 'summary_large_image',
-    title: 'Luminex Social | AI Automation & Premium Content',
-    description:
-      'Synchronized AI automation systems and high-retention video — built as one compounding infrastructure.',
-    images: ['/icon.svg'],
+    title: 'Luminex Social',
+    description: 'Global AI Automation and High-Retention Content',
+    creator: '@Ayyan', // Founder's handle
+    images: ['/og-image-placeholder.jpg'],
   },
 
-  icons: {
-    icon: [
-      {
-        url: '/icon-light-32x32.png',
-        media: '(prefers-color-scheme: light)',
-      },
-      {
-        url: '/icon-dark-32x32.png',
-        media: '(prefers-color-scheme: dark)',
-      },
-      {
-        url: '/icon.svg',
-        type: 'image/svg+xml',
-      },
-    ],
-    apple: '/apple-icon.png',
+  // ── Technical Tags
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
   },
+
+  // ── Icons (Handled automatically by Next.js if placed in /app root like /app/icon.jpg)
 
   // ── Verification placeholders — replace tokens once DNS records are set
   verification: {
     google: 'REPLACE_WITH_GOOGLE_SEARCH_CONSOLE_TOKEN',
-    // bing: 'REPLACE_WITH_BING_WEBMASTER_TOKEN',
+    yandex: 'REPLACE_WITH_YANDEX_WEBMASTER_TOKEN',
   },
 
   // ── Alternate / canonical
