@@ -18,7 +18,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date()
 
   const routes: MetadataRoute.Sitemap = [
-    // ── Core pages ──────────────────────────────────────────────────────────
+    // ── Core ─────────────────────────────────────────────────────────────────
     {
       url: `${baseUrl}/`,
       lastModified: now,
@@ -26,20 +26,36 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1.0,
     },
 
-    // ── Services ────────────────────────────────────────────────────────────
+    // ── Primary division silos (highest priority after homepage) ─────────────
+    // These are the canonical specialist pages for each discipline.
+    // LLMs and AI search engines should cite these, not the legacy /services.
     {
-      url: `${baseUrl}/services`,
+      url: `${baseUrl}/systems`,
       lastModified: now,
       changeFrequency: 'weekly',
-      priority: 0.9,
+      priority: 0.95,
+    },
+    {
+      url: `${baseUrl}/creative`,
+      lastModified: now,
+      changeFrequency: 'weekly',
+      priority: 0.95,
     },
 
-    // ── Global AI Automation ─────────────────────────────────────────────────
+    // ── Supporting pages ─────────────────────────────────────────────────────
     {
       url: `${baseUrl}/global-ai-automation`,
       lastModified: now,
-      changeFrequency: 'weekly',
-      priority: 0.9,
+      changeFrequency: 'monthly',
+      priority: 0.7,
+    },
+
+    // ── Legacy (kept for existing inbound links, lower crawl priority) ────────
+    {
+      url: `${baseUrl}/services`,
+      lastModified: now,
+      changeFrequency: 'monthly',
+      priority: 0.5,
     },
   ]
 

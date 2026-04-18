@@ -120,50 +120,85 @@ export default function RootLayout({
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Organization",
+
+    // ── Entity anchor — all sub-org schemas reference this @id ──────────────
+    "@id": "https://luminexsocial.com/#organization",
+
     "name": "Luminex Social",
+    "alternateName": "Luminex",
     "url": "https://luminexsocial.com",
-    "logo": "https://luminexsocial.com/icon.svg",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://luminexsocial.com/icon.svg",
+      "contentUrl": "https://luminexsocial.com/icon.svg"
+    },
+    "description": "Luminex Social operates two synchronized infrastructure divisions — Luminex Systems (AI automation, agentic workflows, voice agents) and Luminex Creative (high-retention video, psychological scripting, content strategy) — as one unified framework for compounding founder growth.",
+
+    // ── Department declarations — point to each division's entity @id ───────
+    "department": [
+      {
+        "@id": "https://luminexsocial.com/systems#department",
+        "@type": "ProfessionalService",
+        "name": "Luminex Systems"
+      },
+      {
+        "@id": "https://luminexsocial.com/creative#department",
+        "@type": "CreativeWorkSeries",
+        "name": "Luminex Creative"
+      }
+    ],
+
     "sameAs": [
       "https://www.linkedin.com/company/placeholder",
       "https://youtube.com/@placeholder"
     ],
+
     "knowsAbout": [
       "Agentic Workflows",
+      "n8n Enterprise Automation",
+      "AI Voice Agents",
       "Short-form Video Retention",
+      "Psychological Scripting",
       "B2B Lead Gen Automation",
-      "Narrative-led Marketing"
+      "Narrative-led Marketing",
+      "SaaS Integration",
+      "Autonomous AI Employees"
     ],
+
     "founder": {
       "@type": "Person",
       "name": "Ayyan",
       "jobTitle": "CEO & Founder",
+      "worksFor": { "@id": "https://luminexsocial.com/#organization" },
       "sameAs": [
         "https://www.linkedin.com/in/placeholder"
       ]
     },
+
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Services",
+      "name": "Luminex Social Services",
       "itemListElement": [
         {
           "@type": "Offer",
+          "name": "Luminex Systems",
           "itemOffered": {
             "@type": "Service",
-            "name": "AI Automation Systems"
+            "name": "AI Automation & Agentic Workflow Infrastructure",
+            "description": "n8n enterprise pipelines, AI voice agents, DM chatbots, and autonomous AI employees — the full backend automation stack.",
+            "url": "https://luminexsocial.com/systems",
+            "provider": { "@id": "https://luminexsocial.com/#organization" }
           }
         },
         {
           "@type": "Offer",
+          "name": "Luminex Creative",
           "itemOffered": {
             "@type": "Service",
-            "name": "Premium Video Editing"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Strategic Content Creation"
+            "name": "High-Retention Video & Content Strategy",
+            "description": "Psychological scripting, rhythmic short-form editing, brand identity, and multi-platform distribution — 30 assets per month.",
+            "url": "https://luminexsocial.com/creative",
+            "provider": { "@id": "https://luminexsocial.com/#organization" }
           }
         }
       ]

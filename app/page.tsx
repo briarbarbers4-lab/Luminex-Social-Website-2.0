@@ -16,6 +16,7 @@ import CTA from '@/components/CTA'
 import Footer from '@/components/Footer'
 import AnimatedSection from '@/components/AnimatedSection'
 import FloatingCTA from '@/components/FloatingCTA'
+import LuminexFramework from '@/components/LuminexFramework'
 
 // Section Divider Component
 const SectionDivider = () => (
@@ -43,6 +44,8 @@ export default function Home() {
       <AnimatedSection>
         <AIInfrastructure />
       </AnimatedSection>
+      <SectionDivider />
+      <LuminexFramework />
       <SectionDivider />
       <AnimatedSection>
         <Portfolio />

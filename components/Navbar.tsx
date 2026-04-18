@@ -57,11 +57,23 @@ export default function Navbar() {
             <Link href="/" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Home
             </Link>
-            <Link href="/services" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
-              Services
+            <Link
+              href="/systems"
+              className="font-mono text-xs uppercase tracking-widest font-medium transition-colors"
+              style={{ color: 'rgba(99,102,241,0.85)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#6366F1')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(99,102,241,0.85)')}
+            >
+              Systems
             </Link>
-            <Link href="/global-ai-automation" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
-              AI Automation
+            <Link
+              href="/creative"
+              className="font-mono text-xs uppercase tracking-widest font-medium transition-colors"
+              style={{ color: 'rgba(203,213,225,0.8)' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#CBD5E1')}
+              onMouseLeave={e => (e.currentTarget.style.color = 'rgba(203,213,225,0.8)')}
+            >
+              Creative
             </Link>
             <Link href="#work" className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-xs uppercase tracking-widest font-medium">
               Work
@@ -129,11 +141,21 @@ export default function Navbar() {
               <Link href="/" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
                 Home
               </Link>
-              <Link href="/services" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50">
-                Services
+              <Link
+                href="/systems"
+                onClick={() => setIsOpen(false)}
+                className="font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50 transition-colors block"
+                style={{ color: 'rgba(99,102,241,0.85)' }}
+              >
+                Systems
               </Link>
-              <Link href="/global-ai-automation" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50">
-                AI Automation
+              <Link
+                href="/creative"
+                onClick={() => setIsOpen(false)}
+                className="font-mono text-sm uppercase tracking-widest text-center py-3 border-b border-[#1E293B]/50 transition-colors block"
+                style={{ color: 'rgba(203,213,225,0.8)' }}
+              >
+                Creative
               </Link>
               <Link href="#work" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
                 Work
