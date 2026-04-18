@@ -269,7 +269,9 @@ export default function SystemsPage() {
                 </span>
               </div>
               <Link
-                href="#contact"
+                href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
                 id="systems-cta-primary"
                 className="group relative inline-flex items-center gap-3 px-8 py-4 font-semibold uppercase tracking-widest transition-all hover:scale-105"
                 style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
@@ -523,7 +525,9 @@ export default function SystemsPage() {
             The audit maps your current stack against our pipeline and identifies the exact failure points.
           </p>
           <Link
-            href="#contact"
+            href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
             id="systems-cta-footer"
             className="group relative inline-flex items-center gap-3 px-10 py-5 font-bold uppercase tracking-widest text-[#F8FAFC] transition-transform hover:scale-105"
             style={{ fontFamily: 'var(--font-mono)' }}

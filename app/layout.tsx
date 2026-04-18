@@ -149,8 +149,8 @@ export default function RootLayout({
     ],
 
     "sameAs": [
-      "https://www.linkedin.com/company/placeholder",
-      "https://youtube.com/@placeholder"
+      "https://www.linkedin.com/company/luminex-social",
+      "https://www.instagram.com/luminex.social/"
     ],
 
     "knowsAbout": [
@@ -171,7 +171,7 @@ export default function RootLayout({
       "jobTitle": "CEO & Founder",
       "worksFor": { "@id": "https://luminexsocial.com/#organization" },
       "sameAs": [
-        "https://www.linkedin.com/in/placeholder"
+        "https://www.linkedin.com/company/luminex-social"
       ]
     },
 

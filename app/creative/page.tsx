@@ -242,7 +242,9 @@ export default function CreativePage() {
 
           <div className="flex flex-col sm:flex-row gap-4 items-start">
             <Link
-              href="#contact"
+              href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               id="creative-cta-primary"
               className="group relative inline-flex items-center gap-3 px-8 py-4 font-semibold uppercase tracking-widest transition-all hover:scale-105"
               style={{ fontFamily: 'var(--font-mono)', color: '#0B0E14' }}
@@ -545,7 +547,9 @@ export default function CreativePage() {
             decision traceable back to a measurable retention outcome.
           </p>
           <Link
-            href="#contact"
+            href="https://calendly.com/luminexsocial05/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             id="creative-cta-footer"
             className="group relative inline-flex items-center gap-3 px-10 py-5 font-bold uppercase tracking-widest transition-transform hover:scale-105"
             style={{ fontFamily: 'var(--font-mono)', color: '#0B0E14' }}

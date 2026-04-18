@@ -29,8 +29,11 @@ export default function InfrastructureFooter() {
 
         {/* CTA Button */}
         <div className="flex justify-center">
-          <button
-            className="px-10 py-5 rounded-lg font-bold text-lg transition-all transform hover:scale-105 active:scale-95 relative group overflow-hidden"
+          <a
+            href="https://calendly.com/luminexsocial05/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="px-10 py-5 rounded-lg font-bold text-lg transition-all transform hover:scale-105 active:scale-95 relative group overflow-hidden inline-flex items-center gap-2"
             style={{
               color: '#F8FAFC',
               border: '2px solid #CA8A04',
@@ -48,24 +51,12 @@ export default function InfrastructureFooter() {
 
             {/* Button Content */}
             <span className="relative z-10 flex items-center gap-2">
-              Let's Build Your Ecosystem
+              Let&apos;s Build Your Ecosystem
               <svg className="w-5 h-5 group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
               </svg>
             </span>
-
-            {/* Pulse Animation Background */}
-            <style jsx>{`
-              @keyframes pulse-border {
-                0%, 100% {
-                  box-shadow: 0 0 0 0 rgba(202, 138, 4, 0.4);
-                }
-                50% {
-                  box-shadow: 0 0 0 10px rgba(202, 138, 4, 0);
-                }
-              }
-            `}</style>
-          </button>
+          </a>
         </div>
 
         {/* Sub-text */}

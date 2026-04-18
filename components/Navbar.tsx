@@ -82,9 +82,10 @@ export default function Navbar() {
 
           {/* Element C (The CTA - Right) */}
           <div className="pointer-events-auto flex items-center shrink-0">
-            <button
-              ref={buttonRef}
-              onClick={handleRipple}
+            <a
+              href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
               className="flex items-center relative px-6 py-2.5 rounded-full font-medium text-sm overflow-hidden transition-all transform hover:scale-105 active:scale-95 group"
             >
               {/* Vibrant Gradient Background */}
@@ -106,7 +107,7 @@ export default function Navbar() {
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
                 </svg>
               </span>
-            </button>
+            </a>
           </div>
         </div>
 
@@ -160,9 +161,14 @@ export default function Navbar() {
                 Work
               </Link>
 
-              <button className="mt-4 flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-mono text-xs uppercase tracking-widest font-semibold">
+              <a
+                href="https://calendly.com/luminexsocial05/30min"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-4 flex items-center justify-center gap-2 px-6 py-4 rounded-full bg-gradient-to-r from-[#6366F1] to-[#A855F7] text-white font-mono text-xs uppercase tracking-widest font-semibold"
+              >
                 Book a Call
-              </button>
+              </a>
             </div>
           </div>
         </div>

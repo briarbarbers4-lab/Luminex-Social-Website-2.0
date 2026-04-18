@@ -894,7 +894,9 @@ export default function GlobalAIAutomationPage() {
           </p>
 
           <Link
-            href="#contact"
+            href="https://calendly.com/luminexsocial05/30min"
+            target="_blank"
+            rel="noopener noreferrer"
             id="cta-request-system-audit"
             className="group relative inline-flex items-center justify-center gap-4 px-12 py-6 font-bold uppercase tracking-widest text-[#F8FAFC] transition-transform hover:scale-105"
             style={{ fontFamily: 'var(--font-mono)' }}

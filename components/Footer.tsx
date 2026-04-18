@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* ── Column 1: Logo & Status ── */}
           <div className="lg:col-span-1">
-            <Link href="#" className="flex items-center gap-2 mb-5 group">
+            <Link href="/" className="flex items-center gap-2 mb-5 group">
               <span
                 className="font-bold text-xl tracking-tight transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}
@@ -125,10 +125,10 @@ export default function Footer() {
             </h4>
             <ul className="space-y-3">
               {[
-                { label: 'Short Form Editing', href: '/services' },
-                { label: 'Long Form Editing', href: '/services' },
-                { label: 'AI Automation', href: '/services' },
-                { label: 'Content Creation', href: '/services' },
+                { label: 'Short Form Editing', href: '/creative' },
+                { label: 'Long Form Editing', href: '/creative' },
+                { label: 'AI Automation', href: '/systems' },
+                { label: 'Content Creation', href: '/creative' },
               ].map((link) => (
                 <li key={link.label}>
                   <a
@@ -151,7 +151,7 @@ export default function Footer() {
             {/* Social Icons */}
             <div className="flex gap-3 mt-8">
               <a
-                href="#"
+                href="https://www.instagram.com/luminex.social/"
                 className="group relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-400"
                 style={{
                   background: 'rgba(30,41,59,0.6)',
@@ -165,7 +165,7 @@ export default function Footer() {
                 <Instagram className="w-4 h-4 text-[#CBD5E1] group-hover:text-[#6366F1] transition-colors duration-300" />
               </a>
               <a
-                href="#"
+                href="https://www.linkedin.com/company/luminex-social"
                 className="group relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-400"
                 style={{
                   background: 'rgba(30,41,59,0.6)',

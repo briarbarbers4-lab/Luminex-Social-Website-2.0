@@ -45,9 +45,14 @@ export default function CTA() {
             Let&apos;s talk about how we can transform your content strategy with logic and narrative.
           </p>
 
-          <button className="px-8 py-4 rounded-lg bg-gradient-to-violet text-[#F8FAFC] font-bold text-lg hover:shadow-2xl hover:shadow-[#6366F1]/40 transition-all transform hover:scale-105">
+          <a
+            href="https://calendly.com/luminexsocial05/30min"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block px-8 py-4 rounded-lg bg-gradient-to-violet text-[#F8FAFC] font-bold text-lg hover:shadow-2xl hover:shadow-[#6366F1]/40 transition-all transform hover:scale-105"
+          >
             Book Your Discovery Call
-          </button>
+          </a>
         </div>
 
         {/* FAQ Section */}

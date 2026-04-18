@@ -364,7 +364,9 @@ export default function ServicesPage() {
       {/* ── 4. CTA Section ── */}
       <section className="relative py-32 px-4 flex flex-col items-center">
         <Link
-          href="#contact"
+          href="https://calendly.com/luminexsocial05/30min"
+          target="_blank"
+          rel="noopener noreferrer"
           className="group relative inline-flex items-center justify-center px-10 py-5 font-bold uppercase tracking-widest text-[#F8FAFC] transition-transform hover:scale-105"
           style={{ fontFamily: 'var(--font-mono)' }}
         >
