@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ArrowRight } from 'lucide-react'
+import LazyVideo from './LazyVideo'
 
 export default function ContentGallery() {
   const [hoveredId, setHoveredId] = useState<number | null>(null)
@@ -107,13 +108,9 @@ export default function ContentGallery() {
                     backgroundColor: '#0F172A',
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={videos[0].url}
                     className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                   />
                   {/* Technical Label */}
                   <div
@@ -143,13 +140,9 @@ export default function ContentGallery() {
                     backgroundColor: '#0F172A',
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={videos[1].url}
                     className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                   />
                   {/* Technical Label */}
                   <div
@@ -178,13 +171,9 @@ export default function ContentGallery() {
                     backgroundColor: '#0F172A',
                   }}
                 >
-                  <video
+                  <LazyVideo
                     src={videos[2].url}
                     className="w-full h-full object-cover"
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
                   />
                   {/* Technical Label */}
                   <div

@@ -1,5 +1,5 @@
 'use client'
-
+import LazyVideo from './LazyVideo'
 export default function VideoCards() {
   const videos = [
     { id: 1, url: 'https://ik.imagekit.io/5pahp6yywb/Crafted%20London.mp4' },
@@ -29,34 +29,15 @@ export default function VideoCards() {
                 className="shrink-0 w-56 h-96 rounded-2xl overflow-hidden bg-[#1E293B] border border-[#334155] shadow-lg hover:border-[#6366F1] transition-all duration-300 group cursor-pointer hover:shadow-[0_0_30px_rgba(99,102,241,0.3)]"
               >
                 {/* Video element */}
-                <video
+                <LazyVideo
                   className="w-full h-full object-cover"
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                >
-                  <source src={video.url} type="video/mp4" />
-                </video>
+                  src={video.url}
+                />
               </div>
             ))}
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        @keyframes scroll-left {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        .animate-scroll-left {
-          animation: scroll-left 40s linear infinite;
-        }
-      `}</style>
     </section>
   )
 }

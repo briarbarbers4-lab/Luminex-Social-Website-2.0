@@ -33,7 +33,7 @@ export default function Footer() {
 
           {/* ── Column 1: Logo & Status ── */}
           <div className="lg:col-span-1">
-            <Link href="/" className="flex items-center gap-2 mb-5 group">
+            <Link href="/" aria-label="Luminex Social Homepage" className="flex items-center gap-2 mb-5 group">
               <span
                 className="font-bold text-xl tracking-tight transition-colors duration-300"
                 style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}
@@ -131,7 +131,7 @@ export default function Footer() {
                 { label: 'Content Creation', href: '/creative' },
               ].map((link) => (
                 <li key={link.label}>
-                  <a
+                  <Link
                     href={link.href}
                     className="group flex items-center gap-2 text-sm transition-colors duration-300"
                     style={{ color: 'rgba(203,213,225,0.6)' }}
@@ -143,7 +143,7 @@ export default function Footer() {
                     <span className="group-hover:text-[#F8FAFC] transition-colors duration-300">
                       {link.label}
                     </span>
-                  </a>
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -152,6 +152,7 @@ export default function Footer() {
             <div className="flex gap-3 mt-8">
               <a
                 href="https://www.instagram.com/luminex.social/"
+                aria-label="Follow Luminex Social on Instagram"
                 className="group relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-400"
                 style={{
                   background: 'rgba(30,41,59,0.6)',
@@ -166,6 +167,7 @@ export default function Footer() {
               </a>
               <a
                 href="https://www.linkedin.com/company/luminex-social"
+                aria-label="Connect with Luminex Social on LinkedIn"
                 className="group relative w-10 h-10 rounded-lg flex items-center justify-center transition-all duration-400"
                 style={{
                   background: 'rgba(30,41,59,0.6)',
@@ -195,8 +197,7 @@ export default function Footer() {
             </h4>
 
             <p
-              className="text-sm mb-5 leading-relaxed"
-              style={{ color: 'rgba(203,213,225,0.5)' }}
+              className="text-sm mb-5 leading-relaxed text-[#94A3B8]"
             >
               Get strategy signals & updates.
             </p>
@@ -208,7 +209,7 @@ export default function Footer() {
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 placeholder="Email Address"
-                className="w-full bg-transparent border-0 border-b pb-2 text-sm outline-none transition-all duration-500 peer"
+                className="w-full bg-transparent border-0 border-b py-3 text-sm outline-none transition-all duration-500 peer"
                 style={{
                   borderBottomWidth: '1px',
                   borderBottomStyle: 'solid',
@@ -227,7 +228,7 @@ export default function Footer() {
               />
               {/* Send button */}
               <button
-                className="absolute right-0 bottom-1.5 text-[#475569] hover:text-[#6366F1] transition-colors duration-300"
+                className="absolute right-0 bottom-0 p-2 min-h-[48px] min-w-[48px] flex items-center justify-center text-[#475569] hover:text-[#6366F1] transition-colors duration-300"
                 aria-label="Subscribe"
               >
                 <Send className="w-4 h-4" />
@@ -248,10 +249,9 @@ export default function Footer() {
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
           {/* Copyright */}
           <p
-            className="text-xs"
+            className="text-xs text-[#94A3B8]"
             style={{
               fontFamily: 'var(--font-mono)',
-              color: 'rgba(148,163,184,0.5)',
             }}
           >
             © 2026 Luminex Social. All rights reserved.
@@ -261,20 +261,18 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy-policy"
-              className="text-xs hover:text-[#CBD5E1] transition-colors duration-300"
+              className="text-xs text-[#94A3B8] hover:text-[#CBD5E1] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-mono)',
-                color: 'rgba(148,163,184,0.5)',
               }}
             >
               Privacy Policy
             </Link>
             <a
               href="#"
-              className="text-xs hover:text-[#CBD5E1] transition-colors duration-300"
+              className="text-xs text-[#94A3B8] hover:text-[#CBD5E1] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-mono)',
-                color: 'rgba(148,163,184,0.5)',
               }}
             >
               Terms of Service

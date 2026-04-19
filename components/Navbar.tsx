@@ -47,6 +47,7 @@ export default function Navbar() {
           {/* Element A (The Logo - Left) */}
           <Link
             href="/"
+            aria-label="Luminex Social Homepage"
             className="pointer-events-auto relative flex items-center justify-center w-12 h-12 rounded-full border border-[#1E293B] bg-[#0B0E14]/60 backdrop-blur-[12px] hover:scale-105 transition-transform duration-300 shrink-0"
           >
             <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png?tr=f-auto,w-70,h-56,c-at_max" alt="Luminex Logo" width={35} height={28} fetchPriority="high" className="object-contain" />
@@ -115,7 +116,7 @@ export default function Navbar() {
         <div className="md:hidden px-4 pointer-events-none relative z-50">
           <div className="pointer-events-auto mx-auto w-fit flex items-center gap-4 p-1.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
             {/* Logo */}
-            <Link href="/" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
+            <Link href="/" aria-label="Luminex Social Homepage" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
               <img src="https://ik.imagekit.io/rqhbqqo2qx/Logo%20V2.png?tr=f-auto,w-70,h-56,c-at_max" alt="Luminex Logo" width={35} height={28} fetchPriority="high" className="object-contain" />
             </Link>
 
@@ -123,6 +124,7 @@ export default function Navbar() {
             <button
               className="w-10 h-10 flex flex-col justify-center items-center gap-1.5 pr-2"
               onClick={() => setIsOpen(!isOpen)}
+              aria-label="Toggle navigation menu"
             >
               <span className={`w-5 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'rotate-45 translate-y-2' : ''}`} />
               <span className={`w-5 h-0.5 bg-[#F8FAFC] transition-all duration-300 ${isOpen ? 'opacity-0' : ''}`} />

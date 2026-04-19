@@ -1,3 +1,5 @@
+import LazyVideo from './LazyVideo'
+
 export default function VideoPlayer({ 
   src, 
   filterStyle,
@@ -8,13 +10,9 @@ export default function VideoPlayer({
   forwardRef?: React.RefObject<HTMLVideoElement | null>;
 }) {
   return (
-    <video
+    <LazyVideo
       ref={forwardRef}
       src={src}
-      autoPlay 
-      loop 
-      muted 
-      playsInline
       className="w-full h-full object-cover"
       style={{ filter: filterStyle }}
     />

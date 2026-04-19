@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
+import LazyVideo from './LazyVideo'
 
 const GoldStar = () => (
   <Star className="w-4 h-4 text-amber-300" fill="#FCD34D" />
@@ -62,7 +63,7 @@ export default function Testimonials() {
         {/* Section Tag - Centered */}
         <div className="flex items-center justify-center gap-3 mb-6">
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
-          <span
+          <h2
             className="text-sm font-medium px-6 py-3 rounded-full"
             style={{
               color: '#6366F1',
@@ -72,7 +73,7 @@ export default function Testimonials() {
             }}
           >
             TESTIMONIALS
-          </span>
+          </h2>
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
         </div>
 
@@ -101,6 +102,7 @@ export default function Testimonials() {
             {/* Previous Arrow */}
             <button
               onClick={handlePrev}
+              aria-label="Previous testimonial slide"
               className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
               style={{
                 backgroundColor: 'rgba(99, 102, 241, 0.2)',
@@ -114,6 +116,7 @@ export default function Testimonials() {
             {/* Next Arrow */}
             <button
               onClick={handleNext}
+              aria-label="Next testimonial slide"
               className="flex-shrink-0 w-10 h-10 rounded-full flex items-center justify-center transition-all hover:scale-110 active:scale-95"
               style={{
                 backgroundColor: 'rgba(99, 102, 241, 0.2)',
@@ -137,11 +140,9 @@ export default function Testimonials() {
           >
             {/* Left Side - 40% - Video Frame */}
             <div className="w-2/5 relative bg-[#0F172A] flex items-center justify-center overflow-hidden group">
-              <video
+              <LazyVideo
                 src={current.videoUrl}
                 className="w-full h-full object-cover opacity-50"
-                muted
-                loop
               />
               {/* Play Icon Overlay */}
               <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
@@ -245,6 +246,7 @@ export default function Testimonials() {
             <button
               key={idx}
               onClick={() => setCurrentIndex(idx)}
+              aria-label={`View testimonial slide ${idx + 1}`}
               className="transition-all"
               style={{
                 width: idx === currentIndex ? '24px' : '8px',
