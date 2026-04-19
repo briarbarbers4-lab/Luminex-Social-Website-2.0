@@ -4,6 +4,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
+import dynamic from 'next/dynamic'
+
+const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { ssr: false, loading: () => <div className="absolute inset-0 z-0 overflow-hidden bg-[#0B0E14] animate-pulse" /> })
+const CreativeBackgroundEffects = dynamic(() => import('@/components/CreativeBackgroundEffects'), { ssr: false })
 
 // ── Design tokens: Liquid Silver ─────────────────────────────────────────────
 const S = {
@@ -63,9 +67,6 @@ const SilverText = ({ children }: { children: React.ReactNode }) => (
 )
 
 export default function CreativePage() {
-
-  // ── Video background ref (kept muted and dimmed) ──────────────────────────
-  const videoRef = useRef<HTMLVideoElement>(null)
 
   // AEO / FAQ structured data
   const faqSchema = {
@@ -170,36 +171,14 @@ export default function CreativePage() {
       <section className="relative pt-40 pb-32 px-4 overflow-hidden min-h-[90vh] flex items-center">
         {/* Blurred video background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <video
-            ref={videoRef}
+          <VideoPlayer
             src="https://ik.imagekit.io/rqhbqqo2qx/15283259_1920_1080_60fps.mp4"
-            autoPlay loop muted playsInline
-            className="w-full h-full object-cover"
-            style={{ filter: 'saturate(0) blur(12px) brightness(0.18)' }}
+            filterStyle="saturate(0) blur(12px) brightness(0.18)"
           />
         </div>
         <div className="absolute inset-0 z-[1] pointer-events-none" style={{ background: 'linear-gradient(to bottom, rgba(11,14,20,0.3) 0%, rgba(11,14,20,0.7) 60%, #0B0E14 100%)' }} />
 
-        {/* Fluid silver orb — top left */}
-        <div
-          className="absolute -top-40 -left-40 rounded-full pointer-events-none z-[2]"
-          style={{
-            width: '700px', height: '700px',
-            background: 'radial-gradient(circle, rgba(203,213,225,0.06) 0%, transparent 65%)',
-            filter: 'blur(80px)',
-            animation: 'floatOrb 18s ease-in-out infinite',
-          }}
-        />
-        {/* Fluid silver orb — bottom right */}
-        <div
-          className="absolute -bottom-40 -right-40 rounded-full pointer-events-none z-[2]"
-          style={{
-            width: '600px', height: '600px',
-            background: 'radial-gradient(circle, rgba(203,213,225,0.04) 0%, transparent 65%)',
-            filter: 'blur(60px)',
-            animation: 'floatOrb 24s ease-in-out infinite reverse',
-          }}
-        />
+        <CreativeBackgroundEffects />
 
         <div className="relative z-10 max-w-6xl mx-auto w-full">
           {/* Division badge */}
@@ -266,20 +245,8 @@ export default function CreativePage() {
             >
               See The Process ↓
             </Link>
-          </div>
         </div>
-
-        {/* Floating keyframes */}
-        <style jsx>{`
-          @keyframes floatOrb {
-            0%   { transform: translate(0, 0) scale(1); }
-            33%  { transform: translate(40px, -60px) scale(1.08); }
-            66%  { transform: translate(-30px, 30px) scale(0.94); }
-            100% { transform: translate(0, 0) scale(1); }
-          }
-        `}</style>
       </section>
-
       <div className="w-full h-px" style={{ backgroundColor: S.glowBorder }} />
 
       {/* ── Stats ───────────────────────────────────────────────────────────── */}
@@ -376,11 +343,9 @@ export default function CreativePage() {
       <section id="process" className="py-28 px-4 relative overflow-hidden">
         {/* Subtle video wash */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <video
+          <VideoPlayer
             src="https://ik.imagekit.io/rqhbqqo2qx/15283259_1920_1080_60fps.mp4"
-            autoPlay loop muted playsInline
-            className="w-full h-full object-cover"
-            style={{ filter: 'saturate(0) blur(20px) brightness(0.08)' }}
+            filterStyle="saturate(0) blur(20px) brightness(0.08)"
           />
         </div>
         <div className="absolute inset-0 z-[1] pointer-events-none bg-[#0B0E14]/80" />
@@ -520,11 +485,9 @@ export default function CreativePage() {
       {/* ── CTA ─────────────────────────────────────────────────────────────── */}
       <section className="py-32 px-4 relative overflow-hidden">
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
-          <video
+          <VideoPlayer
             src="https://ik.imagekit.io/rqhbqqo2qx/15283259_1920_1080_60fps.mp4"
-            autoPlay loop muted playsInline
-            className="w-full h-full object-cover"
-            style={{ filter: 'saturate(0) blur(16px) brightness(0.12)' }}
+            filterStyle="saturate(0) blur(16px) brightness(0.12)"
           />
         </div>
         <div className="absolute inset-0 z-[1] bg-[#0B0E14]/75 pointer-events-none" />

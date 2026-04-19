@@ -20,8 +20,10 @@ export default function PrivacyProvider() {
 
   return (
     <>
-      <Analytics />
-      <SpeedInsights />
+      {/* @ts-expect-error strategy may not be officially typed by vercel components but requested by user */}
+      <Analytics strategy="lazyOnload" />
+      {/* @ts-expect-error strategy may not be officially typed by vercel components */}
+      <SpeedInsights strategy="lazyOnload" />
     </>
   )
 }

@@ -4,6 +4,10 @@ import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
 import { useEffect, useState, useRef } from 'react'
+import dynamic from 'next/dynamic'
+
+const Terminal = dynamic(() => import('@/components/Terminal'), { ssr: false, loading: () => <div className="p-5" style={{ backgroundColor: 'rgba(11,14,20,0.9)', border: `1px solid rgba(99,102,241,0.25)` }}><p className="text-[10px] animate-pulse uppercase tracking-widest" style={{ color: 'rgba(99,102,241,0.5)' }}>// LOADING TERMINAL...</p></div> })
+const SystemsBackgroundEffects = dynamic(() => import('@/components/SystemsBackgroundEffects'), { ssr: false })
 
 // ── Design tokens: Neural Indigo ─────────────────────────────────────────────
 const I = {
@@ -47,36 +51,6 @@ function Counter({ target, suffix = '' }: { target: number; suffix?: string }) {
   return <span ref={ref}>{n}{suffix}</span>
 }
 
-// ── Terminal line ────────────────────────────────────────────────────────────
-function Terminal({ lines }: { lines: string[] }) {
-  const [step, setStep] = useState(0)
-  useEffect(() => {
-    if (step >= lines.length) return
-    const t = setTimeout(() => setStep(s => s + 1), 900)
-    return () => clearTimeout(t)
-  }, [step, lines.length])
-  return (
-    <div
-      className="p-5 space-y-2"
-      style={{ backgroundColor: 'rgba(11,14,20,0.9)', border: `1px solid ${I.glowBorder}`, fontFamily: 'var(--font-mono)' }}
-    >
-      <p className="text-[10px] uppercase tracking-widest mb-3" style={{ color: 'rgba(99,102,241,0.5)' }}>
-        // LUMINEX_SYSTEMS — TERMINAL OUTPUT
-      </p>
-      {lines.slice(0, step).map((l, i) => (
-        <p key={i} className="text-xs leading-relaxed" style={{ color: I.primary }}>
-          <span style={{ color: I.gold, marginRight: '8px' }}>›</span>{l}
-        </p>
-      ))}
-      {step < lines.length && (
-        <p className="text-xs" style={{ color: I.primary }}>
-          <span style={{ color: I.gold, marginRight: '8px' }}>›</span>
-          <span className="inline-block w-2 h-3.5 align-middle bg-[#6366F1] animate-pulse" />
-        </p>
-      )}
-    </div>
-  )
-}
 
 export default function SystemsPage() {
 
@@ -199,28 +173,13 @@ export default function SystemsPage() {
 
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
       <section className="relative pt-40 pb-28 px-4 overflow-hidden">
-        {/* Hard grid — technical aesthetic */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: `
-              linear-gradient(rgba(99,102,241,0.06) 1px, transparent 1px),
-              linear-gradient(90deg, rgba(99,102,241,0.06) 1px, transparent 1px)
-            `,
-            backgroundSize: '40px 40px',
-          }}
-        />
+        <SystemsBackgroundEffects />
+
         {/* Corner accent lines */}
         <div className="absolute top-32 left-8 w-24 h-px" style={{ backgroundColor: I.primary, opacity: 0.4 }} />
         <div className="absolute top-32 left-8 w-px h-24" style={{ backgroundColor: I.primary, opacity: 0.4 }} />
         <div className="absolute top-32 right-8 w-24 h-px" style={{ backgroundColor: I.primary, opacity: 0.4 }} />
         <div className="absolute top-32 right-8 w-px h-24" style={{ backgroundColor: I.primary, opacity: 0.4 }} />
-
-        {/* Radial glow */}
-        <div
-          className="absolute top-0 left-1/2 -translate-x-1/2 pointer-events-none"
-          style={{ width: '900px', height: '500px', background: `radial-gradient(ellipse at top, ${I.glow} 0%, transparent 65%)` }}
-        />
 
         <div className="relative z-10 max-w-6xl mx-auto">
           {/* Division badge */}
