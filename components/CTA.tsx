@@ -57,7 +57,7 @@ export default function CTA() {
 
         {/* FAQ Section */}
         <div className="bg-[#1E293B]/50 backdrop-blur rounded-xl p-8 border border-[#334155]">
-          <h3 className="hud-label text-[#6366F1] mb-8">// Frequently Asked Questions</h3>
+          <p className="hud-label text-[#6366F1] mb-8">// Frequently Asked Questions</p>
 
           <div className="space-y-4">
             {faqs.map((faq) => (

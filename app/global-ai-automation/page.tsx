@@ -294,10 +294,10 @@ export default function GlobalAIAutomationPage() {
             className="text-base md:text-lg mb-4 max-w-3xl mx-auto leading-relaxed"
             style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.65)' }}
           >
-            Luminex operates a two-layer infrastructure — <strong style={{ color: '#CA8A04' }}>Logic</strong> and{' '}
+            Luminex operates a two-layer AI Automation infrastructure — <strong style={{ color: '#CA8A04' }}>Logic</strong> and{' '}
             <strong style={{ color: '#6366F1' }}>Narrative</strong> — designed to run in
             permanent synchronisation. Logic handles autonomous lead capture, qualification, and
-            backend orchestration. Narrative produces the high-retention video assets that activate
+            backend orchestration. Narrative produces the high-retention creative narrative video assets that activate
             the pipeline. Neither layer functions at full capacity without the other.
           </p>
 
@@ -400,12 +400,12 @@ export default function GlobalAIAutomationPage() {
             <div className="p-8 md:p-12 border-b lg:border-b-0 lg:border-r border-[#1E293B]">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-2 h-2 rounded-full bg-[#CA8A04]" style={{ boxShadow: '0 0 8px rgba(202,138,4,0.7)' }} />
-                <h3
+                <p
                   className="text-xs uppercase tracking-[0.25em]"
                   style={{ fontFamily: 'var(--font-mono)', color: '#CA8A04' }}
                 >
                   [ LOGIC — Automation & Backend ]
-                </h3>
+                </p>
               </div>
 
               <p
@@ -467,12 +467,12 @@ export default function GlobalAIAutomationPage() {
             <div className="p-8 md:p-12">
               <div className="flex items-center gap-3 mb-8">
                 <div className="w-2 h-2 rounded-full bg-[#6366F1]" style={{ boxShadow: '0 0 8px rgba(99,102,241,0.7)' }} />
-                <h3
+                <p
                   className="text-xs uppercase tracking-[0.25em]"
                   style={{ fontFamily: 'var(--font-mono)', color: '#6366F1' }}
                 >
                   [ NARRATIVE — High-Retention Video & Creative ]
-                </h3>
+                </p>
               </div>
 
               <p
@@ -613,12 +613,12 @@ export default function GlobalAIAutomationPage() {
                     // STRUCTURAL_FAILURE
                   </span>
                 </div>
-                <h3
+                <p
                   className="text-base font-bold mb-4 leading-snug"
                   style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}
                 >
                   {reason.title}
-                </h3>
+                </p>
                 <p
                   className="text-sm leading-relaxed"
                   style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}
@@ -756,12 +756,12 @@ export default function GlobalAIAutomationPage() {
                             {step.trigger}
                           </span>
                         </div>
-                        <h3
+                        <p
                           className="text-base font-bold mb-2"
                           style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}
                         >
                           {step.title}
-                        </h3>
+                        </p>
                         <p
                           className="text-sm leading-relaxed"
                           style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}

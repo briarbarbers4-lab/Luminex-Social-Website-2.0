@@ -218,7 +218,7 @@ export default function SystemsPage() {
                 className="text-base md:text-lg leading-relaxed mb-8"
                 style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.6)', maxWidth: '520px' }}
               >
-                The operational skeleton of the Luminex infrastructure. AI voice agents, n8n enterprise 
+                The operational skeleton of the Luminex infrastructure. Custom AI Automation systems, AI voice agents, n8n enterprise 
                 pipelines, autonomous DM chatbots, and AI employees — running continuously in the background, 
                 converting inbound attention into qualified pipeline without human input.
               </p>
@@ -329,9 +329,9 @@ export default function SystemsPage() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
+                <strong className="block text-lg font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
                   {svc.title}
-                </h3>
+                </strong>
                 <p className="text-sm leading-relaxed mb-4 flex-grow" style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}>
                   {svc.body}
                 </p>

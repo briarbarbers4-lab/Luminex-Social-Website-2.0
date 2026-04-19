@@ -117,9 +117,9 @@ export default function Services() {
               <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-12">
                 {/* The Logic */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
+                  <p className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
                     <span className="text-[#6366F1] font-mono">01 //</span> How the System Works
-                  </h3>
+                  </p>
                   <ol className="space-y-5 text-[#CBD5E1]">
                     {service.logicSteps.map((step, i) => (
                       <li key={i} className="flex items-start gap-4">
@@ -134,9 +134,9 @@ export default function Services() {
 
                 {/* The Narrative */}
                 <div>
-                  <h3 className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
+                  <p className="text-xl font-bold text-[#F8FAFC] mb-6 flex items-center gap-3">
                     <span className="text-[#A855F7] font-mono">02 //</span> The Business Impact
-                  </h3>
+                  </p>
                   <ul className="space-y-5 text-[#CBD5E1]">
                     {service.impactMetrics.map((metric, i) => (
                       <li key={i} className="flex items-start gap-3">
@@ -150,11 +150,11 @@ export default function Services() {
 
               {/* FAQs */}
               <div className="pt-10 border-t border-[#334155]">
-                <h3 className="text-xl font-bold text-[#F8FAFC] mb-8 font-heading">Frequently Asked Questions</h3>
+                <h3 className="text-xl font-bold text-[#F8FAFC] mb-8 font-heading">{service.name} FAQs</h3>
                 <div className="space-y-4">
                   {service.faqs.map((faq, i) => (
                     <div key={i} className="p-6 rounded-2xl border border-[#334155] bg-[#0F172A] hover:border-[#6366F1] transition-colors">
-                      <h4 className="text-lg font-semibold text-[#F1F5F9] mb-3 leading-snug">{faq.question}</h4>
+                      <p className="text-lg font-semibold text-[#F1F5F9] mb-3 leading-snug">{faq.question}</p>
                       <p className="text-[#94A3B8] leading-relaxed">{faq.answer}</p>
                     </div>
                   ))}

@@ -74,7 +74,7 @@ export default function ServicesPage() {
           className="text-sm md:text-base relative z-10 uppercase tracking-[0.2em]"
           style={{ fontFamily: 'var(--font-mono)', color: 'rgba(99,102,241,0.8)' }}
         >
-          // SCALING THROUGH LOGIC & NARRATIVE
+          // SCALING THROUGH AI AUTOMATION & CREATIVE NARRATIVE
         </p>
       </section>
 
@@ -135,12 +135,12 @@ export default function ServicesPage() {
                   boxShadow: 'none',
                 }}
               >
-                <h3
-                  className="text-[14px] font-bold uppercase tracking-widest mb-4"
+                <strong
+                  className="block text-[14px] font-bold uppercase tracking-widest mb-4"
                   style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
                 >
                   {item.title}
-                </h3>
+                </strong>
                 <p
                   className="text-sm leading-relaxed mb-8 flex-grow"
                   style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.6)' }}
@@ -217,12 +217,12 @@ export default function ServicesPage() {
                   boxShadow: 'none',
                 }}
               >
-                <h3
-                  className="text-[14px] font-bold uppercase tracking-widest mb-4"
+                <strong
+                  className="block text-[14px] font-bold uppercase tracking-widest mb-4"
                   style={{ fontFamily: 'var(--font-mono)', color: '#F8FAFC' }}
                 >
                   {item.title}
-                </h3>
+                </strong>
                 <p
                   className="text-sm leading-relaxed mb-8 flex-grow"
                   style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.6)' }}
@@ -245,9 +245,9 @@ export default function ServicesPage() {
       {/* ── NEW: Technical Specifications ── */}
       <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
         <div className="max-w-5xl w-full mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+          <p className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
             Technical Specifications
-          </h2>
+          </p>
           <div className="overflow-x-auto w-full">
             <table className="w-full text-left border-collapse" style={{ backgroundColor: '#1E293B', borderColor: '#F8FAFC', borderWidth: '1px' }}>
               <thead>
@@ -287,9 +287,9 @@ export default function ServicesPage() {
       {/* ── NEW: The Infrastructure Stack ── */}
       <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
         <div className="max-w-5xl w-full mx-auto">
-          <h2 className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+          <p className="text-3xl font-bold mb-10 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
             The Infrastructure Stack
-          </h2>
+          </p>
           <div className="flex flex-wrap justify-center gap-4">
             {[
               '[ n8n_Core ]', '[ GPT-4o_Engine ]', '[ Claude_3.5_Sonnet ]', '[ Vapi_Voice ]',
@@ -316,9 +316,9 @@ export default function ServicesPage() {
       {/* ── NEW: The Lifecycle Map ── */}
       <section className="relative py-24 px-4 bg-[#0B0E14] flex flex-col items-center">
         <div className="max-w-4xl w-full mx-auto">
-          <h2 className="text-3xl font-bold mb-16 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
+          <p className="text-3xl font-bold mb-16 text-center" style={{ fontFamily: 'var(--font-heading)' }}>
             The Lifecycle Map
-          </h2>
+          </p>
           <div className="relative pl-8 md:pl-0">
             {/* Vertical Line */}
             <div className="absolute left-8 md:left-1/2 top-4 bottom-4 w-px -translate-x-1/2" style={{ backgroundColor: '#F8FAFC' }} />
@@ -346,9 +346,9 @@ export default function ServicesPage() {
                       <span className="text-xs tracking-widest block mb-2 font-bold" style={{ fontFamily: 'var(--font-mono)', color: '#6366F1' }}>
                         // {step.day}
                       </span>
-                      <h3 className="text-lg font-bold mb-2 text-[#F8FAFC]" style={{ fontFamily: 'var(--font-heading)' }}>
+                      <strong className="block text-lg font-bold mb-2 text-[#F8FAFC]" style={{ fontFamily: 'var(--font-heading)' }}>
                         {step.title}
-                      </h3>
+                      </strong>
                       <p className="text-sm leading-relaxed" style={{ fontFamily: 'var(--font-sans)', color: '#E2E8F0' }}>
                         {step.desc}
                       </p>

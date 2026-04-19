@@ -161,14 +161,14 @@ export default function AIInfrastructure() {
 
           {/* FRONT-END INTERACTION Column */}
           <div className="relative z-20 space-y-6">
-            <h3
+            <p
               className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
                 fontFamily: 'var(--font-mono)',
               }}
             >
               [ FRONT-END INTERACTION ]
-            </h3>
+            </p>
             {col1Items.map((item, idx) => (
               <div
                 key={idx}
@@ -205,14 +205,14 @@ export default function AIInfrastructure() {
 
           {/* BACKEND EXECUTION Column */}
           <div className="relative z-20 space-y-6">
-            <h3
+            <p
               className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
                 fontFamily: 'var(--font-mono)',
               }}
             >
               [ BACKEND EXECUTION ]
-            </h3>
+            </p>
             {col2Items.map((item, idx) => (
               <div
                 key={idx}
@@ -249,14 +249,14 @@ export default function AIInfrastructure() {
 
           {/* SYSTEM ECOSYSTEM Column */}
           <div className="relative z-20 space-y-6">
-            <h3
+            <p
               className="text-[13px] font-bold uppercase tracking-widest text-[#F8FAFC]"
               style={{
                 fontFamily: 'var(--font-mono)',
               }}
             >
               [ SYSTEM ECOSYSTEM ]
-            </h3>
+            </p>
             {col3Items.map((item, idx) => (
               <div
                 key={idx}

@@ -143,12 +143,12 @@ export default function LuminexFramework() {
               </span>
             </div>
 
-            <h3
+            <p
               className="text-2xl md:text-3xl font-black mb-4 tracking-tight"
               style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC', letterSpacing: '-0.02em' }}
             >
               Logic Layer
-            </h3>
+            </p>
             <p
               className="text-sm leading-relaxed mb-8 flex-grow"
               style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}
@@ -259,12 +259,12 @@ export default function LuminexFramework() {
               </span>
             </div>
 
-            <h3
+            <p
               className="text-2xl md:text-3xl font-black mb-4 tracking-tight"
               style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC', letterSpacing: '-0.02em' }}
             >
               Narrative Layer
-            </h3>
+            </p>
             <p
               className="text-sm leading-relaxed mb-8 flex-grow"
               style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}

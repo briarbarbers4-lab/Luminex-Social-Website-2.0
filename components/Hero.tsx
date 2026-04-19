@@ -147,7 +147,7 @@ export default function Hero() {
             maxWidth: '800px',
           }}
         >
-          On-Board more clients without relying on word of mouth, sending large volumes of outreach hoping someone replies. Build your brand, automate follow-ups and autopilot the business. Without spending a dime on ads.
+          On-board more clients without relying on unpredictable word of mouth or spending a dime on ads. By intertwining a high-retention creative narrative for your content and deploying intelligent AI Automation systems, we help you build your brand authority, automate follow-ups, and autopilot your entire business growth.
         </p>
 
         {/* Buttons */}
@@ -194,7 +194,7 @@ export default function Hero() {
               color: '#F1F5F9',
             }}
           >
-            Learn More
+            Discover Core Infrastructure
             <ChevronDown className="w-4 h-4" />
           </button>
         </div>

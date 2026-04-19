@@ -128,9 +128,9 @@ export default function Portfolio() {
 
                 {/* Title Below Thumbnail */}
                 <div className="p-4">
-                  <h3 className="text-[#F8FAFC] font-sans font-semibold text-base">
+                  <p className="text-[#F8FAFC] font-sans font-semibold text-base">
                     {item.title}
-                  </h3>
+                  </p>
                 </div>
               </div>
             )

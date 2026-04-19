@@ -95,7 +95,7 @@ export const metadata: Metadata = {
 
   // ── Alternate / canonical
   alternates: {
-    canonical: 'https://luminexsocial.com',
+    canonical: '/',
   },
 }
 

@@ -210,7 +210,7 @@ export default function Testimonials() {
 
               {/* Client Name */}
               <div>
-                <h3
+                <p
                   className="text-lg font-black mb-1"
                   style={{
                     fontFamily: 'var(--font-heading)',
@@ -218,7 +218,7 @@ export default function Testimonials() {
                   }}
                 >
                   {current.name}
-                </h3>
+                </p>
                 <p className="text-sm text-[#CBD5E1] mb-3">
                   {current.title} • {current.company}
                 </p>

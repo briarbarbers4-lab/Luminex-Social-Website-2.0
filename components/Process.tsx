@@ -124,9 +124,9 @@ export default function Process() {
                 </div>
 
                 {/* Content */}
-                <h3 className="text-2xl font-black text-[#F8FAFC] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
+                <p className="text-2xl font-black text-[#F8FAFC] mb-3" style={{ fontFamily: 'var(--font-heading)' }}>
                   {step.title}
-                </h3>
+                </p>
                 <p className="text-[#CBD5E1] text-sm mb-4 leading-relaxed">{step.description}</p>
                 <div
                   className="font-mono text-xs uppercase tracking-widest"
@@ -140,8 +140,12 @@ export default function Process() {
 
           {/* Book A Call CTA */}
           <div className="flex justify-center mt-16">
-            <button
-              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 active:scale-95"
+            <a
+              href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Schedule a free discovery call with Luminex Social"
+              className="px-8 py-4 rounded-lg font-semibold text-lg transition-all transform hover:scale-105 active:scale-95 inline-block"
               style={{
                 background: 'linear-gradient(135deg, #1E1B4B, #312E81)',
                 color: '#F8FAFC',
@@ -149,8 +153,8 @@ export default function Process() {
                 boxShadow: '0 0 30px rgba(202, 138, 4, 0.2)',
               }}
             >
-              Book A Call
-            </button>
+              Schedule A Discovery Call
+            </a>
           </div>
         </div>
 
@@ -197,9 +201,9 @@ export default function Process() {
               </div>
 
               {/* Content */}
-              <h3 className="text-xl font-black text-[#F8FAFC] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
+              <p className="text-xl font-black text-[#F8FAFC] mb-2" style={{ fontFamily: 'var(--font-heading)' }}>
                 {step.title}
-              </h3>
+              </p>
               <p className="text-[#CBD5E1] text-sm mb-3 leading-relaxed">{step.description}</p>
               <div
                 className="font-mono text-xs uppercase tracking-widest"
@@ -212,8 +216,12 @@ export default function Process() {
 
           {/* Book A Call CTA - Mobile */}
           <div className="flex justify-center mt-12">
-            <button
-              className="px-6 py-3 rounded-lg font-semibold text-base transition-all transform hover:scale-105 active:scale-95"
+            <a
+              href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Schedule a free discovery call with Luminex Social"
+              className="px-6 py-3 rounded-lg font-semibold text-base transition-all transform hover:scale-105 active:scale-95 inline-block"
               style={{
                 background: 'linear-gradient(135deg, #1E1B4B, #312E81)',
                 color: '#F8FAFC',
@@ -221,8 +229,8 @@ export default function Process() {
                 boxShadow: '0 0 30px rgba(202, 138, 4, 0.2)',
               }}
             >
-              Book A Call
-            </button>
+              Schedule A Discovery Call
+            </a>
           </div>
         </div>
       </div>

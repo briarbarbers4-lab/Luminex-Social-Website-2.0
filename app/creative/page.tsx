@@ -207,7 +207,7 @@ export default function CreativePage() {
             className="text-base md:text-lg leading-relaxed mb-10"
             style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.6)', maxWidth: '560px' }}
           >
-            The demand-generation engine of the Luminex infrastructure. High-retention short-form video — 
+            The demand-generation engine of the Luminex infrastructure. High-retention short-form video utilizing a compelling creative narrative — 
             built to clear the 65% retention threshold, trigger algorithmic distribution, and deliver a 
             measurable volume of warm inbound prospects into the Systems pipeline every month.
           </p>
@@ -320,9 +320,9 @@ export default function CreativePage() {
                   </span>
                 </div>
 
-                <h3 className="text-lg font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
+                <strong className="block text-lg font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
                   {svc.title}
-                </h3>
+                </strong>
                 <p className="text-sm leading-relaxed flex-grow mb-6" style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.55)' }}>
                   {svc.body}
                 </p>
@@ -386,9 +386,9 @@ export default function CreativePage() {
                   <span className="text-sm font-bold" style={{ fontFamily: 'var(--font-mono)', color: S.primary }}>{p.n}</span>
                 </div>
 
-                <h3 className="text-sm font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
+                <strong className="block text-sm font-bold mb-3" style={{ fontFamily: 'var(--font-heading)', color: '#F8FAFC' }}>
                   {p.title}
-                </h3>
+                </strong>
                 <p className="text-xs leading-relaxed flex-grow mb-4" style={{ fontFamily: 'var(--font-sans)', color: 'rgba(248,250,252,0.5)' }}>
                   {p.body}
                 </p>
