@@ -1,3 +1,5 @@
+'use client'
+
 import dynamic from 'next/dynamic'
 
 const VideoCards = dynamic(() => import('@/components/VideoCards'), { ssr: false, loading: () => <p>Loading...</p> })

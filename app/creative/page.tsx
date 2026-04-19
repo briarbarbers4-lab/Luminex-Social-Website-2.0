@@ -245,6 +245,7 @@ export default function CreativePage() {
             >
               See The Process ↓
             </Link>
+          </div>
         </div>
       </section>
       <div className="w-full h-px" style={{ backgroundColor: S.glowBorder }} />
