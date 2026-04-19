@@ -48,9 +48,9 @@ export default function ContentGallery() {
           <span className="text-lg" style={{ color: '#6366F1' }}>●</span>
         </div>
 
-        <div className="grid grid-cols-10 gap-8">
+        <div className="flex flex-col md:grid md:grid-cols-10 gap-8">
           {/* Left Column - 40% - Sticky */}
-          <div className="col-span-4 sticky top-24 h-fit">
+          <div className="w-full md:w-auto md:col-span-4 sticky top-24 h-fit">
             {/* Heading */}
             <h2
               className="text-4xl md:text-5xl font-black mb-6"
@@ -89,11 +89,11 @@ export default function ContentGallery() {
           </div>
 
           {/* Right Column - 60% - Bento Grid */}
-          <div className="col-span-6">
-            <div className="grid grid-cols-2 gap-6">
+          <div className="w-full md:w-auto md:col-span-6">
+            <div className="flex flex-col md:grid md:grid-cols-2 gap-6">
               {/* Large Video - Takes up top and spans full height on left */}
               <div
-                className="col-span-1 row-span-2"
+                className="w-full md:w-auto md:col-span-1 md:row-span-2"
                 onMouseEnter={() => setHoveredId(videos[0].id)}
                 onMouseLeave={() => setHoveredId(null)}
               >
@@ -126,7 +126,7 @@ export default function ContentGallery() {
               </div>
 
               {/* Small Videos - Right Column */}
-              <div className="col-span-1 row-span-1">
+              <div className="w-full md:w-auto md:col-span-1 md:row-span-1">
                 <div
                   className="w-full aspect-square rounded-2xl overflow-hidden relative group cursor-pointer transition-all"
                   onMouseEnter={() => setHoveredId(videos[1].id)}
@@ -157,7 +157,7 @@ export default function ContentGallery() {
                 </div>
               </div>
 
-              <div className="col-span-1 row-span-1">
+              <div className="w-full md:w-auto md:col-span-1 md:row-span-1">
                 <div
                   className="w-full aspect-square rounded-2xl overflow-hidden relative group cursor-pointer transition-all"
                   onMouseEnter={() => setHoveredId(videos[2].id)}

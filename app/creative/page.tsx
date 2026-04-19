@@ -240,8 +240,8 @@ export default function CreativePage() {
               id="creative-see-process"
               className="inline-flex items-center gap-2 px-6 py-4 text-sm uppercase tracking-widest transition-colors"
               style={{ fontFamily: 'var(--font-mono)', color: S.muted, border: `1px solid ${S.glowBorder}` }}
-              onMouseEnter={e => (e.currentTarget.style.color = S.primary)}
-              onMouseLeave={e => (e.currentTarget.style.color = S.muted)}
+              onMouseEnter={e => ((e.currentTarget as HTMLElement).style.color = S.primary)}
+              onMouseLeave={e => ((e.currentTarget as HTMLElement).style.color = S.muted)}
             >
               See The Process ↓
             </Link>

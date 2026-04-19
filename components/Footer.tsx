@@ -95,6 +95,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    aria-label={`Navigate to ${link.label}`}
                     className="group flex items-center gap-2 text-sm transition-colors duration-300"
                     style={{ color: 'rgba(203,213,225,0.6)' }}
                   >
@@ -133,6 +134,7 @@ export default function Footer() {
                 <li key={link.label}>
                   <Link
                     href={link.href}
+                    aria-label={`Navigate to ${link.label}`}
                     className="group flex items-center gap-2 text-sm transition-colors duration-300"
                     style={{ color: 'rgba(203,213,225,0.6)' }}
                   >
@@ -261,6 +263,7 @@ export default function Footer() {
           <div className="flex items-center gap-6">
             <Link
               href="/privacy-policy"
+              aria-label="Privacy Policy"
               className="text-xs text-[#94A3B8] hover:text-[#CBD5E1] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-mono)',
@@ -270,6 +273,7 @@ export default function Footer() {
             </Link>
             <a
               href="#"
+              aria-label="Terms of Service"
               className="text-xs text-[#94A3B8] hover:text-[#CBD5E1] transition-colors duration-300"
               style={{
                 fontFamily: 'var(--font-mono)',

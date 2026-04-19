@@ -74,7 +74,7 @@ export default function Hero() {
       />
 
       {/* Main Content — flex column, vertically centered in viewport */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center min-h-[90vh] pt-16">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center min-h-[90vh] pt-0">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
           {/* Pulse rings */}

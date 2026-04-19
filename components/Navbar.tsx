@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <>
       {/* The Container - Transparent, Sticky, No Background/Border */}
-      <header className="sticky top-0 w-full z-50 pointer-events-none pt-6">
+      <header className="sticky top-0 w-full z-[9999] pointer-events-none pt-6">
 
         {/* Desktop Layout - Three Independent 'Satellites' */}
         <div className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between relative">
@@ -113,7 +113,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Layout - Single Pill */}
-        <div className="md:hidden px-4 pointer-events-none relative z-50">
+        <div className="md:hidden px-4 pointer-events-none relative z-[9999]">
           <div className="pointer-events-auto mx-auto w-fit flex items-center gap-4 p-1.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
             {/* Logo */}
             <Link href="/" aria-label="Luminex Social Homepage" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
