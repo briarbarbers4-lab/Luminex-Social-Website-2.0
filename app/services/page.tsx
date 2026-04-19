@@ -3,6 +3,12 @@
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
+
+const VideoPlayer = dynamic(() => import('@/components/VideoPlayer'), { 
+  ssr: false, 
+  loading: () => <div className="absolute inset-0 z-0 overflow-hidden bg-[#0B0E14] animate-pulse" /> 
+})
 
 export default function ServicesPage() {
   const narrativeStack = [
@@ -82,16 +88,9 @@ export default function ServicesPage() {
       <section className="relative py-24 px-4 overflow-hidden" style={{ background: '#0B0E14' }}>
         {/* Background Video */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <video
+          <VideoPlayer
             src="https://ik.imagekit.io/rqhbqqo2qx/15283259_1920_1080_60fps.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            style={{
-              filter: 'saturate(0) blur(8px) brightness(0.3)',
-            }}
+            filterStyle="saturate(0) blur(8px) brightness(0.3)"
           />
         </div>
         {/* Darkening Overlay */}
@@ -164,16 +163,9 @@ export default function ServicesPage() {
       <section className="relative py-24 px-4 overflow-hidden bg-[#0B0E14]">
         {/* Background Video */}
         <div className="absolute inset-0 z-0 overflow-hidden pointer-events-none">
-          <video
+          <VideoPlayer
             src="https://ik.imagekit.io/rqhbqqo2qx/203986-923133871.mp4"
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="w-full h-full object-cover"
-            style={{
-              filter: 'saturate(0.5) blur(8px) brightness(0.3)',
-            }}
+            filterStyle="saturate(0.5) blur(8px) brightness(0.3)"
           />
         </div>
         {/* Darkening Overlay */}
