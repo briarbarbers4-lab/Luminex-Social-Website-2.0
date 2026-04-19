@@ -1,65 +1,87 @@
 'use client'
 
-import { useEffect, useRef, useState, VideoHTMLAttributes } from 'react'
+import { useEffect, useRef, useImperativeHandle, forwardRef, VideoHTMLAttributes } from 'react'
 
 interface LazyVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
   src: string;
   autoPlay?: boolean;
 }
 
-export default function LazyVideo({ src, className, style, autoPlay = true, ...rest }: LazyVideoProps) {
-  const videoRef = useRef<HTMLVideoElement>(null)
-  const [hasStartedLoading, setHasStartedLoading] = useState(false)
+const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
+  ({ src, className, style, autoPlay = true, ...rest }, ref) => {
+    const internalRef = useRef<HTMLVideoElement>(null)
+    
+    // forward the internal ref to the parent ref if provided
+    useImperativeHandle(ref, () => internalRef.current!)
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            setHasStartedLoading(true)
-            if (autoPlay && videoRef.current) {
-              const playPromise = videoRef.current.play()
-              if (playPromise !== undefined) {
-                playPromise.catch(() => {})
+    // Append transformations for performance - q-60 is a good balance
+    const hasQueryParams = src.includes('?');
+    const optimizedSrc = hasQueryParams 
+      ? `${src}&tr=f-auto,q-60,w-640` 
+      : `${src}?tr=f-auto,q-60,w-640`;
+    
+    const posterSrc = hasQueryParams 
+      ? `${src.split('?')[0]}/ik-thumbnail.jpg` 
+      : `${src}/ik-thumbnail.jpg`;
+
+    useEffect(() => {
+      const video = internalRef.current
+      if (!video) return
+
+      const observer = new IntersectionObserver(
+        (entries) => {
+          entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+              if (autoPlay && video.paused) {
+                video.play().catch(() => {
+                  // Standard browser autoplay block - no action needed
+                })
+              }
+            } else {
+              // Pause when out of view to save bandwidth and CPU
+              if (!video.paused) {
+                video.pause()
               }
             }
-          } else {
-            // Pause video when out of viewport to save CPU/GPU and prevent stuttering
-            if (videoRef.current) {
-              videoRef.current.pause()
-            }
-          }
-        })
-      },
-      { rootMargin: '200px' }
-    )
+          })
+        },
+        { threshold: 0.1, rootMargin: '100px' }
+      )
 
-    if (videoRef.current) observer.observe(videoRef.current)
-    return () => observer.disconnect()
-  }, [autoPlay])
+      observer.observe(video)
 
-  // Append transformations to the URL only if it doesn't already have query params
-  const hasQueryParams = src.includes('?');
-  const optimizedSrc = hasQueryParams ? `${src}&tr=f-auto,q-60,br-1500,w-480` : `${src}?tr=f-auto,q-60,br-1500,w-480`;
-  const posterSrc = hasQueryParams ? `${src.split('?')[0]}/ik-thumbnail.jpg` : `${src}/ik-thumbnail.jpg`;
+      // Handle source changes in components like sliders
+      if (autoPlay && !video.paused === false) {
+        video.load(); // Force load on source change
+        video.play().catch(() => {})
+      }
 
-  return (
-    <video
-      ref={videoRef}
-      className={className}
-      style={style}
-      poster={posterSrc}
-      preload="none"
-      muted
-      playsInline
-      loop
-      src={hasStartedLoading ? optimizedSrc : undefined}
-      onLoadedData={() => {
-        if (autoPlay && videoRef.current) {
-          videoRef.current.play().catch(() => {});
+      return () => {
+        if (video) {
+          observer.unobserve(video)
         }
-      }}
-      {...rest}
-    />
-  )
-}
+        observer.disconnect()
+      }
+    }, [autoPlay, src])
+
+    return (
+      <video
+        ref={internalRef}
+        src={optimizedSrc}
+        poster={posterSrc}
+        className={className}
+        style={style}
+        preload="auto"
+        muted
+        playsInline
+        loop
+        autoPlay={autoPlay}
+        {...rest}
+      />
+    )
+  }
+)
+
+LazyVideo.displayName = 'LazyVideo'
+
+export default LazyVideo
