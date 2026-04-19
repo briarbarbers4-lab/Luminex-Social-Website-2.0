@@ -73,8 +73,8 @@ export default function Hero() {
         }}
       />
 
-      {/* Main Content - Contained and left-aligned */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 py-20 pt-32 flex flex-col items-start">
+      {/* Main Content — flex column, vertically centered in viewport */}
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center min-h-[90vh] pt-16">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
           {/* Pulse rings */}
@@ -157,15 +157,19 @@ export default function Hero() {
             {/* Pulse rings for button */}
             <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn" style={{ border: '2px solid rgba(202, 138, 4, 0.4)' }} />
             <span className="absolute inset-0 rounded-lg animate-pulse-ring-btn-delayed" style={{ border: '2px solid rgba(202, 138, 4, 0.3)' }} />
-            <button
-              className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden"
+            <a
+              href="https://calendly.com/luminexsocial05/30min"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Book a free discovery call with Luminex Social"
+              className="px-6 py-3.5 rounded-lg font-semibold text-base transition-all transform hover:scale-105 relative overflow-hidden inline-block"
               style={{
                 background: 'linear-gradient(135deg, #1E1B4B, #4C1D95)',
                 color: '#F1F5F9',
                 border: '2px solid #CA8A04',
                 boxShadow: '0 0 20px rgba(76, 29, 149, 0.4)',
               }}
-              onClick={(e) => createRipple(e, setButtonRipples)}
+              onClick={(e) => createRipple(e as unknown as React.MouseEvent<HTMLElement>, setButtonRipples)}
             >
               {buttonRipples.map(ripple => (
                 <span
@@ -183,7 +187,7 @@ export default function Hero() {
                 />
               ))}
               <span className="relative z-10">Book A Call</span>
-            </button>
+            </a>
           </div>
 
           {/* Learn More - Ghost button */}
@@ -200,27 +204,7 @@ export default function Hero() {
         </div>
       </div>
 
-      {/* ── Scoped Styles ── */}
-      <style jsx>{`
-        @keyframes drift {
-          0% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(30px, -50px) scale(1.1); }
-          66% { transform: translate(-20px, 20px) scale(0.9); }
-          100% { transform: translate(0, 0) scale(1); }
-        }
-        @keyframes drift-reverse {
-          0% { transform: translate(0, 0) scale(1); }
-          33% { transform: translate(-30px, 50px) scale(1.1); }
-          66% { transform: translate(20px, -20px) scale(0.9); }
-          100% { transform: translate(0, 0) scale(1); }
-        }
-        .animate-drift-1 {
-          animation: drift 20s ease-in-out infinite;
-        }
-        .animate-drift-2 {
-          animation: drift-reverse 25s ease-in-out infinite;
-        }
-      `}</style>
+
     </section>
   )
 }

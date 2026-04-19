@@ -9,6 +9,7 @@ const ROICalculator = dynamic(() => import('@/components/ROICalculator'), { ssr:
 const AIInfrastructure = dynamic(() => import('@/components/AIInfrastructure'), { ssr: false, loading: () => <p>Loading...</p> })
 const TechMarquee = dynamic(() => import('@/components/TechMarquee'), { ssr: false, loading: () => <p>Loading...</p> })
 const LuminexFramework = dynamic(() => import('@/components/LuminexFramework'), { ssr: false, loading: () => <p>Loading...</p> })
+const Services = dynamic(() => import('@/components/Services'), { ssr: false, loading: () => <p>Loading...</p> })
 
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
