@@ -454,12 +454,12 @@ export default function CreativePage() {
       <section className="py-24 px-4">
         <div className="max_w-5xl max-w-5xl mx-auto">
           <Tag label="// PRODUCTION_STACK" />
-          <h2
+          <p
             className="text-3xl font-black text-center mb-12 tracking-tight"
             style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.03em' }}
           >
             Tools in the Stack
-          </h2>
+          </p>
           <div className="flex flex-wrap justify-center gap-3">
             {techStack.map((tag, i) => (
               <div

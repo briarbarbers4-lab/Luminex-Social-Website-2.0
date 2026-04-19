@@ -404,12 +404,12 @@ export default function SystemsPage() {
       <section className="py-24 px-4">
         <div className="max-w-5xl mx-auto">
           <Tag label="// INFRASTRUCTURE_STACK" />
-          <h2
+          <p
             className="text-3xl md:text-4xl font-black text-center mb-12 tracking-tight"
             style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.03em' }}
           >
             Tools in the Stack
-          </h2>
+          </p>
           <div className="flex flex-wrap justify-center gap-3">
             {techStack.map((tag, i) => (
               <div
@@ -437,12 +437,12 @@ export default function SystemsPage() {
       <section className="py-24 px-4">
         <div className="max-w-3xl mx-auto">
           <Tag label="// SYSTEM_SPECS" />
-          <h2
+          <p
             className="text-3xl font-black text-center mb-12 tracking-tight"
             style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.03em' }}
           >
             Performance Guarantees
-          </h2>
+          </p>
           <table className="w-full text-left border-collapse" style={{ border: `1px solid ${I.glowBorder}`, backgroundColor: 'rgba(30,41,59,0.4)' }}>
             <thead>
               <tr style={{ borderBottom: `1px solid ${I.glowBorder}` }}>

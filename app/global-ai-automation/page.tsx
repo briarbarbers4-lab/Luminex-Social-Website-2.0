@@ -785,12 +785,12 @@ export default function GlobalAIAutomationPage() {
         <div className="max-w-5xl mx-auto">
           <SectionTag label="// SYNC_ARCHITECTURE: SPECIFICATIONS" />
 
-          <h2
+          <p
             className="text-4xl md:text-5xl font-black text-center mb-16 tracking-tight"
             style={{ fontFamily: 'var(--font-heading)', letterSpacing: '-0.03em' }}
           >
             System Specifications
-          </h2>
+          </p>
 
           <div className="overflow-x-auto w-full">
             <table
