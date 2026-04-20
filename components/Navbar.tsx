@@ -39,7 +39,7 @@ export default function Navbar() {
   return (
     <>
       {/* The Container - Transparent, Sticky, No Background/Border */}
-      <header className="sticky top-0 w-full z-[9999] pointer-events-none pt-6">
+      <header className="fixed top-0 left-0 w-full z-[9999] pt-6 pointer-events-none">
 
         {/* Desktop Layout - Three Independent 'Satellites' */}
         <div className="hidden md:flex max-w-7xl mx-auto px-6 lg:px-8 items-center justify-between relative">
@@ -135,11 +135,12 @@ export default function Navbar() {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`md:hidden absolute top-full left-0 w-full px-4 pt-4 transition-all duration-300 pointer-events-none ${isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 -translate-y-4'
-            }`}
+          className={`md:hidden absolute top-full left-0 w-full px-4 pt-4 transition-all duration-300 ${
+            isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4'
+          }`}
         >
           <div className="bg-[#0B0E14]/90 backdrop-blur-xl border border-[#1E293B] rounded-[2rem] overflow-hidden shadow-2xl">
-            <div className="flex flex-col gap-2 p-6">
+            <div className="flex flex-col gap-2 p-6 pointer-events-auto">
               <Link href="/" onClick={() => setIsOpen(false)} className="text-[#F8FAFC]/80 hover:text-white transition-colors font-mono text-sm uppercase tracking-widest text-center py-3">
                 Home
               </Link>

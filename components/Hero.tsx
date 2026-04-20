@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100vh] flex items-center overflow-hidden" style={{ background: '#0B0E14' }}>
+    <section className="relative min-h-[100vh] flex flex-col justify-center items-center overflow-hidden" style={{ background: '#0B0E14' }}>
       {/* Layer 1: Noise/grain texture at 0.05 opacity */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
@@ -74,7 +74,7 @@ export default function Hero() {
       />
 
       {/* Main Content — flex column, vertically centered in viewport */}
-      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center min-h-[90vh] pt-0">
+      <div className="relative z-20 w-full max-w-7xl mx-auto px-6 md:px-12 lg:px-16 flex flex-col justify-center">
         {/* Eyebrow Tag with Ripple and Pulse */}
         <div className="relative inline-block mb-6">
           {/* Pulse rings */}

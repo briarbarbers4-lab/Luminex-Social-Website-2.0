@@ -172,7 +172,7 @@ export default function SystemsPage() {
       <Navbar />
 
       {/* ── Hero ────────────────────────────────────────────────────────────── */}
-      <section className="relative pt-40 pb-28 px-4 overflow-hidden">
+      <section className="relative min-h-[100vh] flex flex-col justify-center px-4 overflow-hidden">
         <SystemsBackgroundEffects />
 
         {/* Corner accent lines */}

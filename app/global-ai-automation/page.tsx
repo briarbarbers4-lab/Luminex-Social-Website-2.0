@@ -234,7 +234,7 @@ export default function GlobalAIAutomationPage() {
       <Navbar />
 
       {/* ── 1. Hero ─────────────────────────────────────────────────────────── */}
-      <section className="relative pt-40 pb-28 px-4 flex flex-col items-center justify-center text-center overflow-hidden">
+      <section className="relative min-h-[100vh] px-4 flex flex-col items-center justify-center text-center overflow-hidden">
         {/* Grid overlay */}
         <div
           className="absolute inset-0 pointer-events-none"

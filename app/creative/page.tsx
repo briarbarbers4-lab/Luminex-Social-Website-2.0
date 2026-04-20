@@ -168,7 +168,7 @@ export default function CreativePage() {
       <Navbar />
 
       {/* ── Hero (Video Background) ──────────────────────────────────────────── */}
-      <section className="relative pt-40 pb-32 px-4 overflow-hidden min-h-[90vh] flex items-center">
+      <section className="relative px-4 overflow-hidden min-h-[100vh] flex flex-col justify-center items-center">
         {/* Blurred video background */}
         <div className="absolute inset-0 z-0 pointer-events-none overflow-hidden">
           <VideoPlayer

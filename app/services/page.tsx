@@ -62,7 +62,7 @@ export default function ServicesPage() {
       <Navbar />
 
       {/* ── 1. Hero Header ── */}
-      <section className="relative pt-40 pb-20 flex flex-col items-center justify-center text-center px-4">
+      <section className="relative min-h-[100vh] flex flex-col items-center justify-center text-center px-4">
         {/* Subtle radial glow */}
         <div
           className="absolute inset-0 pointer-events-none"
