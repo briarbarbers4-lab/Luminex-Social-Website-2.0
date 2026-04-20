@@ -1,93 +1,53 @@
 'use client'
 
-import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import Script from 'next/script'
 
 export default function CTA() {
-  const [openFAQ, setOpenFAQ] = useState<number | null>(0)
-
-  const faqs = [
-    {
-      id: 1,
-      question: 'How long does a typical project take?',
-      answer: 'Our standard workflow takes 2-3 weeks from strategy to delivery. Custom timelines can be arranged based on scope.',
-    },
-    {
-      id: 2,
-      question: 'Do you work with startups?',
-      answer: 'Yes! We love working with startups. We understand tight budgets and can tailor solutions to your growth stage.',
-    },
-    {
-      id: 3,
-      question: 'What platforms do you optimize for?',
-      answer: 'We create content for all major platforms: YouTube, TikTok, Instagram Reels, LinkedIn, and more.',
-    },
-    {
-      id: 4,
-      question: 'Can you help with AI automation?',
-      answer: 'Absolutely. Our AI automation services include workflow setup, lead generation systems, and content pipeline automation.',
-    },
-  ]
-
   return (
     <section className="py-24 px-4 bg-[#0B0E14] relative overflow-hidden">
       {/* Background Glow */}
-      <div className="absolute inset-0 bg-glow-indigo pointer-events-none" />
+      <div 
+        className="absolute inset-0 pointer-events-none" 
+        style={{
+          background: 'radial-gradient(circle at top, rgba(99,102,241,0.08) 0%, transparent 60%)',
+        }}
+      />
 
       <div className="relative z-10 max-w-4xl mx-auto">
         {/* Main CTA */}
-        <div className="text-center mb-20">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#F8FAFC] mb-6">
+        <div className="text-center mb-16">
+          <h2 className="text-5xl md:text-6xl font-bold text-[#F8FAFC] mb-6 tracking-tight">
             Ready to Grow?
           </h2>
 
-          <p className="font-mono text-[#CBD5E1] text-sm md:text-base mb-8">
-            Let&apos;s talk about how we can transform your content strategy with logic and narrative.
+          <p className="font-mono text-[#CBD5E1] text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+            Let's talk about how we can transform your content strategy with logic and narrative. Schedule your discovery call below.
           </p>
-
-          <a
-            href="https://calendly.com/luminexsocial05/30min"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-block px-8 py-4 rounded-lg bg-gradient-to-violet text-[#F8FAFC] font-bold text-lg hover:shadow-2xl hover:shadow-[#6366F1]/40 transition-all transform hover:scale-105"
-          >
-            Book Your Discovery Call
-          </a>
         </div>
 
-        {/* FAQ Section */}
-        <div className="bg-[#1E293B]/50 backdrop-blur rounded-xl p-8 border border-[#334155]">
-          <p className="hud-label text-[#6366F1] mb-8">// Frequently Asked Questions</p>
-
-          <div className="space-y-4">
-            {faqs.map((faq) => (
-              <div
-                key={faq.id}
-                className="border border-[#334155] rounded-lg overflow-hidden bg-[#0B0E14]/50"
-              >
-                {/* Question */}
-                <button
-                  onClick={() => setOpenFAQ(openFAQ === faq.id ? null : faq.id)}
-                  className="w-full px-6 py-4 flex items-center justify-between hover:bg-[#1E293B]/30 transition-colors"
-                >
-                  <span className="text-left font-semibold text-[#F8FAFC]">
-                    {faq.question}
-                  </span>
-                  <ChevronDown
-                    className={`w-5 h-5 text-[#6366F1] transition-transform ${
-                      openFAQ === faq.id ? 'rotate-180' : ''
-                    }`}
-                  />
-                </button>
-
-                {/* Answer */}
-                {openFAQ === faq.id && (
-                  <div className="px-6 py-4 bg-[#1E293B]/30 border-t border-[#334155] text-[#CBD5E1] text-sm leading-relaxed">
-                    {faq.answer}
-                  </div>
-                )}
-              </div>
-            ))}
+        {/* Calendly Inline Widget Section */}
+        <div 
+          className="rounded-2xl border overflow-hidden backdrop-blur-sm relative"
+          style={{
+            backgroundColor: 'rgba(30,41,59,0.3)',
+            borderColor: 'rgba(99,102,241,0.2)',
+            boxShadow: '0 0 40px rgba(99,102,241,0.1)'
+          }}
+        >
+          {/* Decorative tag */}
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#6366F1] to-[#A855F7]" />
+          
+          <div className="p-2 md:p-4 w-full h-[700px]">
+            <div 
+              className="calendly-inline-widget w-full h-full" 
+              data-url="https://calendly.com/luminexsocial05/30min?hide_event_type_details=1&hide_gdpr_banner=1&background_color=0f172a&text_color=f8fafc&primary_color=6366f1" 
+              style={{ minWidth: '320px', height: '100%' }}
+            ></div>
+            <Script 
+              type="text/javascript" 
+              src="https://assets.calendly.com/assets/external/widget.js" 
+              strategy="lazyOnload"
+            />
           </div>
         </div>
       </div>
