@@ -61,7 +61,7 @@ export default function Navbar() {
             <Link
               href="/systems"
               className="font-mono text-xs uppercase tracking-widest font-medium transition-colors"
-              style={{ color: 'rgba(99,102,241,0.85)' }}
+              style={{ color: 'rgba(203,213,225,0.8)' }}
               onMouseEnter={e => (e.currentTarget.style.color = '#6366F1')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(99,102,241,0.85)')}
             >
