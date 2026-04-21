@@ -113,7 +113,7 @@ export default function Navbar() {
         </div>
 
         {/* Mobile Layout - Single Pill */}
-        <div className="md:hidden px-4 pointer-events-none relative z-[9999]">
+        <div className="md:hidden px-4 pointer-events-none relative z-[99999]">
           <div className="pointer-events-auto mx-auto w-fit flex items-center gap-4 p-1.5 rounded-full bg-[#0B0E14]/60 backdrop-blur-[12px] border border-[#1E293B]">
             {/* Logo */}
             <Link href="/" aria-label="Luminex Social Homepage" className="relative flex items-center justify-center w-10 h-10 rounded-full bg-[#1E293B]/40 hover:scale-105 transition-transform duration-300 shrink-0">
@@ -135,7 +135,7 @@ export default function Navbar() {
 
         {/* Mobile Menu Dropdown */}
         <div
-          className={`md:hidden absolute top-full left-0 w-full px-4 pt-4 transition-all duration-300 ${
+          className={`md:hidden absolute top-full left-0 w-full px-4 pt-4 z-[99999] transition-all duration-300 ${
             isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none -translate-y-4'
           }`}
         >

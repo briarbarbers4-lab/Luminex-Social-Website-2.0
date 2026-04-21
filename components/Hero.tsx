@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100vh] flex flex-col justify-center items-center overflow-hidden" style={{ background: '#0B0E14' }}>
+    <section className="relative min-h-[100vh] flex flex-col justify-center items-center overflow-hidden pt-20" style={{ background: '#0B0E14' }}>
       {/* Layer 1: Noise/grain texture at 0.05 opacity */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
@@ -116,6 +116,9 @@ export default function Hero() {
         {/* Headline - Scaled up for authority */}
         <h1
           className="text-3xl sm:text-4xl md:text-4xl lg:text-5xl font-black mb-8 w-full text-left"
+          // fetchpriority='high' marks this as the LCP element for the browser
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          {...({ fetchpriority: 'high' } as any)}
           style={{
             fontFamily: 'var(--font-heading)',
             lineHeight: '1.25',

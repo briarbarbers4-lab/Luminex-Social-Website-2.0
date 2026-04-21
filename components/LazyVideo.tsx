@@ -14,11 +14,11 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
     // forward the internal ref to the parent ref if provided
     useImperativeHandle(ref, () => internalRef.current!)
 
-    // Append transformations for performance - q-60 is a good balance
+    // Append transformations for performance - q-30,br-500k keeps initial payload < 5 MB
     const hasQueryParams = src.includes('?');
     const optimizedSrc = hasQueryParams 
-      ? `${src}&tr=f-auto,q-60,w-640` 
-      : `${src}?tr=f-auto,q-60,w-640`;
+      ? `${src}&tr=f-auto,q-30,w-640,br-500k` 
+      : `${src}?tr=f-auto,q-30,w-640,br-500k`;
     
     const posterSrc = hasQueryParams 
       ? `${src.split('?')[0]}/ik-thumbnail.jpg` 
@@ -71,7 +71,7 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
         poster={posterSrc}
         className={className}
         style={style}
-        preload="auto"
+        preload="none"
         muted
         playsInline
         loop
