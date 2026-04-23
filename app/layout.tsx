@@ -22,7 +22,7 @@ export const metadata: Metadata = {
 
   title: {
     template: '%s | Luminex Social',
-    default: 'Luminex Social | AI Automation & Premium Content',
+    default: 'Luminex Social | AI Automation & Premium Content Creation',
   },
   description: 'Global AI Automation and High-Retention Content',
   generator: 'v0.app',
