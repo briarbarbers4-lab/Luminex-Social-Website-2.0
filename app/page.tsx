@@ -5,7 +5,7 @@ import dynamic from 'next/dynamic'
 const VideoCards = dynamic(() => import('@/components/VideoCards'), { ssr: false, loading: () => <p>Loading...</p> })
 const Portfolio = dynamic(() => import('@/components/Portfolio'), { ssr: false, loading: () => <p>Loading...</p> })
 const ContentGallery = dynamic(() => import('@/components/ContentGallery'), { ssr: false, loading: () => <p>Loading...</p> })
-const ROICalculator = dynamic(() => import('@/components/ROICalculator'), { ssr: false, loading: () => <p>Loading...</p> })
+
 const AIInfrastructure = dynamic(() => import('@/components/AIInfrastructure'), { ssr: false, loading: () => <p>Loading...</p> })
 const TechMarquee = dynamic(() => import('@/components/TechMarquee'), { ssr: false, loading: () => <p>Loading...</p> })
 const LuminexFramework = dynamic(() => import('@/components/LuminexFramework'), { ssr: false, loading: () => <p>Loading...</p> })
@@ -64,10 +64,7 @@ export default function Home() {
       <AnimatedSection>
         <TechMarquee />
       </AnimatedSection>
-      <SectionDivider />
-      <AnimatedSection>
-        <ROICalculator />
-      </AnimatedSection>
+
       <SectionDivider />
       <AnimatedSection>
         <Process />

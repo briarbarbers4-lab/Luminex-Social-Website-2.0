@@ -3,29 +3,10 @@
 import { useEffect, useState } from 'react'
 
 export default function AIInfrastructure() {
-  const [pulses, setPulses] = useState<{ id: number; progress: number }[]>([])
-
   // Custom terminal string to look alive
   const terminalLog = "[ STATUS ] DEPLOYING N8N_WORKFLOW... DONE | VOICE_AGENT_CORE... ACTIVE | LATENCY... 120ms"
   const [displayText, setDisplayText] = useState('')
   const [showCursor, setShowCursor] = useState(true)
-
-  // Data pulses animation
-  useEffect(() => {
-    const pulseIds = Array.from({ length: 6 }, (_, i) => ({ id: i, progress: (i * 16) % 100 }))
-    setPulses(pulseIds)
-
-    const interval = setInterval(() => {
-      setPulses(prev =>
-        prev.map(pulse => ({
-          ...pulse,
-          progress: (pulse.progress + 1.2) % 100, // Speed
-        }))
-      )
-    }, 30)
-
-    return () => clearInterval(interval)
-  }, [])
 
   // Terminal typing effect
   useEffect(() => {
@@ -109,55 +90,7 @@ export default function AIInfrastructure() {
         {/* 3-Column Systems Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
 
-          {/* Animated Connecting Data Trails (Desktop Only for visual structure) */}
-          <svg
-            className="absolute inset-0 w-full h-full pointer-events-none hidden md:block"
-            style={{ zIndex: -1 }}
-            preserveAspectRatio="none"
-          >
-            {/* Horizontal connection lines spanning the columns */}
-            {[1, 2].map(rowIdx => (
-              <line
-                key={`line-${rowIdx}`}
-                x1="33%"
-                y1={rowIdx * 120}
-                x2="66%"
-                y2={rowIdx * 120}
-                stroke="rgba(99, 102, 241, 0.15)"
-                strokeWidth="1"
-                strokeDasharray="4 4"
-              />
-            ))}
 
-            {/* Render data pulses traveling Left -> Right */}
-            {pulses.map((pulse, idx) => {
-              const row = Math.floor(idx / 2) + 1
-              // Is this pulse going between col1 & col2? or col2 & col3?
-              const isFirstGap = idx % 2 === 0
-              const xStart = isFirstGap ? 33 : 66
-              const xEnd = isFirstGap ? 66 : 99
-              // We'll interpolate between start and end using pulse.progress (0-100)
-              const xPos = xStart + (pulse.progress / 100) * (xEnd - xStart)
-              const yPos = row * 120
-
-              return (
-                <circle
-                  key={`pulse-${pulse.id}`}
-                  cx={`${xPos}%`}
-                  cy={yPos}
-                  r="2.5"
-                  fill="#6366F1"
-                  style={{
-                    filter: 'drop-shadow(0 0 6px rgba(99,102,241,0.8))',
-                    // Fade out at edges of segment
-                    opacity:
-                      pulse.progress < 10 ? pulse.progress / 10 :
-                        pulse.progress > 90 ? (100 - pulse.progress) / 10 : 1
-                  }}
-                />
-              )
-            })}
-          </svg>
 
           {/* FRONT-END INTERACTION Column */}
           <div className="relative z-20 space-y-6">

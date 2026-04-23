@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef, useEffect } from 'react'
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 import LazyVideo from './LazyVideo'
 
@@ -10,6 +10,24 @@ const GoldStar = () => (
 
 export default function Testimonials() {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isPlaying, setIsPlaying] = useState(false)
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    setIsPlaying(false)
+  }, [currentIndex])
+
+  const handlePlay = () => {
+    if (videoRef.current) {
+      if (videoRef.current.paused) {
+        videoRef.current.play()
+        setIsPlaying(true)
+      } else {
+        videoRef.current.pause()
+        setIsPlaying(false)
+      }
+    }
+  }
 
   const testimonials = [
     {
@@ -141,27 +159,36 @@ export default function Testimonials() {
             {/* Left Side - 40% - Video Frame */}
             <div className="w-2/5 relative bg-[#0F172A] flex items-center justify-center overflow-hidden group">
               <LazyVideo
+                ref={videoRef}
                 src={current.videoUrl}
-                className="w-full h-full object-cover opacity-50"
+                className={`w-full h-full object-cover transition-opacity ${isPlaying ? 'opacity-100' : 'opacity-50'}`}
+                autoPlay={false}
+                controls={isPlaying}
+                onPlay={() => setIsPlaying(true)}
+                onPause={() => setIsPlaying(false)}
+                onClick={handlePlay}
               />
               {/* Play Icon Overlay */}
-              <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
-                <div
-                  className="w-20 h-20 rounded-full flex items-center justify-center transition-all group-hover:scale-110"
-                  style={{
-                    backgroundColor: 'rgba(168, 85, 247, 0.2)',
-                    border: '2px solid #A855F7',
-                  }}
-                >
-                  <svg
-                    className="w-10 h-10 ml-1 pointer-events-auto cursor-pointer"
-                    fill="#A855F7"
-                    viewBox="0 0 24 24"
+              {!isPlaying && (
+                <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                  <div
+                    onClick={handlePlay}
+                    className="w-20 h-20 rounded-full flex items-center justify-center transition-all group-hover:scale-110 pointer-events-auto cursor-pointer"
+                    style={{
+                      backgroundColor: 'rgba(168, 85, 247, 0.2)',
+                      border: '2px solid #A855F7',
+                    }}
                   >
-                    <path d="M8 5v14l11-7z" />
-                  </svg>
+                    <svg
+                      className="w-10 h-10 ml-1"
+                      fill="#A855F7"
+                      viewBox="0 0 24 24"
+                    >
+                      <path d="M8 5v14l11-7z" />
+                    </svg>
+                  </div>
                 </div>
-              </div>
+              )}
 
               {/* Case Study Button */}
               {current.caseStudyUrl && (
