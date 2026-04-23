@@ -10,56 +10,55 @@ interface LazyVideoProps extends VideoHTMLAttributes<HTMLVideoElement> {
 const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
   ({ src, className, style, autoPlay = true, ...rest }, ref) => {
     const internalRef = useRef<HTMLVideoElement>(null)
-    
-    // forward the internal ref to the parent ref if provided
+
+    // Forward the internal ref to the parent ref if provided
     useImperativeHandle(ref, () => internalRef.current!)
 
-    // Append transformations for performance - q-30,br-500k keeps initial payload < 5 MB
-    const hasQueryParams = src.includes('?');
-    const optimizedSrc = hasQueryParams 
-      ? `${src}&tr=f-auto,q-30,w-640,br-500k` 
-      : `${src}?tr=f-auto,q-30,w-640,br-500k`;
-    
-    const posterSrc = hasQueryParams 
-      ? `${src.split('?')[0]}/ik-thumbnail.jpg` 
-      : `${src}/ik-thumbnail.jpg`;
+    // Strip any existing ?tr= param then append lightweight WebM transform.
+    // f-webm  → WebM container (Chrome/Edge native, ~40% smaller than H.264 MP4)
+    // q-40    → quality 40 (visually indistinguishable for 480-wide social clips)
+    // br-1000 → 1 Mbit/s bitrate cap — prevents starvation when 8+ clips are on screen
+    // w-480   → 480 px wide (sufficient for portrait-card UI)
+    const baseUrl = src.includes('?') ? src.split('?')[0] : src
+    const optimizedSrc = `${baseUrl}?tr=f-webm,q-40,br-1000,w-480`
+    const posterSrc   = `${baseUrl}/ik-thumbnail.jpg`
 
     useEffect(() => {
       const video = internalRef.current
       if (!video) return
 
+      // Only start playing when at least 10 % of the video card is visible.
+      // This prevents the browser from trying to play 10+ videos simultaneously
+      // the moment the page loads, which causes the "stuck / frozen loop" symptom.
       const observer = new IntersectionObserver(
         (entries) => {
           entries.forEach((entry) => {
             if (entry.isIntersecting) {
               if (autoPlay && video.paused) {
+                // Ensure the element has loaded its source before playing
+                if (video.readyState === 0) {
+                  video.load()
+                }
                 video.play().catch(() => {
-                  // Standard browser autoplay block - no action needed
+                  // Standard browser autoplay policy block — no action needed
                 })
               }
             } else {
-              // Pause when out of view to save bandwidth and CPU
               if (!video.paused) {
                 video.pause()
               }
             }
           })
         },
-        { threshold: 0.1, rootMargin: '100px' }
+        // threshold: 0.1  → fire when 10 % of the card enters the viewport
+        // No rootMargin    → do NOT pre-play off-screen (that was causing the freeze)
+        { threshold: 0.1 }
       )
 
       observer.observe(video)
 
-      // Handle source changes in components like sliders
-      if (autoPlay && !video.paused === false) {
-        video.load(); // Force load on source change
-        video.play().catch(() => {})
-      }
-
       return () => {
-        if (video) {
-          observer.unobserve(video)
-        }
+        observer.unobserve(video)
         observer.disconnect()
       }
     }, [autoPlay, src])
@@ -71,7 +70,9 @@ const LazyVideo = forwardRef<HTMLVideoElement, LazyVideoProps>(
         poster={posterSrc}
         className={className}
         style={style}
-        preload="none"
+        // preload="metadata" fetches just the first frame / duration so the
+        // poster renders instantly without pulling the full file on page load.
+        preload="metadata"
         muted
         playsInline
         loop

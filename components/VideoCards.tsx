@@ -16,13 +16,7 @@ export default function VideoCards() {
     <section className="py-24 bg-[#0B0E14] overflow-hidden">
       <div className="w-full">
         {/* Continuous scrolling carousel — fade masks on left/right edges */}
-        <div
-          className="relative"
-          style={{
-            maskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-            WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)',
-          }}
-        >
+        <div className="relative">
           <div className="flex gap-6 animate-scroll-left">
             {[...videos, ...videos].map((video, idx) => (
               <div

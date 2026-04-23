@@ -26,7 +26,7 @@ export default function Hero() {
   }, [])
 
   return (
-    <section className="relative min-h-[100vh] flex flex-col justify-center items-center overflow-hidden pt-20" style={{ background: '#0B0E14' }}>
+    <section className="relative min-h-[100vh] flex flex-col justify-center items-center overflow-hidden" style={{ background: '#0B0E14' }}>
       {/* Layer 1: Noise/grain texture at 0.05 opacity */}
       <div
         className="absolute inset-0 z-[1] pointer-events-none mix-blend-overlay"
