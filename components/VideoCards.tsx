@@ -13,7 +13,7 @@ export default function VideoCards() {
   ]
 
   return (
-    <section className="py-24 bg-[#0B0E14] overflow-hidden">
+    <section className="hidden md:block py-24 bg-[#0B0E14] overflow-hidden">
       <div className="w-full">
         {/* Continuous scrolling carousel — fade masks on left/right edges */}
         <div className="relative">
